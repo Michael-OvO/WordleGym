@@ -1,0 +1,17 @@
+.DS_Store
+.pytest_cache/
+.ruff_cache/
+.uv-cache/
+.venv/
+node_modules/
+.next/
+coverage/
+dist/
+build/
+__pycache__/
+*.pyc
+*.egg-info/
+.claude/settings.local.json
+.claude/worktrees/
+.superpowers/
+/package-lock.json
