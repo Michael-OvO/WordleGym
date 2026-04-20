@@ -41,7 +41,11 @@
 \setlength{\parindent}{0pt}
 
 \title{\textbf{WordleGym:}\\[2pt]\large Benchmarking Wordle Strategies under Standard, Adversarial, and Hidden-Mode Play}
-\author{Michael Wang\\\small Math 242 \textbullet{} Duke University \textbullet{} Spring 2026}
+\author{Michael Wang\\
+\small Math 242 \textbullet{} Duke University \textbullet{} Spring 2026\\
+\small Code: \href{https://github.com/Michael-OvO/WordleGym}{\texttt{github.com/Michael-OvO/WordleGym}}
+  \textbullet{}
+  Live demo: \href{https://wordlegym.vercel.app/}{\texttt{wordlegym.vercel.app}}}
 \date{}
 
 \begin{document}
@@ -479,16 +483,23 @@ of the optimum of \citet{bertsimas2022wordle}, and the minimax-style
 heuristics attain the optimal worst case of $5$ guesses reported by
 \citet{selby2022wordle}.
 
-In Evil mode, the deterministic structure of the game permits an exact
-solution in pure Python. My solver finds that \texttt{RAISE} is the
-optimal opening guess and guarantees a win in $4$ guesses, matching
-the published bound $D(A) = 4$. In Unknown mode, the Bayesian
-posterior over game type concentrates within two turns, so mode-aware
-strategies have only a narrow window in which to outperform
-mode-agnostic ones. Empirically, that window is too small to matter
-on this corpus: the best Unknown-mode policy is in fact the
-mode-agnostic \texttt{expected-entropy}, which beats every mode-aware
-blend.
+A second, perhaps more surprising finding concerns Unknown mode. I
+expected the mode-aware blends (\texttt{posterior-hybrid},
+\texttt{posterior-expectimax}) to beat the mode-agnostic
+\texttt{expected-entropy}. They do not: the Bayesian posterior over
+game type concentrates above $0.99$ within two turns, so mode-aware
+blending only has a brief window in which to matter, and empirically
+that window is too small to move the average. The best Unknown-mode
+policy on this corpus is mode-agnostic.
+
+Evil mode is the one variant where I was able to solve the recurrence
+exactly in pure Python, because the adversary's deterministic
+tie-breaking rule collapses the reachable state space to a few
+thousand nodes. My solver recovers the published bound $D(A) = 4$
+with opening guess \texttt{RAISE}. The one-guess gap between the DP
+and every greedy heuristic should not be read as a general statement
+about the power of dynamic programming; it is a consequence of
+determinism-induced tractability in this one mode.
 
 Compared to popular Wordle advice, these results suggest that the
 commonly recommended heuristics (entropy maximization and minimax
