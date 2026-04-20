@@ -292,16 +292,24 @@ class BenchmarkRunner:
         snapshots = []
         initial_candidates = self.corpus.answers
         table = next(iter(self.strategies.values())).table
-        for strategy_id in ("expected-entropy", "minimax", "posterior-hybrid"):
+        # Snapshot both the Standard-best heuristics and the Evil-DP optimum,
+        # so the web ResultsExplorer can contrast partition shapes across tiers.
+        specs = (
+            ("standard", "expected-entropy", StandardEnvironment),
+            ("standard", "minimax", StandardEnvironment),
+            ("standard", "posterior-hybrid", StandardEnvironment),
+            ("evil", "evil-dp", EvilEnvironment),
+        )
+        for mode, strategy_id, env_cls in specs:
+            if strategy_id not in self.strategies:
+                continue
             strategy = self.strategies[strategy_id]
-            first_guess = strategy.choose_guess(
-                StandardEnvironment(self.corpus).snapshot()
-            ).guess
+            first_guess = strategy.choose_guess(env_cls(self.corpus).snapshot()).guess
             counts = table.partition_counts(first_guess, initial_candidates)
             top_partitions = sorted(counts.items(), key=lambda item: item[1], reverse=True)[:8]
             snapshots.append(
                 {
-                    "mode": "standard",
+                    "mode": mode,
                     "strategy_id": strategy_id,
                     "first_guess": first_guess,
                     "top_partitions": [
