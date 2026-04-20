@@ -40,5 +40,19 @@ class TraceModuleTests(unittest.TestCase):
         from wordlegym.trace import GameTrace, GuessTraceStep  # noqa: F401
 
 
+class PackageSurfaceTests(unittest.TestCase):
+    def test_top_level_reexports(self) -> None:
+        import wordlegym
+        for name in (
+            "BenchmarkRunner", "Decision", "EvilEnvironment", "GameConfig",
+            "GameTrace", "GuessTraceStep", "ModePosterior", "Observation",
+            "STRATEGY_REGISTRY", "StandardEnvironment", "StrategyBase",
+            "TileState", "UnknownEnvironment", "WordCorpus", "build_strategies",
+            "decode_pattern", "encode_pattern", "pattern_to_emoji",
+            "pattern_to_text", "score_guess",
+        ):
+            self.assertTrue(hasattr(wordlegym, name), f"wordlegym missing {name!r}")
+
+
 if __name__ == "__main__":
     unittest.main()
