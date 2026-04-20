@@ -16,5 +16,6 @@ __pycache__/
 .claude/scheduled_tasks.lock
 .superpowers/
 /package-lock.json
+/apps/package-lock.json
 /results/cache/
 apps/web/tsconfig.tsbuildinfo
