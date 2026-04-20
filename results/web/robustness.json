@@ -1,19 +1,24 @@
 {
   "matrix": {
-    "adaptive-robust": {
-      "evil": 5,
-      "standard": 3.603456,
-      "unknown": 4.301944
-    },
     "candidate-elimination": {
       "evil": 5,
-      "standard": 3.624622,
-      "unknown": 4.312311
+      "standard": 3.485529,
+      "unknown": 4.242765
+    },
+    "evil-dp": {
+      "evil": 4,
+      "standard": 3.514039,
+      "unknown": 4.257019
+    },
+    "evil-shortest-path": {
+      "evil": 5,
+      "standard": 3.514039,
+      "unknown": 4.257019
     },
     "expected-entropy": {
-      "evil": 6,
-      "standard": 3.599136,
-      "unknown": 4.799568
+      "evil": 5,
+      "standard": 3.464795,
+      "unknown": 4.232397
     },
     "letter-frequency": {
       "evil": 5,
@@ -22,36 +27,37 @@
     },
     "minimax": {
       "evil": 5,
-      "standard": 3.678618,
-      "unknown": 4.339309
+      "standard": 3.573218,
+      "unknown": 4.286609
+    },
+    "posterior-expectimax": {
+      "evil": 5,
+      "standard": 3.484665,
+      "unknown": 4.247948
+    },
+    "posterior-hybrid": {
+      "evil": 5,
+      "standard": 3.479914,
+      "unknown": 4.237365
     },
     "random-valid": {
       "evil": 7,
       "standard": 4.124406,
       "unknown": 4.996328
+    },
+    "robust-scalarization": {
+      "evil": 5,
+      "standard": 3.517063,
+      "unknown": 4.258531
     }
   },
   "mismatch_spread": [
     {
-      "evil": 5,
-      "spread": 1.321382,
-      "standard": 3.678618,
-      "strategy_id": "minimax",
-      "unknown": 4.339309
-    },
-    {
-      "evil": 5,
-      "spread": 1.375378,
-      "standard": 3.624622,
-      "strategy_id": "candidate-elimination",
-      "unknown": 4.312311
-    },
-    {
-      "evil": 5,
-      "spread": 1.396544,
-      "standard": 3.603456,
-      "strategy_id": "adaptive-robust",
-      "unknown": 4.301944
+      "evil": 4,
+      "spread": 0.74298,
+      "standard": 3.514039,
+      "strategy_id": "evil-dp",
+      "unknown": 4.257019
     },
     {
       "evil": 5,
@@ -61,11 +67,53 @@
       "unknown": 4.293737
     },
     {
-      "evil": 6,
-      "spread": 2.400864,
-      "standard": 3.599136,
+      "evil": 5,
+      "spread": 1.426782,
+      "standard": 3.573218,
+      "strategy_id": "minimax",
+      "unknown": 4.286609
+    },
+    {
+      "evil": 5,
+      "spread": 1.482937,
+      "standard": 3.517063,
+      "strategy_id": "robust-scalarization",
+      "unknown": 4.258531
+    },
+    {
+      "evil": 5,
+      "spread": 1.485961,
+      "standard": 3.514039,
+      "strategy_id": "evil-shortest-path",
+      "unknown": 4.257019
+    },
+    {
+      "evil": 5,
+      "spread": 1.514471,
+      "standard": 3.485529,
+      "strategy_id": "candidate-elimination",
+      "unknown": 4.242765
+    },
+    {
+      "evil": 5,
+      "spread": 1.515335,
+      "standard": 3.484665,
+      "strategy_id": "posterior-expectimax",
+      "unknown": 4.247948
+    },
+    {
+      "evil": 5,
+      "spread": 1.520086,
+      "standard": 3.479914,
+      "strategy_id": "posterior-hybrid",
+      "unknown": 4.237365
+    },
+    {
+      "evil": 5,
+      "spread": 1.535205,
+      "standard": 3.464795,
       "strategy_id": "expected-entropy",
-      "unknown": 4.799568
+      "unknown": 4.232397
     },
     {
       "evil": 7,

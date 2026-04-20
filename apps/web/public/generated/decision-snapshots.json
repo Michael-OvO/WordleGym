@@ -1,48 +1,48 @@
 [
   {
-    "first_guess": "raise",
+    "first_guess": "soare",
     "mode": "standard",
     "strategy_id": "expected-entropy",
     "top_partitions": [
       {
         "pattern": 0,
         "pattern_text": "BBBBB",
-        "size": 168
-      },
-      {
-        "pattern": 81,
-        "pattern_text": "BBBBY",
-        "size": 121
+        "size": 183
       },
       {
         "pattern": 9,
         "pattern_text": "BBYBB",
-        "size": 107
+        "size": 138
       },
       {
-        "pattern": 1,
-        "pattern_text": "YBBBB",
-        "size": 103
+        "pattern": 81,
+        "pattern_text": "BBBBY",
+        "size": 120
       },
       {
-        "pattern": 82,
-        "pattern_text": "YBBBY",
-        "size": 102
-      },
-      {
-        "pattern": 3,
-        "pattern_text": "BYBBB",
-        "size": 92
+        "pattern": 108,
+        "pattern_text": "BBBYY",
+        "size": 117
       },
       {
         "pattern": 6,
         "pattern_text": "BGBBB",
-        "size": 91
+        "size": 87
       },
       {
-        "pattern": 27,
-        "pattern_text": "BBBYB",
-        "size": 80
+        "pattern": 162,
+        "pattern_text": "BBBBG",
+        "size": 79
+      },
+      {
+        "pattern": 90,
+        "pattern_text": "BBYBY",
+        "size": 68
+      },
+      {
+        "pattern": 2,
+        "pattern_text": "GBBBB",
+        "size": 63
       }
     ]
   },
@@ -96,7 +96,7 @@
   {
     "first_guess": "raise",
     "mode": "standard",
-    "strategy_id": "adaptive-robust",
+    "strategy_id": "posterior-hybrid",
     "top_partitions": [
       {
         "pattern": 0,

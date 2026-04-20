@@ -1,6 +1,17 @@
 {
   "evil": [
     {
+      "average_guesses": 4,
+      "average_guesses_on_solve": 4,
+      "games": 1,
+      "label": "Evil DP",
+      "objective": "Memoized shortest-path DP D(C) for Evil mode (beam search K=100, ~83s first-run, cached to disk).",
+      "penalized_average_guesses": 4,
+      "solve_rate": 1.0,
+      "strategy_id": "evil-dp",
+      "worst_case": 4
+    },
+    {
       "average_guesses": 5,
       "average_guesses_on_solve": 5,
       "games": 1,
@@ -16,7 +27,7 @@
       "average_guesses_on_solve": 5,
       "games": 1,
       "label": "Candidate Elimination",
-      "objective": "Minimize expected remaining candidates.",
+      "objective": "Minimize expected remaining candidates (one-step Bayes objective).",
       "penalized_average_guesses": 5,
       "solve_rate": 1.0,
       "strategy_id": "candidate-elimination",
@@ -26,8 +37,19 @@
       "average_guesses": 5,
       "average_guesses_on_solve": 5,
       "games": 1,
+      "label": "Expected Entropy",
+      "objective": "Maximize Shannon information gain per guess.",
+      "penalized_average_guesses": 5,
+      "solve_rate": 1.0,
+      "strategy_id": "expected-entropy",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 5,
+      "average_guesses_on_solve": 5,
+      "games": 1,
       "label": "Minimax",
-      "objective": "Minimize worst-case remaining candidates.",
+      "objective": "Minimize the worst-case remaining candidate bucket.",
       "penalized_average_guesses": 5,
       "solve_rate": 1.0,
       "strategy_id": "minimax",
@@ -37,23 +59,45 @@
       "average_guesses": 5,
       "average_guesses_on_solve": 5,
       "games": 1,
-      "label": "Adaptive Robust",
-      "objective": "Blend standard-mode information gain with evil-mode worst-case protection.",
+      "label": "Posterior Hybrid",
+      "objective": "Posterior-weighted blend of standard-mode entropy and evil-mode worst-case reduction.",
       "penalized_average_guesses": 5,
       "solve_rate": 1.0,
-      "strategy_id": "adaptive-robust",
+      "strategy_id": "posterior-hybrid",
       "worst_case": 5
     },
     {
-      "average_guesses": 6,
-      "average_guesses_on_solve": 6,
+      "average_guesses": 5,
+      "average_guesses_on_solve": 5,
       "games": 1,
-      "label": "Expected Entropy",
-      "objective": "Maximize expected information gain.",
-      "penalized_average_guesses": 6,
+      "label": "Evil Shortest Path",
+      "objective": "Minimize the evil-forced successor bucket |T(C,g)| (one-ply approximation of D(C)).",
+      "penalized_average_guesses": 5,
       "solve_rate": 1.0,
-      "strategy_id": "expected-entropy",
-      "worst_case": 6
+      "strategy_id": "evil-shortest-path",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 5,
+      "average_guesses_on_solve": 5,
+      "games": 1,
+      "label": "Posterior Expectimax",
+      "objective": "One-step Bayesian expectimax: q * E[|C_next|] + (1 - q) * |T(C,g)|.",
+      "penalized_average_guesses": 5,
+      "solve_rate": 1.0,
+      "strategy_id": "posterior-expectimax",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 5,
+      "average_guesses_on_solve": 5,
+      "games": 1,
+      "label": "Robust Scalarization",
+      "objective": "Minimax across modes: minimize max(E[|C_next|], |T(C,g)|).",
+      "penalized_average_guesses": 5,
+      "solve_rate": 1.0,
+      "strategy_id": "robust-scalarization",
+      "worst_case": 5
     },
     {
       "average_guesses": 7,
@@ -69,6 +113,94 @@
   ],
   "standard": [
     {
+      "average_guesses": 3.464795,
+      "average_guesses_on_solve": 3.464795,
+      "games": 2315,
+      "label": "Expected Entropy",
+      "objective": "Maximize Shannon information gain per guess.",
+      "penalized_average_guesses": 3.464795,
+      "solve_rate": 1.0,
+      "strategy_id": "expected-entropy",
+      "worst_case": 6
+    },
+    {
+      "average_guesses": 3.479914,
+      "average_guesses_on_solve": 3.479914,
+      "games": 2315,
+      "label": "Posterior Hybrid",
+      "objective": "Posterior-weighted blend of standard-mode entropy and evil-mode worst-case reduction.",
+      "penalized_average_guesses": 3.479914,
+      "solve_rate": 1.0,
+      "strategy_id": "posterior-hybrid",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 3.484665,
+      "average_guesses_on_solve": 3.484665,
+      "games": 2315,
+      "label": "Posterior Expectimax",
+      "objective": "One-step Bayesian expectimax: q * E[|C_next|] + (1 - q) * |T(C,g)|.",
+      "penalized_average_guesses": 3.484665,
+      "solve_rate": 1.0,
+      "strategy_id": "posterior-expectimax",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 3.485529,
+      "average_guesses_on_solve": 3.485529,
+      "games": 2315,
+      "label": "Candidate Elimination",
+      "objective": "Minimize expected remaining candidates (one-step Bayes objective).",
+      "penalized_average_guesses": 3.485529,
+      "solve_rate": 1.0,
+      "strategy_id": "candidate-elimination",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 3.514039,
+      "average_guesses_on_solve": 3.514039,
+      "games": 2315,
+      "label": "Evil Shortest Path",
+      "objective": "Minimize the evil-forced successor bucket |T(C,g)| (one-ply approximation of D(C)).",
+      "penalized_average_guesses": 3.514039,
+      "solve_rate": 1.0,
+      "strategy_id": "evil-shortest-path",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 3.514039,
+      "average_guesses_on_solve": 3.514039,
+      "games": 2315,
+      "label": "Evil DP",
+      "objective": "Memoized shortest-path DP D(C) for Evil mode (beam search K=100, ~83s first-run, cached to disk).",
+      "penalized_average_guesses": 3.514039,
+      "solve_rate": 1.0,
+      "strategy_id": "evil-dp",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 3.517063,
+      "average_guesses_on_solve": 3.517063,
+      "games": 2315,
+      "label": "Robust Scalarization",
+      "objective": "Minimax across modes: minimize max(E[|C_next|], |T(C,g)|).",
+      "penalized_average_guesses": 3.517063,
+      "solve_rate": 1.0,
+      "strategy_id": "robust-scalarization",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 3.573218,
+      "average_guesses_on_solve": 3.573218,
+      "games": 2315,
+      "label": "Minimax",
+      "objective": "Minimize the worst-case remaining candidate bucket.",
+      "penalized_average_guesses": 3.573218,
+      "solve_rate": 1.0,
+      "strategy_id": "minimax",
+      "worst_case": 6
+    },
+    {
       "average_guesses": 3.587473,
       "average_guesses_on_solve": 3.587473,
       "games": 2315,
@@ -77,50 +209,6 @@
       "penalized_average_guesses": 3.587473,
       "solve_rate": 1.0,
       "strategy_id": "letter-frequency",
-      "worst_case": 8
-    },
-    {
-      "average_guesses": 3.599136,
-      "average_guesses_on_solve": 3.599136,
-      "games": 2315,
-      "label": "Expected Entropy",
-      "objective": "Maximize expected information gain.",
-      "penalized_average_guesses": 3.599136,
-      "solve_rate": 1.0,
-      "strategy_id": "expected-entropy",
-      "worst_case": 8
-    },
-    {
-      "average_guesses": 3.603456,
-      "average_guesses_on_solve": 3.603456,
-      "games": 2315,
-      "label": "Adaptive Robust",
-      "objective": "Blend standard-mode information gain with evil-mode worst-case protection.",
-      "penalized_average_guesses": 3.603456,
-      "solve_rate": 1.0,
-      "strategy_id": "adaptive-robust",
-      "worst_case": 8
-    },
-    {
-      "average_guesses": 3.624622,
-      "average_guesses_on_solve": 3.624622,
-      "games": 2315,
-      "label": "Candidate Elimination",
-      "objective": "Minimize expected remaining candidates.",
-      "penalized_average_guesses": 3.624622,
-      "solve_rate": 1.0,
-      "strategy_id": "candidate-elimination",
-      "worst_case": 8
-    },
-    {
-      "average_guesses": 3.678618,
-      "average_guesses_on_solve": 3.678618,
-      "games": 2315,
-      "label": "Minimax",
-      "objective": "Minimize worst-case remaining candidates.",
-      "penalized_average_guesses": 3.678618,
-      "solve_rate": 1.0,
-      "strategy_id": "minimax",
       "worst_case": 8
     },
     {
@@ -136,6 +224,282 @@
     }
   ],
   "unknown": [
+    {
+      "average_guesses": 4.232397,
+      "average_guesses_on_solve": 3.465458,
+      "games": 2316,
+      "label": "Expected Entropy",
+      "objective": "Maximize Shannon information gain per guess.",
+      "penalized_average_guesses": 4.232397,
+      "posterior_accuracy_by_turn": [
+        {
+          "mean_true_mode_posterior": 0.926741,
+          "turn": 1
+        },
+        {
+          "mean_true_mode_posterior": 0.993562,
+          "turn": 2
+        },
+        {
+          "mean_true_mode_posterior": 0.999129,
+          "turn": 3
+        },
+        {
+          "mean_true_mode_posterior": 0.99931,
+          "turn": 4
+        },
+        {
+          "mean_true_mode_posterior": 0.991975,
+          "turn": 5
+        },
+        {
+          "mean_true_mode_posterior": 0.5,
+          "turn": 6
+        }
+      ],
+      "solve_rate": 1.0,
+      "strategy_id": "expected-entropy",
+      "worst_case": 6
+    },
+    {
+      "average_guesses": 4.237365,
+      "average_guesses_on_solve": 3.475389,
+      "games": 2316,
+      "label": "Posterior Hybrid",
+      "objective": "Posterior-weighted blend of standard-mode entropy and evil-mode worst-case reduction.",
+      "penalized_average_guesses": 4.237365,
+      "posterior_accuracy_by_turn": [
+        {
+          "mean_true_mode_posterior": 0.93234,
+          "turn": 1
+        },
+        {
+          "mean_true_mode_posterior": 0.994415,
+          "turn": 2
+        },
+        {
+          "mean_true_mode_posterior": 0.999126,
+          "turn": 3
+        },
+        {
+          "mean_true_mode_posterior": 0.999327,
+          "turn": 4
+        },
+        {
+          "mean_true_mode_posterior": 0.991723,
+          "turn": 5
+        },
+        {
+          "mean_true_mode_posterior": 0.5,
+          "turn": 6
+        }
+      ],
+      "solve_rate": 1.0,
+      "strategy_id": "posterior-hybrid",
+      "worst_case": 6
+    },
+    {
+      "average_guesses": 4.242765,
+      "average_guesses_on_solve": 3.486183,
+      "games": 2316,
+      "label": "Candidate Elimination",
+      "objective": "Minimize expected remaining candidates (one-step Bayes objective).",
+      "penalized_average_guesses": 4.242765,
+      "posterior_accuracy_by_turn": [
+        {
+          "mean_true_mode_posterior": 0.922311,
+          "turn": 1
+        },
+        {
+          "mean_true_mode_posterior": 0.994416,
+          "turn": 2
+        },
+        {
+          "mean_true_mode_posterior": 0.999127,
+          "turn": 3
+        },
+        {
+          "mean_true_mode_posterior": 0.999345,
+          "turn": 4
+        },
+        {
+          "mean_true_mode_posterior": 0.986969,
+          "turn": 5
+        }
+      ],
+      "solve_rate": 1.0,
+      "strategy_id": "candidate-elimination",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 4.247948,
+      "average_guesses_on_solve": 3.496546,
+      "games": 2316,
+      "label": "Posterior Expectimax",
+      "objective": "One-step Bayesian expectimax: q * E[|C_next|] + (1 - q) * |T(C,g)|.",
+      "penalized_average_guesses": 4.247948,
+      "posterior_accuracy_by_turn": [
+        {
+          "mean_true_mode_posterior": 0.93234,
+          "turn": 1
+        },
+        {
+          "mean_true_mode_posterior": 0.994415,
+          "turn": 2
+        },
+        {
+          "mean_true_mode_posterior": 0.999126,
+          "turn": 3
+        },
+        {
+          "mean_true_mode_posterior": 0.999348,
+          "turn": 4
+        },
+        {
+          "mean_true_mode_posterior": 0.991313,
+          "turn": 5
+        }
+      ],
+      "solve_rate": 1.0,
+      "strategy_id": "posterior-expectimax",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 4.257019,
+      "average_guesses_on_solve": 3.51468,
+      "games": 2316,
+      "label": "Evil Shortest Path",
+      "objective": "Minimize the evil-forced successor bucket |T(C,g)| (one-ply approximation of D(C)).",
+      "penalized_average_guesses": 4.257019,
+      "posterior_accuracy_by_turn": [
+        {
+          "mean_true_mode_posterior": 0.93234,
+          "turn": 1
+        },
+        {
+          "mean_true_mode_posterior": 0.994415,
+          "turn": 2
+        },
+        {
+          "mean_true_mode_posterior": 0.999125,
+          "turn": 3
+        },
+        {
+          "mean_true_mode_posterior": 0.999364,
+          "turn": 4
+        },
+        {
+          "mean_true_mode_posterior": 0.991591,
+          "turn": 5
+        }
+      ],
+      "solve_rate": 1.0,
+      "strategy_id": "evil-shortest-path",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 4.257019,
+      "average_guesses_on_solve": 3.51468,
+      "games": 2316,
+      "label": "Evil DP",
+      "objective": "Memoized shortest-path DP D(C) for Evil mode (beam search K=100, ~83s first-run, cached to disk).",
+      "penalized_average_guesses": 4.257019,
+      "posterior_accuracy_by_turn": [
+        {
+          "mean_true_mode_posterior": 0.93234,
+          "turn": 1
+        },
+        {
+          "mean_true_mode_posterior": 0.994415,
+          "turn": 2
+        },
+        {
+          "mean_true_mode_posterior": 0.999125,
+          "turn": 3
+        },
+        {
+          "mean_true_mode_posterior": 0.999364,
+          "turn": 4
+        },
+        {
+          "mean_true_mode_posterior": 0.991591,
+          "turn": 5
+        }
+      ],
+      "solve_rate": 1.0,
+      "strategy_id": "evil-dp",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 4.258531,
+      "average_guesses_on_solve": 3.517703,
+      "games": 2316,
+      "label": "Robust Scalarization",
+      "objective": "Minimax across modes: minimize max(E[|C_next|], |T(C,g)|).",
+      "penalized_average_guesses": 4.258531,
+      "posterior_accuracy_by_turn": [
+        {
+          "mean_true_mode_posterior": 0.93234,
+          "turn": 1
+        },
+        {
+          "mean_true_mode_posterior": 0.994415,
+          "turn": 2
+        },
+        {
+          "mean_true_mode_posterior": 0.999126,
+          "turn": 3
+        },
+        {
+          "mean_true_mode_posterior": 0.999366,
+          "turn": 4
+        },
+        {
+          "mean_true_mode_posterior": 0.991591,
+          "turn": 5
+        }
+      ],
+      "solve_rate": 1.0,
+      "strategy_id": "robust-scalarization",
+      "worst_case": 5
+    },
+    {
+      "average_guesses": 4.286609,
+      "average_guesses_on_solve": 3.573834,
+      "games": 2316,
+      "label": "Minimax",
+      "objective": "Minimize the worst-case remaining candidate bucket.",
+      "penalized_average_guesses": 4.286609,
+      "posterior_accuracy_by_turn": [
+        {
+          "mean_true_mode_posterior": 0.93234,
+          "turn": 1
+        },
+        {
+          "mean_true_mode_posterior": 0.994415,
+          "turn": 2
+        },
+        {
+          "mean_true_mode_posterior": 0.999127,
+          "turn": 3
+        },
+        {
+          "mean_true_mode_posterior": 0.999391,
+          "turn": 4
+        },
+        {
+          "mean_true_mode_posterior": 0.995199,
+          "turn": 5
+        },
+        {
+          "mean_true_mode_posterior": 0.5,
+          "turn": 6
+        }
+      ],
+      "solve_rate": 1.0,
+      "strategy_id": "minimax",
+      "worst_case": 6
+    },
     {
       "average_guesses": 4.293737,
       "average_guesses_on_solve": 3.588083,
@@ -179,186 +543,6 @@
       ],
       "solve_rate": 1.0,
       "strategy_id": "letter-frequency",
-      "worst_case": 8
-    },
-    {
-      "average_guesses": 4.301944,
-      "average_guesses_on_solve": 3.604491,
-      "games": 2316,
-      "label": "Adaptive Robust",
-      "objective": "Blend standard-mode information gain with evil-mode worst-case protection.",
-      "penalized_average_guesses": 4.301944,
-      "posterior_accuracy_by_turn": [
-        {
-          "mean_true_mode_posterior": 0.93234,
-          "turn": 1
-        },
-        {
-          "mean_true_mode_posterior": 0.993561,
-          "turn": 2
-        },
-        {
-          "mean_true_mode_posterior": 0.997337,
-          "turn": 3
-        },
-        {
-          "mean_true_mode_posterior": 0.999365,
-          "turn": 4
-        },
-        {
-          "mean_true_mode_posterior": 0.997898,
-          "turn": 5
-        },
-        {
-          "mean_true_mode_posterior": 0.5,
-          "turn": 6
-        },
-        {
-          "mean_true_mode_posterior": 0.5,
-          "turn": 7
-        },
-        {
-          "mean_true_mode_posterior": 0.5,
-          "turn": 8
-        }
-      ],
-      "solve_rate": 1.0,
-      "strategy_id": "adaptive-robust",
-      "worst_case": 8
-    },
-    {
-      "average_guesses": 4.312311,
-      "average_guesses_on_solve": 3.625216,
-      "games": 2316,
-      "label": "Candidate Elimination",
-      "objective": "Minimize expected remaining candidates.",
-      "penalized_average_guesses": 4.312311,
-      "posterior_accuracy_by_turn": [
-        {
-          "mean_true_mode_posterior": 0.93234,
-          "turn": 1
-        },
-        {
-          "mean_true_mode_posterior": 0.993561,
-          "turn": 2
-        },
-        {
-          "mean_true_mode_posterior": 0.997337,
-          "turn": 3
-        },
-        {
-          "mean_true_mode_posterior": 0.999376,
-          "turn": 4
-        },
-        {
-          "mean_true_mode_posterior": 0.997999,
-          "turn": 5
-        },
-        {
-          "mean_true_mode_posterior": 0.5,
-          "turn": 6
-        },
-        {
-          "mean_true_mode_posterior": 0.5,
-          "turn": 7
-        },
-        {
-          "mean_true_mode_posterior": 0.5,
-          "turn": 8
-        }
-      ],
-      "solve_rate": 1.0,
-      "strategy_id": "candidate-elimination",
-      "worst_case": 8
-    },
-    {
-      "average_guesses": 4.339309,
-      "average_guesses_on_solve": 3.679188,
-      "games": 2316,
-      "label": "Minimax",
-      "objective": "Minimize worst-case remaining candidates.",
-      "penalized_average_guesses": 4.339309,
-      "posterior_accuracy_by_turn": [
-        {
-          "mean_true_mode_posterior": 0.93234,
-          "turn": 1
-        },
-        {
-          "mean_true_mode_posterior": 0.993561,
-          "turn": 2
-        },
-        {
-          "mean_true_mode_posterior": 0.999113,
-          "turn": 3
-        },
-        {
-          "mean_true_mode_posterior": 0.999403,
-          "turn": 4
-        },
-        {
-          "mean_true_mode_posterior": 0.998135,
-          "turn": 5
-        },
-        {
-          "mean_true_mode_posterior": 0.5,
-          "turn": 6
-        },
-        {
-          "mean_true_mode_posterior": 0.5,
-          "turn": 7
-        },
-        {
-          "mean_true_mode_posterior": 0.5,
-          "turn": 8
-        }
-      ],
-      "solve_rate": 1.0,
-      "strategy_id": "minimax",
-      "worst_case": 8
-    },
-    {
-      "average_guesses": 4.799568,
-      "average_guesses_on_solve": 3.600173,
-      "games": 2316,
-      "label": "Expected Entropy",
-      "objective": "Maximize expected information gain.",
-      "penalized_average_guesses": 4.799568,
-      "posterior_accuracy_by_turn": [
-        {
-          "mean_true_mode_posterior": 0.93234,
-          "turn": 1
-        },
-        {
-          "mean_true_mode_posterior": 0.993135,
-          "turn": 2
-        },
-        {
-          "mean_true_mode_posterior": 0.998223,
-          "turn": 3
-        },
-        {
-          "mean_true_mode_posterior": 0.998725,
-          "turn": 4
-        },
-        {
-          "mean_true_mode_posterior": 0.997898,
-          "turn": 5
-        },
-        {
-          "mean_true_mode_posterior": 0.991167,
-          "turn": 6
-        },
-        {
-          "mean_true_mode_posterior": 0.5,
-          "turn": 7
-        },
-        {
-          "mean_true_mode_posterior": 0.5,
-          "turn": 8
-        }
-      ],
-      "solve_rate": 1.0,
-      "strategy_id": "expected-entropy",
       "worst_case": 8
     },
     {
