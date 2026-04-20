@@ -14,7 +14,8 @@ from .corpus import WordCorpus
 from .environments import EvilEnvironment, GameConfig, StandardEnvironment, UnknownEnvironment
 from .feedback import pattern_to_emoji, pattern_to_text, score_guess
 from .trace import GameTrace, GuessTraceStep
-from .strategies import STRATEGY_REGISTRY, StrategyBase, build_strategies
+from .registry import STRATEGY_REGISTRY, build_strategies
+from .strategy import StrategyBase
 
 logger = logging.getLogger(__name__)
 

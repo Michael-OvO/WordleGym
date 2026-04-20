@@ -6,7 +6,7 @@ from pathlib import Path
 
 from wordlegym.benchmark import BenchmarkRunner
 from wordlegym.corpus import WordCorpus
-from wordlegym.strategies import build_strategies
+from wordlegym.registry import build_strategies
 
 
 class BenchmarkSmokeTests(unittest.TestCase):
