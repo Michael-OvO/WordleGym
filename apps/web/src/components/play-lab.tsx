@@ -18,7 +18,11 @@ const STRATEGIES = [
   "candidate-elimination",
   "expected-entropy",
   "minimax",
-  "adaptive-robust",
+  "posterior-hybrid",
+  "evil-shortest-path",
+  "posterior-expectimax",
+  "robust-scalarization",
+  "evil-dp",
 ] as const;
 
 const MAX_TURNS = 6;

@@ -1,10 +1,17 @@
 import Link from "next/link";
 
 import { getManifest } from "@/lib/generated-data";
-import { STRATEGY_CONTENT } from "@/lib/strategy-content";
+import {
+  BENCHMARK_DISCLAIMER,
+  STRATEGIES_BY_TIER,
+  STRATEGY_CONTENT,
+  TIER_METADATA,
+  TIER_ORDER,
+} from "@/lib/strategy-content";
 
 export default async function DocsIndexPage() {
   const manifest = await getManifest();
+  const manifestById = Object.fromEntries(manifest.strategies.map((s) => [s.id, s]));
 
   return (
     <main className="page-shell page-tight">
@@ -12,23 +19,44 @@ export default async function DocsIndexPage() {
         <p className="eyebrow">Research</p>
         <h1>Strategy Documentation</h1>
         <p className="doc-subtitle">
-          Six information-theoretic and heuristic strategies for optimal Wordle play.
-          Each page covers the algorithm design, mathematical formulation, pseudocode,
-          and trade-offs — from a baseline random player to a Bayesian adaptive solver.
+          Benchmark policies for Wordle play, organized by documentation tier.
+          Each page covers the local objective, math, pseudocode, and honest caveats —
+          from reproducible baselines through one-ply partition heuristics to an
+          exact Evil-mode dynamic program.
         </p>
+        <p className="doc-disclaimer">{BENCHMARK_DISCLAIMER}</p>
       </div>
 
-      <div className="strategy-grid">
-        {manifest.strategies.map((s) => {
-          const content = STRATEGY_CONTENT[s.id];
-          return (
-            <Link key={s.id} className="strategy-card" href={`/docs/${s.id}`}>
-              <h3>{s.label}</h3>
-              <p>{content?.subtitle ?? s.objective}</p>
-            </Link>
-          );
-        })}
-      </div>
+      {TIER_ORDER.map((tier) => {
+        const ids = STRATEGIES_BY_TIER[tier] ?? [];
+        if (!ids.length) return null;
+        const meta = TIER_METADATA[tier];
+        return (
+          <section key={tier} className="strategy-tier">
+            <header className="strategy-tier-header">
+              <h2>{meta.label}</h2>
+              <p>{meta.description}</p>
+            </header>
+            <div className="strategy-grid">
+              {ids.map((id) => {
+                const content = STRATEGY_CONTENT[id];
+                const manifestEntry = manifestById[id];
+                const label = content?.title ?? manifestEntry?.label ?? id;
+                const subtitle = content?.subtitle ?? manifestEntry?.objective ?? "";
+                return (
+                  <Link key={id} className={`strategy-card tier-${tier}`} href={`/docs/${id}`}>
+                    <div className="strategy-card-header">
+                      <h3>{label}</h3>
+                      <span className={`tier-badge tier-${tier}`}>{content?.tierLabel ?? meta.label}</span>
+                    </div>
+                    <p>{subtitle}</p>
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        );
+      })}
     </main>
   );
 }

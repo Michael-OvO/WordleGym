@@ -34,8 +34,22 @@ export default async function StrategyDocPage({ params }: Props) {
         </nav>
 
         <p className="eyebrow">Strategy</p>
-        <h1>{content.title}</h1>
+        <div className="doc-title-row">
+          <h1>{content.title}</h1>
+          <span className={`tier-badge tier-${content.tier}`}>{content.tierLabel}</span>
+        </div>
         <p className="doc-subtitle">{content.subtitle}</p>
+
+        <dl className="doc-summary">
+          <div>
+            <dt>Local objective</dt>
+            <dd>{content.localObjective}</dd>
+          </div>
+          <div>
+            <dt>Caveat</dt>
+            <dd>{content.caveat}</dd>
+          </div>
+        </dl>
 
         {/* Overview */}
         <h2>Overview</h2>
