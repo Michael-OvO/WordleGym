@@ -122,6 +122,22 @@ button, input, select { font: inherit; color: inherit; }
   box-shadow: var(--focus-ring);
 }
 
+.site-nav-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 4px;
+  border: 1px solid var(--surface-rule);
+}
+
+.site-nav-github:hover {
+  border-color: var(--text);
+}
+
+.site-nav-github svg {
+  display: block;
+}
+
 /* ─── Page shell ─── */
 .page-shell {
   display: flex;

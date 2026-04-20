@@ -2,6 +2,15 @@
 
 WordleGym is a research playground for studying Wordle strategy under standard, adversarial, and hidden-mode settings.
 
+> **Final project for Math 242, Duke University — Spring 2026.**
+
+## Paper
+
+The accompanying research writeup is in [`poster/`](poster/):
+
+- [`poster/writeup.pdf`](poster/writeup.pdf) — compiled writeup / poster
+- [`poster/writeup.tex`](poster/writeup.tex) — LaTeX source
+
 ## Structure
 
 - `engine/` Python package for game semantics, strategies, benchmarks, and artifact generation
