@@ -1,14 +1,9 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
-from enum import IntEnum
 from typing import Any
 
-
-class TileState(IntEnum):
-    ABSENT = 0
-    PRESENT = 1
-    CORRECT = 2
+from .feedback import TileState  # re-export for backward-compat within Phase 1
 
 
 @dataclass(frozen=True)

@@ -1,14 +1,11 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass, field
-from enum import IntEnum
+from dataclasses import asdict, dataclass
 from typing import Any
 
+from .feedback import TileState
 
-class TileState(IntEnum):
-    ABSENT = 0
-    PRESENT = 1
-    CORRECT = 2
+__all__ = ["ModePosterior", "Observation", "TileState"]
 
 
 @dataclass(frozen=True)

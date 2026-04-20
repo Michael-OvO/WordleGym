@@ -1,8 +1,14 @@
 from __future__ import annotations
 
 from collections import Counter
+from enum import IntEnum
 
-from .models import TileState
+
+class TileState(IntEnum):
+    ABSENT = 0
+    PRESENT = 1
+    CORRECT = 2
+
 
 WORD_LENGTH = 5
 ALL_CORRECT_PATTERN = 242

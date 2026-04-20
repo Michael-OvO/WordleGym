@@ -5,7 +5,12 @@ import unittest
 
 class ObservationModuleTests(unittest.TestCase):
     def test_observation_module_exposes_renamed_types(self) -> None:
-        from wordlegym.observation import ModePosterior, Observation, TileState  # noqa: F401
+        from wordlegym.feedback import TileState  # canonical home
+        from wordlegym.observation import ModePosterior, Observation
+        from wordlegym.observation import TileState as ReExportedTileState
+        self.assertIs(TileState, ReExportedTileState)
+        self.assertIsNotNone(ModePosterior)
+        self.assertIsNotNone(Observation)
 
     def test_observation_field_names(self) -> None:
         from wordlegym.observation import Observation
