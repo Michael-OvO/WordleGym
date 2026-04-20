@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 from .corpus import WordCorpus
 from .feedback import is_all_correct, pattern_counts, pattern_to_text, score_guess
-from .models import GameSnapshot, ModePosterior
+from .observation import ModePosterior, Observation
 
 
 @dataclass
@@ -44,8 +44,8 @@ class BaseEnvironment(ABC):
     def is_exhausted(self) -> bool:
         return self.max_turns is not None and len(self.guesses) >= self.max_turns and not self.solved
 
-    def snapshot(self) -> GameSnapshot:
-        return GameSnapshot(
+    def snapshot(self) -> Observation:
+        return Observation(
             mode=self.mode,
             turn=len(self.guesses),
             max_turns=self.max_turns,
@@ -53,7 +53,7 @@ class BaseEnvironment(ABC):
             feedbacks=tuple(self.feedbacks),
             solved=self.solved,
             exhausted=self.is_exhausted(),
-            candidate_words=self.candidate_words,
+            candidates=self.candidate_words,
         )
 
     def _validate_guess(self, guess: str) -> str:
@@ -187,9 +187,9 @@ class UnknownEnvironment(BaseEnvironment):
         self.solved = self.standard_env.solved if self.hidden_mode == "standard" else self.evil_env.solved
         return pattern
 
-    def snapshot(self) -> GameSnapshot:
+    def snapshot(self) -> Observation:
         posterior = self._mode_posterior()
-        return GameSnapshot(
+        return Observation(
             mode=self.mode,
             turn=len(self.guesses),
             max_turns=self.max_turns,
@@ -197,9 +197,9 @@ class UnknownEnvironment(BaseEnvironment):
             feedbacks=tuple(self.feedbacks),
             solved=self.solved,
             exhausted=self.is_exhausted(),
-            candidate_words=self.candidate_words,
-            standard_candidate_words=self.standard_candidate_words,
-            evil_candidate_words=self.evil_candidate_words,
+            candidates=self.candidate_words,
+            standard_candidates=self.standard_candidate_words,
+            evil_candidates=self.evil_candidate_words,
             mode_posterior=posterior,
             standard_consistent=self.standard_consistent,
             evil_consistent=self.evil_consistent,

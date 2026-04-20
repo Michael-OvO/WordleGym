@@ -13,7 +13,7 @@ from typing import Iterable
 from .corpus import WordCorpus
 from .environments import EvilEnvironment, GameConfig, StandardEnvironment, UnknownEnvironment
 from .feedback import pattern_to_emoji, pattern_to_text, score_guess
-from .models import GameTrace, GuessTraceStep
+from .trace import GameTrace, GuessTraceStep
 from .strategies import STRATEGY_REGISTRY, StrategyBase, build_strategies
 
 logger = logging.getLogger(__name__)
@@ -43,16 +43,18 @@ class BenchmarkRunner:
         decision_snapshots = self._decision_tree_snapshots()
         replays = self._sample_replays(traces)
         manifest = {
-            "schema_version": 1,
+            "schema_version": 2,
             "answers": len(self.corpus.answers),
             "allowed_guesses": len(self.corpus.allowed_set),
             "strategies": [
                 {
                     "id": strategy_id,
-                    "label": label,
-                    "objective": objective,
+                    "label": meta.label,
+                    "objective": meta.objective,
+                    "tier": meta.tier,
+                    "caveat": meta.caveat,
                 }
-                for strategy_id, (_, label, objective) in STRATEGY_REGISTRY.items()
+                for strategy_id, meta in STRATEGY_REGISTRY.items()
             ],
         }
         return {
@@ -160,14 +162,14 @@ class BenchmarkRunner:
                     pattern=pattern,
                     pattern_text=pattern_to_text(pattern),
                     pattern_emoji=pattern_to_emoji(pattern),
-                    remaining_candidates=len(updated_snapshot.candidate_words),
-                    candidate_preview=updated_snapshot.candidate_words[:8],
+                    remaining_candidates=len(updated_snapshot.candidates),
+                    candidate_preview=updated_snapshot.candidates[:8],
                     explanation=decision.explanation,
                     mode_posterior=mode_posterior,
                     standard_candidates=(
-                        len(updated_snapshot.standard_candidate_words or ()) if updated_snapshot.standard_candidate_words else None
+                        len(updated_snapshot.standard_candidates or ()) if updated_snapshot.standard_candidates else None
                     ),
-                    evil_candidates=len(updated_snapshot.evil_candidate_words or ()) if updated_snapshot.evil_candidate_words else None,
+                    evil_candidates=len(updated_snapshot.evil_candidates or ()) if updated_snapshot.evil_candidates else None,
                 )
             )
         snapshot = env.snapshot()
@@ -180,7 +182,7 @@ class BenchmarkRunner:
             turns=len(steps),
             solved=snapshot.solved,
             exhausted=snapshot.exhausted,
-            remaining_candidates=len(snapshot.candidate_words),
+            remaining_candidates=len(snapshot.candidates),
             steps=tuple(steps),
         )
 
@@ -289,7 +291,7 @@ class BenchmarkRunner:
         snapshots = []
         initial_candidates = self.corpus.answers
         table = next(iter(self.strategies.values())).table
-        for strategy_id in ("expected-entropy", "minimax", "adaptive-robust"):
+        for strategy_id in ("expected-entropy", "minimax", "posterior-hybrid"):
             strategy = self.strategies[strategy_id]
             first_guess = strategy.choose_guess(
                 StandardEnvironment(self.corpus).snapshot()
