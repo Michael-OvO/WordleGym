@@ -19,3 +19,6 @@ __pycache__/
 /apps/package-lock.json
 /results/cache/
 apps/web/tsconfig.tsbuildinfo
+poster/*.aux
+poster/*.log
+poster/*.out
