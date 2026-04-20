@@ -20,5 +20,15 @@ class ObservationModuleTests(unittest.TestCase):
         self.assertNotIn("evil_candidate_words", field_names)
 
 
+class DecisionModuleTests(unittest.TestCase):
+    def test_decision_module_exposes_renamed_type(self) -> None:
+        from wordlegym.decision import Decision  # noqa: F401
+
+    def test_decision_field_names(self) -> None:
+        from wordlegym.decision import Decision
+        field_names = {f.name for f in Decision.__dataclass_fields__.values()}
+        self.assertEqual(field_names, {"guess", "explanation"})
+
+
 if __name__ == "__main__":
     unittest.main()
