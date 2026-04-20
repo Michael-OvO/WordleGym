@@ -1,125 +1,14 @@
 from __future__ import annotations
 
 import random
-from abc import ABC, abstractmethod
 from collections import defaultdict
-from dataclasses import dataclass
 
-from .corpus import WordCorpus
-from .feedback import is_all_correct, pattern_counts, pattern_to_text, score_guess
-from .observation import ModePosterior, Observation
-
-
-@dataclass
-class GameConfig:
-    hidden_answer: str | None = None
-    hidden_mode: str | None = None
-    max_turns: int | None = None
-    mode_prior: float = 0.5
-    seed: int = 7
-
-
-class BaseEnvironment(ABC):
-    mode: str
-
-    def __init__(self, corpus: WordCorpus) -> None:
-        self.corpus = corpus
-        self.max_turns: int | None = None
-        self.guesses: list[str] = []
-        self.feedbacks: list[int] = []
-        self.candidate_words: tuple[str, ...] = corpus.answers
-        self.solved = False
-
-    @abstractmethod
-    def reset(self, config: GameConfig) -> None:
-        raise NotImplementedError
-
-    @abstractmethod
-    def apply_guess(self, guess: str) -> int:
-        raise NotImplementedError
-
-    def is_terminal(self) -> bool:
-        return self.solved or self.is_exhausted()
-
-    def is_exhausted(self) -> bool:
-        return self.max_turns is not None and len(self.guesses) >= self.max_turns and not self.solved
-
-    def snapshot(self) -> Observation:
-        return Observation(
-            mode=self.mode,
-            turn=len(self.guesses),
-            max_turns=self.max_turns,
-            guesses=tuple(self.guesses),
-            feedbacks=tuple(self.feedbacks),
-            solved=self.solved,
-            exhausted=self.is_exhausted(),
-            candidates=self.candidate_words,
-        )
-
-    def _validate_guess(self, guess: str) -> str:
-        normalized = guess.lower()
-        if not self.corpus.validate_guess(normalized):
-            raise ValueError(f"Invalid guess: {guess}")
-        if self.is_terminal():
-            raise ValueError("Game is already terminal.")
-        return normalized
-
-
-class StandardEnvironment(BaseEnvironment):
-    mode = "standard"
-
-    def __init__(self, corpus: WordCorpus) -> None:
-        super().__init__(corpus)
-        self.hidden_answer = corpus.answers[0]
-
-    def reset(self, config: GameConfig) -> None:
-        self.hidden_answer = config.hidden_answer or self.corpus.answers[0]
-        self.max_turns = config.max_turns
-        self.guesses = []
-        self.feedbacks = []
-        self.candidate_words = self.corpus.answers
-        self.solved = False
-
-    def apply_guess(self, guess: str) -> int:
-        normalized = self._validate_guess(guess)
-        pattern = score_guess(normalized, self.hidden_answer)
-        self.guesses.append(normalized)
-        self.feedbacks.append(pattern)
-        self.candidate_words = tuple(
-            candidate for candidate in self.candidate_words if score_guess(normalized, candidate) == pattern
-        )
-        self.solved = is_all_correct(pattern)
-        return pattern
-
-
-class EvilEnvironment(BaseEnvironment):
-    mode = "evil"
-
-    def reset(self, config: GameConfig) -> None:
-        self.max_turns = config.max_turns
-        self.guesses = []
-        self.feedbacks = []
-        self.candidate_words = self.corpus.answers
-        self.solved = False
-
-    def apply_guess(self, guess: str) -> int:
-        normalized = self._validate_guess(guess)
-        buckets: dict[int, list[str]] = defaultdict(list)
-        for candidate in self.candidate_words:
-            buckets[score_guess(normalized, candidate)].append(candidate)
-
-        def bucket_key(item: tuple[int, list[str]]) -> tuple[int, int, int, tuple[int, ...]]:
-            pattern, words = item
-            greens, yellows = pattern_counts(pattern)
-            digits = tuple(int(value) for value in pattern_to_text(pattern, absent="0", present="1", correct="2"))
-            return (-len(words), greens, yellows, digits)
-
-        pattern, survivors = min(buckets.items(), key=bucket_key)
-        self.guesses.append(normalized)
-        self.feedbacks.append(pattern)
-        self.candidate_words = tuple(sorted(survivors))
-        self.solved = is_all_correct(pattern) and len(self.candidate_words) == 1
-        return pattern
+from ..corpus import WordCorpus
+from ..feedback import pattern_counts, pattern_to_text, score_guess
+from ..observation import ModePosterior, Observation
+from .base import BaseEnvironment, GameConfig
+from .evil import EvilEnvironment
+from .standard import StandardEnvironment
 
 
 class UnknownEnvironment(BaseEnvironment):
