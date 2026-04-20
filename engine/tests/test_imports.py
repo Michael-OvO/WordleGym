@@ -30,5 +30,10 @@ class DecisionModuleTests(unittest.TestCase):
         self.assertEqual(field_names, {"guess", "explanation"})
 
 
+class TraceModuleTests(unittest.TestCase):
+    def test_trace_module_exposes_types(self) -> None:
+        from wordlegym.trace import GameTrace, GuessTraceStep  # noqa: F401
+
+
 if __name__ == "__main__":
     unittest.main()
