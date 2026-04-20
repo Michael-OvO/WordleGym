@@ -149,6 +149,47 @@ function reductionRatio(total: number, worstCase: number): number {
   return total ? 1 - worstCase / total : 0;
 }
 
+/**
+ * Size of the bucket the benchmark's evil adversary would return for this
+ * (guess, candidate-set) pair. Mirrors the tie-break in chooseEvilPattern so
+ * strategies can compute |T(C, g)| without materializing the candidate lists.
+ */
+function evilForcedBucketSize(guess: string, candidates: string[]): number {
+  const buckets = partitionCounts(guess, candidates);
+  if (buckets.size === 0) return 0;
+  let bestPattern = -1;
+  let bestSize = -1;
+  let bestGreens = 0;
+  let bestYellows = 0;
+  let bestDigits: number[] = [];
+  for (const [pattern, size] of buckets.entries()) {
+    const { greens, yellows } = patternCounts(pattern);
+    const digits = decodePattern(pattern);
+    const better =
+      size > bestSize
+      || (size === bestSize && greens < bestGreens)
+      || (size === bestSize && greens === bestGreens && yellows < bestYellows)
+      || (size === bestSize && greens === bestGreens && yellows === bestYellows && compareDigits(digits, bestDigits) < 0);
+    if (better) {
+      bestPattern = pattern;
+      bestSize = size;
+      bestGreens = greens;
+      bestYellows = yellows;
+      bestDigits = digits;
+    }
+  }
+  void bestPattern;
+  return bestSize;
+}
+
+function compareDigits(left: number[], right: number[]): number {
+  if (right.length === 0) return -1;
+  for (let i = 0; i < left.length; i++) {
+    if (left[i] !== right[i]) return left[i] - right[i];
+  }
+  return 0;
+}
+
 function chooseEvilPattern(guess: string, candidates: string[]): { pattern: number; survivors: string[] } {
   const buckets = new Map<number, string[]>();
   for (const candidate of candidates) {
@@ -432,11 +473,9 @@ function partitionDecision(
   };
 }
 
-function adaptiveDecision(state: GameState): { guess: string; explanation: DecisionExplanation } {
+function posteriorHybridDecision(state: GameState): { guess: string; explanation: DecisionExplanation } {
   const pool = state.mode === "unknown" ? [...new Set([...state.standardCandidateWords, ...state.evilCandidateWords])].sort() : state.candidateWords;
 
-  // Match Python's weight logic: use posterior for unknown mode,
-  // explicit weights for standard/evil modes
   let standardWeight: number;
   let evilWeight: number;
   if (state.mode === "standard") {
@@ -450,17 +489,24 @@ function adaptiveDecision(state: GameState): { guess: string; explanation: Decis
     evilWeight = state.modePosterior.evil;
   }
 
+  const standardPool = state.standardCandidateWords.length ? state.standardCandidateWords : pool;
+  const evilPool = state.evilCandidateWords.length ? state.evilCandidateWords : pool;
+
+  // Guard singleton / empty pools: log2(<=1) is 0 or undefined, which would
+  // make normalizedEntropy a division-by-zero. Falling back to 1.0 makes the
+  // normalized score 0 -- the correct limit when no information can be gained.
+  const maxEntropy = standardPool.length > 1 ? Math.log2(standardPool.length) : 1.0;
+
   let bestGuess = pool[0];
   let bestBlended = -Infinity;
   let bestDetails: DecisionExplanation = {};
 
   for (const guess of pool) {
-    const standardPool = state.standardCandidateWords.length ? state.standardCandidateWords : pool;
-    const evilPool = state.evilCandidateWords.length ? state.evilCandidateWords : pool;
     const standardStats = evaluatePool(guess, standardPool);
     const evilStats = evaluatePool(guess, evilPool);
+    const normalizedStandardEntropy = standardStats.entropy / maxEntropy;
     const blended =
-      standardWeight * standardStats.entropy +
+      standardWeight * normalizedStandardEntropy +
       evilWeight * evilStats.reduction;
     const bestEvilWorst = typeof bestDetails.evilWorstCase === "number" ? bestDetails.evilWorstCase : Infinity;
     if (blended > bestBlended
@@ -471,6 +517,7 @@ function adaptiveDecision(state: GameState): { guess: string; explanation: Decis
       bestDetails = {
         poolSize: pool.length,
         standardEntropy: Number(standardStats.entropy.toFixed(6)),
+        normalizedStandardEntropy: Number(normalizedStandardEntropy.toFixed(6)),
         evilReductionRatio: Number(evilStats.reduction.toFixed(6)),
         evilWorstCase: evilStats.worstCase,
         blendedScore: Number(blended.toFixed(6)),
@@ -479,6 +526,108 @@ function adaptiveDecision(state: GameState): { guess: string; explanation: Decis
     }
   }
 
+  return { guess: bestGuess, explanation: bestDetails };
+}
+
+function evilShortestPathDecision(state: GameState): { guess: string; explanation: DecisionExplanation } {
+  const pool = state.mode === "unknown" ? [...new Set([...state.standardCandidateWords, ...state.evilCandidateWords])].sort() : state.candidateWords;
+  let bestGuess = pool[0];
+  let bestForced = Infinity;
+  let bestEntropy = -Infinity;
+  let bestDetails: DecisionExplanation = {};
+  for (const guess of pool) {
+    const counts = partitionCounts(guess, pool);
+    const forced = evilForcedBucketSize(guess, pool);
+    const entropy = shannonEntropy(counts);
+    const better =
+      forced < bestForced
+      || (forced === bestForced && entropy > bestEntropy)
+      || (forced === bestForced && entropy === bestEntropy && guess < bestGuess);
+    if (better) {
+      bestGuess = guess;
+      bestForced = forced;
+      bestEntropy = entropy;
+      bestDetails = {
+        poolSize: pool.length,
+        evilForcedBucket: forced,
+        entropy: Number(entropy.toFixed(6)),
+      };
+    }
+  }
+  return { guess: bestGuess, explanation: bestDetails };
+}
+
+function modeWeights(state: GameState, standardPoolSize: number): { q: number; evil: number } {
+  if (state.mode === "standard") return { q: 1.0, evil: 0.0 };
+  if (state.mode === "evil") return { q: 0.0, evil: 1.0 };
+  // Unknown: use the precomputed posterior when available, otherwise fall back
+  // to the spec's closed-form q = |C_std| / (N + |C_std|).
+  const posterior = state.modePosterior;
+  if (posterior && posterior.standard + posterior.evil > 0) {
+    return { q: posterior.standard, evil: posterior.evil };
+  }
+  const totalAnswers = state.wordLists.answers.length;
+  const denom = totalAnswers + standardPoolSize;
+  const q = denom > 0 ? standardPoolSize / denom : 0.5;
+  return { q, evil: 1 - q };
+}
+
+function posteriorExpectimaxDecision(state: GameState): { guess: string; explanation: DecisionExplanation } {
+  const pool = state.mode === "unknown" ? [...new Set([...state.standardCandidateWords, ...state.evilCandidateWords])].sort() : state.candidateWords;
+  const standardPool = state.standardCandidateWords.length ? state.standardCandidateWords : pool;
+  const { q, evil } = modeWeights(state, standardPool.length);
+  let bestGuess = pool[0];
+  let bestScore = Infinity;
+  let bestDetails: DecisionExplanation = {};
+  for (const guess of pool) {
+    const counts = partitionCounts(guess, pool);
+    const expected = expectedRemaining(counts);
+    const forced = evilForcedBucketSize(guess, pool);
+    const score = q * expected + evil * forced;
+    if (score < bestScore || (score === bestScore && guess < bestGuess)) {
+      bestGuess = guess;
+      bestScore = score;
+      bestDetails = {
+        poolSize: pool.length,
+        expectedRemaining: Number(expected.toFixed(6)),
+        evilForcedBucket: forced,
+        blendedScore: Number(score.toFixed(6)),
+        modeWeights: { standard: Number(q.toFixed(6)), evil: Number(evil.toFixed(6)) },
+      };
+    }
+  }
+  return { guess: bestGuess, explanation: bestDetails };
+}
+
+function robustScalarizationDecision(state: GameState): { guess: string; explanation: DecisionExplanation } {
+  const pool = state.mode === "unknown" ? [...new Set([...state.standardCandidateWords, ...state.evilCandidateWords])].sort() : state.candidateWords;
+  let bestGuess = pool[0];
+  let bestRobust = Infinity;
+  let bestMean = Infinity;
+  let bestDetails: DecisionExplanation = {};
+  for (const guess of pool) {
+    const counts = partitionCounts(guess, pool);
+    const expected = expectedRemaining(counts);
+    const forced = evilForcedBucketSize(guess, pool);
+    const robust = Math.max(expected, forced);
+    const mean = 0.5 * (expected + forced);
+    const better =
+      robust < bestRobust
+      || (robust === bestRobust && mean < bestMean)
+      || (robust === bestRobust && mean === bestMean && guess < bestGuess);
+    if (better) {
+      bestGuess = guess;
+      bestRobust = robust;
+      bestMean = mean;
+      bestDetails = {
+        poolSize: pool.length,
+        standardCost: Number(expected.toFixed(6)),
+        evilCost: forced,
+        robustScore: Number(robust.toFixed(6)),
+        meanCost: Number(mean.toFixed(6)),
+      };
+    }
+  }
   return { guess: bestGuess, explanation: bestDetails };
 }
 
@@ -504,8 +653,26 @@ export function chooseStrategyGuess(
       return partitionDecision(state, "entropy");
     case "minimax":
       return partitionDecision(state, "minimax");
-    case "adaptive-robust":
-      return adaptiveDecision(state);
+    case "posterior-hybrid":
+      return posteriorHybridDecision(state);
+    case "evil-shortest-path":
+      return evilShortestPathDecision(state);
+    case "posterior-expectimax":
+      return posteriorExpectimaxDecision(state);
+    case "robust-scalarization":
+      return robustScalarizationDecision(state);
+    case "evil-dp":
+      // Browser fallback: exact DP lives in the Python engine with a 524KB
+      // precomputed policy. In the interactive lab, fall back to the greedy
+      // evil-shortest-path objective, which is its base heuristic anyway.
+      return {
+        ...evilShortestPathDecision(state),
+        explanation: {
+          ...evilShortestPathDecision(state).explanation,
+          browserFallback: "evil-shortest-path-greedy",
+          dpOptimal: false,
+        },
+      };
     default:
       throw new Error(`Unknown strategy: ${strategyId}`);
   }

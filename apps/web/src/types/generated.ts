@@ -66,14 +66,20 @@ export type ReplayTrace = {
 
 export type SampleReplayPayload = Record<string, Record<string, ReplayTrace>>;
 
+export type StrategyTier = "baseline" | "core" | "experimental" | "aggregate-aware" | "optimal";
+
+export type ManifestStrategy = {
+  id: string;
+  label: string;
+  objective: string;
+  tier?: StrategyTier;
+  caveat?: string;
+};
+
 export type ManifestPayload = {
   schema_version: number;
   answers: number;
   allowed_guesses: number;
-  strategies: {
-    id: string;
-    label: string;
-    objective: string;
-  }[];
+  strategies: ManifestStrategy[];
 };
 

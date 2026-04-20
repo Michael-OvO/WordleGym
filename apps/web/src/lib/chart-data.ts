@@ -9,7 +9,11 @@ export const STRATEGY_COLORS: Record<string, string> = {
   "candidate-elimination": "#8b5cf6",
   "expected-entropy": "#2563eb",
   "minimax": "#ef4444",
-  "adaptive-robust": "#10b981",
+  "posterior-hybrid": "#10b981",
+  "evil-shortest-path": "#be185d",
+  "posterior-expectimax": "#0891b2",
+  "robust-scalarization": "#475569",
+  "evil-dp": "#16a34a",
 };
 
 export const STRATEGY_LABELS: Record<string, string> = {
@@ -18,7 +22,11 @@ export const STRATEGY_LABELS: Record<string, string> = {
   "candidate-elimination": "Cand. Elim.",
   "expected-entropy": "Entropy",
   "minimax": "Minimax",
-  "adaptive-robust": "Adaptive",
+  "posterior-hybrid": "Posterior",
+  "evil-shortest-path": "Evil SP",
+  "posterior-expectimax": "Expectimax",
+  "robust-scalarization": "Robust",
+  "evil-dp": "Evil DP",
 };
 
 export type CandidateDecayPoint = {
