@@ -1,0 +1,143 @@
+[
+  {
+    "first_guess": "raise",
+    "mode": "standard",
+    "strategy_id": "expected-entropy",
+    "top_partitions": [
+      {
+        "pattern": 0,
+        "pattern_text": "BBBBB",
+        "size": 168
+      },
+      {
+        "pattern": 81,
+        "pattern_text": "BBBBY",
+        "size": 121
+      },
+      {
+        "pattern": 9,
+        "pattern_text": "BBYBB",
+        "size": 107
+      },
+      {
+        "pattern": 1,
+        "pattern_text": "YBBBB",
+        "size": 103
+      },
+      {
+        "pattern": 82,
+        "pattern_text": "YBBBY",
+        "size": 102
+      },
+      {
+        "pattern": 3,
+        "pattern_text": "BYBBB",
+        "size": 92
+      },
+      {
+        "pattern": 6,
+        "pattern_text": "BGBBB",
+        "size": 91
+      },
+      {
+        "pattern": 27,
+        "pattern_text": "BBBYB",
+        "size": 80
+      }
+    ]
+  },
+  {
+    "first_guess": "arise",
+    "mode": "standard",
+    "strategy_id": "minimax",
+    "top_partitions": [
+      {
+        "pattern": 0,
+        "pattern_text": "BBBBB",
+        "size": 168
+      },
+      {
+        "pattern": 1,
+        "pattern_text": "YBBBB",
+        "size": 154
+      },
+      {
+        "pattern": 81,
+        "pattern_text": "BBBBY",
+        "size": 121
+      },
+      {
+        "pattern": 9,
+        "pattern_text": "BBYBB",
+        "size": 107
+      },
+      {
+        "pattern": 84,
+        "pattern_text": "BYBBY",
+        "size": 100
+      },
+      {
+        "pattern": 27,
+        "pattern_text": "BBBYB",
+        "size": 80
+      },
+      {
+        "pattern": 82,
+        "pattern_text": "YBBBY",
+        "size": 79
+      },
+      {
+        "pattern": 3,
+        "pattern_text": "BYBBB",
+        "size": 64
+      }
+    ]
+  },
+  {
+    "first_guess": "raise",
+    "mode": "standard",
+    "strategy_id": "adaptive-robust",
+    "top_partitions": [
+      {
+        "pattern": 0,
+        "pattern_text": "BBBBB",
+        "size": 168
+      },
+      {
+        "pattern": 81,
+        "pattern_text": "BBBBY",
+        "size": 121
+      },
+      {
+        "pattern": 9,
+        "pattern_text": "BBYBB",
+        "size": 107
+      },
+      {
+        "pattern": 1,
+        "pattern_text": "YBBBB",
+        "size": 103
+      },
+      {
+        "pattern": 82,
+        "pattern_text": "YBBBY",
+        "size": 102
+      },
+      {
+        "pattern": 3,
+        "pattern_text": "BYBBB",
+        "size": 92
+      },
+      {
+        "pattern": 6,
+        "pattern_text": "BGBBB",
+        "size": 91
+      },
+      {
+        "pattern": 27,
+        "pattern_text": "BBBYB",
+        "size": 80
+      }
+    ]
+  }
+]

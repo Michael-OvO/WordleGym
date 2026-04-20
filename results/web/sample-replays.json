@@ -1,0 +1,2061 @@
+{
+  "evil": {
+    "adaptive-robust": {
+      "branch": "evil",
+      "exhausted": false,
+      "hidden_answer": null,
+      "hidden_mode": "evil",
+      "mode": "evil",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "block",
+            "blond",
+            "blood",
+            "bloom",
+            "blown",
+            "bluff",
+            "blunt",
+            "bobby"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "blended_score": 0.92743,
+            "evil_reduction_ratio": 0.92743,
+            "evil_worst_case": 168,
+            "mode_weights": {
+              "evil": 1.0,
+              "standard": 0.0
+            },
+            "pool_size": 2315,
+            "standard_entropy": 5.82094
+          },
+          "guess": "arise",
+          "mode_posterior": null,
+          "pattern": 0,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BBBBB",
+          "remaining_candidates": 168,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "chuck",
+            "chump",
+            "fuzzy",
+            "gummy",
+            "guppy",
+            "humph",
+            "hutch",
+            "jumpy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "blended_score": 0.910714,
+            "evil_reduction_ratio": 0.910714,
+            "evil_worst_case": 15,
+            "mode_weights": {
+              "evil": 1.0,
+              "standard": 0.0
+            },
+            "pool_size": 168,
+            "standard_entropy": 5.107027
+          },
+          "guess": "blond",
+          "mode_posterior": null,
+          "pattern": 0,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BBBBB",
+          "remaining_candidates": 15,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "chump",
+            "thump"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "blended_score": 0.866667,
+            "evil_reduction_ratio": 0.866667,
+            "evil_worst_case": 2,
+            "mode_weights": {
+              "evil": 1.0,
+              "standard": 0.0
+            },
+            "pool_size": 15,
+            "standard_entropy": 3.373557
+          },
+          "guess": "humph",
+          "mode_posterior": null,
+          "pattern": 40,
+          "pattern_emoji": "\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\u2b1b",
+          "pattern_text": "YYYYB",
+          "remaining_candidates": 2,
+          "standard_candidates": null,
+          "turn": 3
+        },
+        {
+          "candidate_preview": [
+            "thump"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "blended_score": 0.5,
+            "evil_reduction_ratio": 0.5,
+            "evil_worst_case": 1,
+            "mode_weights": {
+              "evil": 1.0,
+              "standard": 0.0
+            },
+            "pool_size": 2,
+            "standard_entropy": 1.0
+          },
+          "guess": "chump",
+          "mode_posterior": null,
+          "pattern": 240,
+          "pattern_emoji": "\u2b1b\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "BGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 4
+        },
+        {
+          "candidate_preview": [
+            "thump"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "blended_score": 0.0,
+            "evil_reduction_ratio": 0.0,
+            "evil_worst_case": 1,
+            "mode_weights": {
+              "evil": 1.0,
+              "standard": 0.0
+            },
+            "pool_size": 1,
+            "standard_entropy": 0.0
+          },
+          "guess": "thump",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 5
+        }
+      ],
+      "strategy_id": "adaptive-robust",
+      "turns": 5
+    },
+    "candidate-elimination": {
+      "branch": "evil",
+      "exhausted": false,
+      "hidden_answer": null,
+      "hidden_mode": "evil",
+      "mode": "evil",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "block",
+            "blond",
+            "blood",
+            "bloom",
+            "blown",
+            "bluff",
+            "blunt",
+            "bobby"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.87791,
+            "expected_remaining": 61.000864,
+            "pool_size": 2315,
+            "reduction_ratio": 0.92743,
+            "worst_case": 168
+          },
+          "guess": "raise",
+          "mode_posterior": null,
+          "pattern": 0,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BBBBB",
+          "remaining_candidates": 168,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "buggy",
+            "bunny",
+            "funky",
+            "funny",
+            "fuzzy",
+            "gummy",
+            "guppy",
+            "humph"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.164091,
+            "expected_remaining": 6.27381,
+            "pool_size": 168,
+            "reduction_ratio": 0.910714,
+            "worst_case": 15
+          },
+          "guess": "could",
+          "mode_posterior": null,
+          "pattern": 9,
+          "pattern_emoji": "\u2b1b\u2b1b\ud83d\udfe8\u2b1b\u2b1b",
+          "pattern_text": "BBYBB",
+          "remaining_candidates": 15,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "buggy",
+            "bunny",
+            "funky",
+            "funny",
+            "fuzzy",
+            "nutty"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 2.472906,
+            "expected_remaining": 3.4,
+            "pool_size": 15,
+            "reduction_ratio": 0.6,
+            "worst_case": 6
+          },
+          "guess": "humph",
+          "mode_posterior": null,
+          "pattern": 6,
+          "pattern_emoji": "\u2b1b\ud83d\udfe9\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BGBBB",
+          "remaining_candidates": 6,
+          "standard_candidates": null,
+          "turn": 3
+        },
+        {
+          "candidate_preview": [
+            "fuzzy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 2.584963,
+            "expected_remaining": 1.0,
+            "pool_size": 6,
+            "reduction_ratio": 0.833333,
+            "worst_case": 1
+          },
+          "guess": "bunny",
+          "mode_posterior": null,
+          "pattern": 168,
+          "pattern_emoji": "\u2b1b\ud83d\udfe9\u2b1b\u2b1b\ud83d\udfe9",
+          "pattern_text": "BGBBG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 4
+        },
+        {
+          "candidate_preview": [
+            "fuzzy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 0.0,
+            "expected_remaining": 1.0,
+            "pool_size": 1,
+            "reduction_ratio": 0.0,
+            "worst_case": 1
+          },
+          "guess": "fuzzy",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 5
+        }
+      ],
+      "strategy_id": "candidate-elimination",
+      "turns": 5
+    },
+    "expected-entropy": {
+      "branch": "evil",
+      "exhausted": false,
+      "hidden_answer": null,
+      "hidden_mode": "evil",
+      "mode": "evil",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "block",
+            "blond",
+            "blood",
+            "bloom",
+            "blown",
+            "bluff",
+            "blunt",
+            "bobby"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.87791,
+            "expected_remaining": 61.000864,
+            "pool_size": 2315,
+            "reduction_ratio": 0.92743,
+            "worst_case": 168
+          },
+          "guess": "raise",
+          "mode_posterior": null,
+          "pattern": 0,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BBBBB",
+          "remaining_candidates": 168,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "bobby",
+            "bongo",
+            "booby",
+            "booty",
+            "boozy",
+            "dodgy",
+            "dowdy",
+            "downy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.211652,
+            "expected_remaining": 6.857143,
+            "pool_size": 168,
+            "reduction_ratio": 0.904762,
+            "worst_case": 16
+          },
+          "guess": "mulch",
+          "mode_posterior": null,
+          "pattern": 0,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BBBBB",
+          "remaining_candidates": 16,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "booby",
+            "booty",
+            "boozy",
+            "woozy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 3.25,
+            "expected_remaining": 2.0,
+            "pool_size": 16,
+            "reduction_ratio": 0.75,
+            "worst_case": 4
+          },
+          "guess": "goody",
+          "mode_posterior": null,
+          "pattern": 186,
+          "pattern_emoji": "\u2b1b\ud83d\udfe9\ud83d\udfe9\u2b1b\ud83d\udfe9",
+          "pattern_text": "BGGBG",
+          "remaining_candidates": 4,
+          "standard_candidates": null,
+          "turn": 3
+        },
+        {
+          "candidate_preview": [
+            "booty",
+            "boozy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 1.5,
+            "expected_remaining": 1.5,
+            "pool_size": 4,
+            "reduction_ratio": 0.5,
+            "worst_case": 2
+          },
+          "guess": "booby",
+          "mode_posterior": null,
+          "pattern": 188,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\u2b1b\ud83d\udfe9",
+          "pattern_text": "GGGBG",
+          "remaining_candidates": 2,
+          "standard_candidates": null,
+          "turn": 4
+        },
+        {
+          "candidate_preview": [
+            "boozy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 1.0,
+            "expected_remaining": 1.0,
+            "pool_size": 2,
+            "reduction_ratio": 0.5,
+            "worst_case": 1
+          },
+          "guess": "booty",
+          "mode_posterior": null,
+          "pattern": 188,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\u2b1b\ud83d\udfe9",
+          "pattern_text": "GGGBG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 5
+        },
+        {
+          "candidate_preview": [
+            "boozy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 0.0,
+            "expected_remaining": 1.0,
+            "pool_size": 1,
+            "reduction_ratio": 0.0,
+            "worst_case": 1
+          },
+          "guess": "boozy",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 6
+        }
+      ],
+      "strategy_id": "expected-entropy",
+      "turns": 6
+    },
+    "letter-frequency": {
+      "branch": "evil",
+      "exhausted": false,
+      "hidden_answer": null,
+      "hidden_mode": "evil",
+      "mode": "evil",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "biddy",
+            "bingo",
+            "birch",
+            "bobby",
+            "bongo",
+            "booby",
+            "boozy",
+            "bough"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 3898,
+            "pool_size": 2315,
+            "positional_score": 1437,
+            "score": 2996.2
+          },
+          "guess": "slate",
+          "mode_posterior": null,
+          "pattern": 0,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BBBBB",
+          "remaining_candidates": 221,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "biddy",
+            "buddy",
+            "buggy",
+            "dizzy",
+            "dummy",
+            "dumpy",
+            "fizzy",
+            "fuzzy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 448,
+            "pool_size": 221,
+            "positional_score": 237,
+            "score": 416.2
+          },
+          "guess": "crony",
+          "mode_posterior": null,
+          "pattern": 162,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\ud83d\udfe9",
+          "pattern_text": "BBBBG",
+          "remaining_candidates": 22,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "fizzy",
+            "jiffy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 61,
+            "pool_size": 22,
+            "positional_score": 50,
+            "score": 74.4
+          },
+          "guess": "dumpy",
+          "mode_posterior": null,
+          "pattern": 162,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\ud83d\udfe9",
+          "pattern_text": "BBBBG",
+          "remaining_candidates": 2,
+          "standard_candidates": null,
+          "turn": 3
+        },
+        {
+          "candidate_preview": [
+            "jiffy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 7,
+            "pool_size": 2,
+            "positional_score": 7,
+            "score": 9.8
+          },
+          "guess": "fizzy",
+          "mode_posterior": null,
+          "pattern": 169,
+          "pattern_emoji": "\ud83d\udfe8\ud83d\udfe9\u2b1b\u2b1b\ud83d\udfe9",
+          "pattern_text": "YGBBG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 4
+        },
+        {
+          "candidate_preview": [
+            "jiffy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 4,
+            "pool_size": 1,
+            "positional_score": 5,
+            "score": 6.6
+          },
+          "guess": "jiffy",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 5
+        }
+      ],
+      "strategy_id": "letter-frequency",
+      "turns": 5
+    },
+    "minimax": {
+      "branch": "evil",
+      "exhausted": false,
+      "hidden_answer": null,
+      "hidden_mode": "evil",
+      "mode": "evil",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "block",
+            "blond",
+            "blood",
+            "bloom",
+            "blown",
+            "bluff",
+            "blunt",
+            "bobby"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.82094,
+            "expected_remaining": 63.725702,
+            "pool_size": 2315,
+            "reduction_ratio": 0.92743,
+            "worst_case": 168
+          },
+          "guess": "arise",
+          "mode_posterior": null,
+          "pattern": 0,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BBBBB",
+          "remaining_candidates": 168,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "chuck",
+            "chump",
+            "fuzzy",
+            "gummy",
+            "guppy",
+            "humph",
+            "hutch",
+            "jumpy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.107027,
+            "expected_remaining": 6.630952,
+            "pool_size": 168,
+            "reduction_ratio": 0.910714,
+            "worst_case": 15
+          },
+          "guess": "blond",
+          "mode_posterior": null,
+          "pattern": 0,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BBBBB",
+          "remaining_candidates": 15,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "chump",
+            "thump"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 3.373557,
+            "expected_remaining": 1.533333,
+            "pool_size": 15,
+            "reduction_ratio": 0.866667,
+            "worst_case": 2
+          },
+          "guess": "humph",
+          "mode_posterior": null,
+          "pattern": 40,
+          "pattern_emoji": "\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\u2b1b",
+          "pattern_text": "YYYYB",
+          "remaining_candidates": 2,
+          "standard_candidates": null,
+          "turn": 3
+        },
+        {
+          "candidate_preview": [
+            "thump"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 1.0,
+            "expected_remaining": 1.0,
+            "pool_size": 2,
+            "reduction_ratio": 0.5,
+            "worst_case": 1
+          },
+          "guess": "chump",
+          "mode_posterior": null,
+          "pattern": 240,
+          "pattern_emoji": "\u2b1b\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "BGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 4
+        },
+        {
+          "candidate_preview": [
+            "thump"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 0.0,
+            "expected_remaining": 1.0,
+            "pool_size": 1,
+            "reduction_ratio": 0.0,
+            "worst_case": 1
+          },
+          "guess": "thump",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 5
+        }
+      ],
+      "strategy_id": "minimax",
+      "turns": 5
+    },
+    "random-valid": {
+      "branch": "evil",
+      "exhausted": false,
+      "hidden_answer": null,
+      "hidden_mode": "evil",
+      "mode": "evil",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "aback",
+            "abbot",
+            "about",
+            "adapt",
+            "admin",
+            "admit",
+            "adopt",
+            "adult"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 2315,
+            "seed": 103776732305508
+          },
+          "guess": "verse",
+          "mode_posterior": null,
+          "pattern": 0,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BBBBB",
+          "remaining_candidates": 546,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "abbot",
+            "about",
+            "adapt",
+            "adopt",
+            "afoot",
+            "batty",
+            "bawdy",
+            "bayou"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 546,
+            "seed": 274811152012731
+          },
+          "guess": "cling",
+          "mode_posterior": null,
+          "pattern": 0,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BBBBB",
+          "remaining_candidates": 67,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "batty",
+            "bobby",
+            "booby",
+            "booty",
+            "boozy",
+            "fatty",
+            "hobby",
+            "jazzy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 67,
+            "seed": 61006950680248
+          },
+          "guess": "dumpy",
+          "mode_posterior": null,
+          "pattern": 162,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\ud83d\udfe9",
+          "pattern_text": "BBBBG",
+          "remaining_candidates": 12,
+          "standard_candidates": null,
+          "turn": 3
+        },
+        {
+          "candidate_preview": [
+            "batty",
+            "fatty",
+            "tabby",
+            "taffy",
+            "tatty"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 12,
+            "seed": 75727767759821
+          },
+          "guess": "woozy",
+          "mode_posterior": null,
+          "pattern": 162,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\u2b1b\ud83d\udfe9",
+          "pattern_text": "BBBBG",
+          "remaining_candidates": 5,
+          "standard_candidates": null,
+          "turn": 4
+        },
+        {
+          "candidate_preview": [
+            "tabby",
+            "taffy"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 5,
+            "seed": 118900201339055
+          },
+          "guess": "tatty",
+          "mode_posterior": null,
+          "pattern": 170,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\u2b1b\u2b1b\ud83d\udfe9",
+          "pattern_text": "GGBBG",
+          "remaining_candidates": 2,
+          "standard_candidates": null,
+          "turn": 5
+        },
+        {
+          "candidate_preview": [
+            "tabby"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 2,
+            "seed": 81381828121319
+          },
+          "guess": "taffy",
+          "mode_posterior": null,
+          "pattern": 170,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\u2b1b\u2b1b\ud83d\udfe9",
+          "pattern_text": "GGBBG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 6
+        },
+        {
+          "candidate_preview": [
+            "tabby"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 1,
+            "seed": 224067695190212
+          },
+          "guess": "tabby",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 7
+        }
+      ],
+      "strategy_id": "random-valid",
+      "turns": 7
+    }
+  },
+  "standard": {
+    "adaptive-robust": {
+      "branch": "standard",
+      "exhausted": false,
+      "hidden_answer": "cigar",
+      "hidden_mode": "standard",
+      "mode": "standard",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "acrid",
+            "braid",
+            "brain",
+            "chair",
+            "cigar",
+            "circa",
+            "diary",
+            "drain"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "blended_score": 6.341625,
+            "evil_reduction_ratio": 0.92743,
+            "evil_worst_case": 168,
+            "mode_weights": {
+              "evil": 0.5,
+              "standard": 1.0
+            },
+            "pool_size": 2315,
+            "standard_entropy": 5.87791
+          },
+          "guess": "raise",
+          "mode_posterior": null,
+          "pattern": 13,
+          "pattern_emoji": "\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\u2b1b\u2b1b",
+          "pattern_text": "YYYBB",
+          "remaining_candidates": 18,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "cigar",
+            "circa",
+            "vicar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "blended_score": 3.627987,
+            "evil_reduction_ratio": 0.777778,
+            "evil_worst_case": 4,
+            "mode_weights": {
+              "evil": 0.5,
+              "standard": 1.0
+            },
+            "pool_size": 18,
+            "standard_entropy": 3.239098
+          },
+          "guess": "trail",
+          "mode_posterior": null,
+          "pattern": 39,
+          "pattern_emoji": "\u2b1b\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\u2b1b",
+          "pattern_text": "BYYYB",
+          "remaining_candidates": 3,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "cigar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "blended_score": 1.918296,
+            "evil_reduction_ratio": 0.666667,
+            "evil_worst_case": 1,
+            "mode_weights": {
+              "evil": 0.5,
+              "standard": 1.0
+            },
+            "pool_size": 3,
+            "standard_entropy": 1.584963
+          },
+          "guess": "cigar",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 3
+        }
+      ],
+      "strategy_id": "adaptive-robust",
+      "turns": 3
+    },
+    "candidate-elimination": {
+      "branch": "standard",
+      "exhausted": false,
+      "hidden_answer": "cigar",
+      "hidden_mode": "standard",
+      "mode": "standard",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "acrid",
+            "braid",
+            "brain",
+            "chair",
+            "cigar",
+            "circa",
+            "diary",
+            "drain"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.87791,
+            "expected_remaining": 61.000864,
+            "pool_size": 2315,
+            "reduction_ratio": 0.92743,
+            "worst_case": 168
+          },
+          "guess": "raise",
+          "mode_posterior": null,
+          "pattern": 13,
+          "pattern_emoji": "\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\u2b1b\u2b1b",
+          "pattern_text": "YYYBB",
+          "remaining_candidates": 18,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "cigar",
+            "circa",
+            "vicar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 3.239098,
+            "expected_remaining": 2.222222,
+            "pool_size": 18,
+            "reduction_ratio": 0.777778,
+            "worst_case": 4
+          },
+          "guess": "trail",
+          "mode_posterior": null,
+          "pattern": 39,
+          "pattern_emoji": "\u2b1b\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\u2b1b",
+          "pattern_text": "BYYYB",
+          "remaining_candidates": 3,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "cigar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 1.584963,
+            "expected_remaining": 1.0,
+            "pool_size": 3,
+            "reduction_ratio": 0.666667,
+            "worst_case": 1
+          },
+          "guess": "cigar",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 3
+        }
+      ],
+      "strategy_id": "candidate-elimination",
+      "turns": 3
+    },
+    "expected-entropy": {
+      "branch": "standard",
+      "exhausted": false,
+      "hidden_answer": "cigar",
+      "hidden_mode": "standard",
+      "mode": "standard",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "acrid",
+            "braid",
+            "brain",
+            "chair",
+            "cigar",
+            "circa",
+            "diary",
+            "drain"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.87791,
+            "expected_remaining": 61.000864,
+            "pool_size": 2315,
+            "reduction_ratio": 0.92743,
+            "worst_case": 168
+          },
+          "guess": "raise",
+          "mode_posterior": null,
+          "pattern": 13,
+          "pattern_emoji": "\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\u2b1b\u2b1b",
+          "pattern_text": "YYYBB",
+          "remaining_candidates": 18,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "cigar",
+            "circa",
+            "vicar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 3.239098,
+            "expected_remaining": 2.222222,
+            "pool_size": 18,
+            "reduction_ratio": 0.777778,
+            "worst_case": 4
+          },
+          "guess": "trail",
+          "mode_posterior": null,
+          "pattern": 39,
+          "pattern_emoji": "\u2b1b\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\u2b1b",
+          "pattern_text": "BYYYB",
+          "remaining_candidates": 3,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "cigar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 1.584963,
+            "expected_remaining": 1.0,
+            "pool_size": 3,
+            "reduction_ratio": 0.666667,
+            "worst_case": 1
+          },
+          "guess": "cigar",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 3
+        }
+      ],
+      "strategy_id": "expected-entropy",
+      "turns": 3
+    },
+    "letter-frequency": {
+      "branch": "standard",
+      "exhausted": false,
+      "hidden_answer": "cigar",
+      "hidden_mode": "standard",
+      "mode": "standard",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "abhor",
+            "acorn",
+            "acrid",
+            "admin",
+            "adorn",
+            "affix",
+            "aging",
+            "agony"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 3898,
+            "pool_size": 2315,
+            "positional_score": 1437,
+            "score": 2996.2
+          },
+          "guess": "slate",
+          "mode_posterior": null,
+          "pattern": 9,
+          "pattern_emoji": "\u2b1b\u2b1b\ud83d\udfe8\u2b1b\u2b1b",
+          "pattern_text": "BBYBB",
+          "remaining_candidates": 136,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "augur",
+            "briar",
+            "cigar",
+            "friar",
+            "vicar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 337,
+            "pool_size": 136,
+            "positional_score": 165,
+            "score": 299.8
+          },
+          "guess": "manor",
+          "mode_posterior": null,
+          "pattern": 165,
+          "pattern_emoji": "\u2b1b\ud83d\udfe8\u2b1b\u2b1b\ud83d\udfe9",
+          "pattern_text": "BYBBG",
+          "remaining_candidates": 5,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "cigar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 18,
+            "pool_size": 5,
+            "positional_score": 14,
+            "score": 21.2
+          },
+          "guess": "cigar",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 3
+        }
+      ],
+      "strategy_id": "letter-frequency",
+      "turns": 3
+    },
+    "minimax": {
+      "branch": "standard",
+      "exhausted": false,
+      "hidden_answer": "cigar",
+      "hidden_mode": "standard",
+      "mode": "standard",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "chair",
+            "cigar",
+            "circa",
+            "diary",
+            "flair",
+            "nadir",
+            "rabbi",
+            "rabid"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.82094,
+            "expected_remaining": 63.725702,
+            "pool_size": 2315,
+            "reduction_ratio": 0.92743,
+            "worst_case": 168
+          },
+          "guess": "arise",
+          "mode_posterior": null,
+          "pattern": 13,
+          "pattern_emoji": "\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\u2b1b\u2b1b",
+          "pattern_text": "YYYBB",
+          "remaining_candidates": 17,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "cigar",
+            "vicar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 3.146286,
+            "expected_remaining": 2.176471,
+            "pool_size": 17,
+            "reduction_ratio": 0.764706,
+            "worst_case": 4
+          },
+          "guess": "nadir",
+          "mode_posterior": null,
+          "pattern": 192,
+          "pattern_emoji": "\u2b1b\ud83d\udfe8\u2b1b\ud83d\udfe8\ud83d\udfe9",
+          "pattern_text": "BYBYG",
+          "remaining_candidates": 2,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "cigar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 1.0,
+            "expected_remaining": 1.0,
+            "pool_size": 2,
+            "reduction_ratio": 0.5,
+            "worst_case": 1
+          },
+          "guess": "cigar",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 3
+        }
+      ],
+      "strategy_id": "minimax",
+      "turns": 3
+    },
+    "random-valid": {
+      "branch": "standard",
+      "exhausted": false,
+      "hidden_answer": "cigar",
+      "hidden_mode": "standard",
+      "mode": "standard",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "birch",
+            "birth",
+            "cigar",
+            "circa",
+            "girth",
+            "minor",
+            "mirth",
+            "right"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 2315,
+            "seed": 144493658399140
+          },
+          "guess": "fiery",
+          "mode_posterior": null,
+          "pattern": 33,
+          "pattern_emoji": "\u2b1b\ud83d\udfe9\u2b1b\ud83d\udfe8\u2b1b",
+          "pattern_text": "BGBYB",
+          "remaining_candidates": 16,
+          "standard_candidates": null,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "cigar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 16,
+            "seed": 265138217414899
+          },
+          "guess": "rival",
+          "mode_posterior": null,
+          "pattern": 61,
+          "pattern_emoji": "\ud83d\udfe8\ud83d\udfe9\u2b1b\ud83d\udfe9\u2b1b",
+          "pattern_text": "YGBGB",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "cigar"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 1,
+            "seed": 187454543176617
+          },
+          "guess": "cigar",
+          "mode_posterior": null,
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": null,
+          "turn": 3
+        }
+      ],
+      "strategy_id": "random-valid",
+      "turns": 3
+    }
+  },
+  "unknown": {
+    "adaptive-robust": {
+      "branch": "unknown-standard",
+      "exhausted": false,
+      "hidden_answer": "aback",
+      "hidden_mode": "standard",
+      "mode": "unknown",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "aback",
+            "abbot",
+            "about",
+            "adapt",
+            "adopt",
+            "adult",
+            "afoot",
+            "afoul"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "blended_score": 3.40267,
+            "evil_reduction_ratio": 0.92743,
+            "evil_worst_case": 168,
+            "mode_weights": {
+              "evil": 0.5,
+              "standard": 0.5
+            },
+            "pool_size": 2315,
+            "standard_entropy": 5.87791
+          },
+          "guess": "raise",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 3,
+          "pattern_emoji": "\u2b1b\ud83d\udfe8\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BYBBB",
+          "remaining_candidates": 92,
+          "standard_candidates": 92,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "aback",
+            "champ",
+            "guava",
+            "knack",
+            "quack",
+            "whack"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "blended_score": 4.863226,
+            "evil_reduction_ratio": 0.858696,
+            "evil_worst_case": 13,
+            "mode_weights": {
+              "evil": 0.0,
+              "standard": 1.0
+            },
+            "pool_size": 92,
+            "standard_entropy": 4.863226
+          },
+          "guess": "float",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 27,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\ud83d\udfe8\u2b1b",
+          "pattern_text": "BBBYB",
+          "remaining_candidates": 6,
+          "standard_candidates": 6,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "aback"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "blended_score": 1.792481,
+            "evil_reduction_ratio": 0.5,
+            "evil_worst_case": 3,
+            "mode_weights": {
+              "evil": 0.0,
+              "standard": 1.0
+            },
+            "pool_size": 6,
+            "standard_entropy": 1.792481
+          },
+          "guess": "aback",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": 1,
+          "turn": 3
+        }
+      ],
+      "strategy_id": "adaptive-robust",
+      "turns": 3
+    },
+    "candidate-elimination": {
+      "branch": "unknown-standard",
+      "exhausted": false,
+      "hidden_answer": "aback",
+      "hidden_mode": "standard",
+      "mode": "unknown",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "aback",
+            "abbot",
+            "about",
+            "adapt",
+            "adopt",
+            "adult",
+            "afoot",
+            "afoul"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.87791,
+            "expected_remaining": 61.000864,
+            "pool_size": 2315,
+            "reduction_ratio": 0.92743,
+            "worst_case": 168
+          },
+          "guess": "raise",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 3,
+          "pattern_emoji": "\u2b1b\ud83d\udfe8\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BYBBB",
+          "remaining_candidates": 92,
+          "standard_candidates": 92,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "aback",
+            "knack",
+            "quack",
+            "whack"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 4.649261,
+            "expected_remaining": 4.173913,
+            "pool_size": 92,
+            "reduction_ratio": 0.923913,
+            "worst_case": 7
+          },
+          "guess": "cloak",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 190,
+          "pattern_emoji": "\ud83d\udfe8\u2b1b\u2b1b\ud83d\udfe8\ud83d\udfe9",
+          "pattern_text": "YBBYG",
+          "remaining_candidates": 4,
+          "standard_candidates": 4,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "aback"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 0.811278,
+            "expected_remaining": 2.5,
+            "pool_size": 4,
+            "reduction_ratio": 0.25,
+            "worst_case": 3
+          },
+          "guess": "aback",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": 1,
+          "turn": 3
+        }
+      ],
+      "strategy_id": "candidate-elimination",
+      "turns": 3
+    },
+    "expected-entropy": {
+      "branch": "unknown-standard",
+      "exhausted": false,
+      "hidden_answer": "aback",
+      "hidden_mode": "standard",
+      "mode": "unknown",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "aback",
+            "abbot",
+            "about",
+            "adapt",
+            "adopt",
+            "adult",
+            "afoot",
+            "afoul"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.87791,
+            "expected_remaining": 61.000864,
+            "pool_size": 2315,
+            "reduction_ratio": 0.92743,
+            "worst_case": 168
+          },
+          "guess": "raise",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 3,
+          "pattern_emoji": "\u2b1b\ud83d\udfe8\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "BYBBB",
+          "remaining_candidates": 92,
+          "standard_candidates": 92,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "aback",
+            "champ",
+            "guava",
+            "knack",
+            "quack",
+            "whack"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 4.863226,
+            "expected_remaining": 4.543478,
+            "pool_size": 92,
+            "reduction_ratio": 0.858696,
+            "worst_case": 13
+          },
+          "guess": "float",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 27,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\ud83d\udfe8\u2b1b",
+          "pattern_text": "BBBYB",
+          "remaining_candidates": 6,
+          "standard_candidates": 6,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "aback"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 1.792481,
+            "expected_remaining": 2.0,
+            "pool_size": 6,
+            "reduction_ratio": 0.5,
+            "worst_case": 3
+          },
+          "guess": "aback",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": 1,
+          "turn": 3
+        }
+      ],
+      "strategy_id": "expected-entropy",
+      "turns": 3
+    },
+    "letter-frequency": {
+      "branch": "unknown-standard",
+      "exhausted": false,
+      "hidden_answer": "aback",
+      "hidden_mode": "standard",
+      "mode": "unknown",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "aback",
+            "again",
+            "award",
+            "board",
+            "braid",
+            "brain",
+            "brand",
+            "bravo"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 3898,
+            "pool_size": 2315,
+            "positional_score": 1437,
+            "score": 2996.2
+          },
+          "guess": "slate",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 18,
+          "pattern_emoji": "\u2b1b\u2b1b\ud83d\udfe9\u2b1b\u2b1b",
+          "pattern_text": "BBGBB",
+          "remaining_candidates": 48,
+          "standard_candidates": 48,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "aback",
+            "quack",
+            "whack"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 128,
+            "pool_size": 48,
+            "positional_score": 99,
+            "score": 150.2
+          },
+          "guess": "crank",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 181,
+          "pattern_emoji": "\ud83d\udfe8\u2b1b\ud83d\udfe9\u2b1b\ud83d\udfe9",
+          "pattern_text": "YBGBG",
+          "remaining_candidates": 3,
+          "standard_candidates": 3,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "aback",
+            "whack"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 11,
+            "pool_size": 3,
+            "positional_score": 11,
+            "score": 15.4
+          },
+          "guess": "quack",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 234,
+          "pattern_emoji": "\u2b1b\u2b1b\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "BBGGG",
+          "remaining_candidates": 2,
+          "standard_candidates": 2,
+          "turn": 3
+        },
+        {
+          "candidate_preview": [
+            "aback"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 8,
+            "pool_size": 2,
+            "positional_score": 8,
+            "score": 11.2
+          },
+          "guess": "whack",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 234,
+          "pattern_emoji": "\u2b1b\u2b1b\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "BBGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": 1,
+          "turn": 4
+        },
+        {
+          "candidate_preview": [
+            "aback"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "global_score": 4,
+            "pool_size": 1,
+            "positional_score": 5,
+            "score": 6.6
+          },
+          "guess": "aback",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": 1,
+          "turn": 5
+        }
+      ],
+      "strategy_id": "letter-frequency",
+      "turns": 5
+    },
+    "minimax": {
+      "branch": "unknown-standard",
+      "exhausted": false,
+      "hidden_answer": "aback",
+      "hidden_mode": "standard",
+      "mode": "unknown",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "aback",
+            "abbot",
+            "about",
+            "adapt",
+            "adopt",
+            "adult",
+            "afoot",
+            "afoul"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 5.82094,
+            "expected_remaining": 63.725702,
+            "pool_size": 2315,
+            "reduction_ratio": 0.92743,
+            "worst_case": 168
+          },
+          "guess": "arise",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 2,
+          "pattern_emoji": "\ud83d\udfe9\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "GBBBB",
+          "remaining_candidates": 29,
+          "standard_candidates": 29,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "aback",
+            "adapt"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 3.926272,
+            "expected_remaining": 2.103448,
+            "pool_size": 29,
+            "reduction_ratio": 0.896552,
+            "worst_case": 3
+          },
+          "guess": "alloy",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 2,
+          "pattern_emoji": "\ud83d\udfe9\u2b1b\u2b1b\u2b1b\u2b1b",
+          "pattern_text": "GBBBB",
+          "remaining_candidates": 2,
+          "standard_candidates": 2,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "aback"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "entropy": 1.0,
+            "expected_remaining": 1.0,
+            "pool_size": 2,
+            "reduction_ratio": 0.5,
+            "worst_case": 1
+          },
+          "guess": "aback",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": 1,
+          "turn": 3
+        }
+      ],
+      "strategy_id": "minimax",
+      "turns": 3
+    },
+    "random-valid": {
+      "branch": "unknown-standard",
+      "exhausted": false,
+      "hidden_answer": "aback",
+      "hidden_mode": "standard",
+      "mode": "unknown",
+      "remaining_candidates": 1,
+      "solved": true,
+      "steps": [
+        {
+          "candidate_preview": [
+            "aback",
+            "abase",
+            "abate",
+            "abbey",
+            "abuse",
+            "abyss",
+            "acute",
+            "affix"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 2315,
+            "seed": 259613012187540
+          },
+          "guess": "gonad",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 27,
+          "pattern_emoji": "\u2b1b\u2b1b\u2b1b\ud83d\udfe8\u2b1b",
+          "pattern_text": "BBBYB",
+          "remaining_candidates": 374,
+          "standard_candidates": 374,
+          "turn": 1
+        },
+        {
+          "candidate_preview": [
+            "aback",
+            "alarm",
+            "avail",
+            "black",
+            "brawl",
+            "chaff",
+            "chair",
+            "chalk"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 374,
+            "seed": 269339833495039
+          },
+          "guess": "state",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 18,
+          "pattern_emoji": "\u2b1b\u2b1b\ud83d\udfe9\u2b1b\u2b1b",
+          "pattern_text": "BBGBB",
+          "remaining_candidates": 32,
+          "standard_candidates": 32,
+          "turn": 2
+        },
+        {
+          "candidate_preview": [
+            "aback",
+            "avail",
+            "black",
+            "clack",
+            "claim",
+            "clamp",
+            "llama",
+            "plaza"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 32,
+            "seed": 260130210151402
+          },
+          "guess": "wharf",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 18,
+          "pattern_emoji": "\u2b1b\u2b1b\ud83d\udfe9\u2b1b\u2b1b",
+          "pattern_text": "BBGBB",
+          "remaining_candidates": 11,
+          "standard_candidates": 11,
+          "turn": 3
+        },
+        {
+          "candidate_preview": [
+            "aback"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 11,
+            "seed": 160193597351861
+          },
+          "guess": "quail",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 18,
+          "pattern_emoji": "\u2b1b\u2b1b\ud83d\udfe9\u2b1b\u2b1b",
+          "pattern_text": "BBGBB",
+          "remaining_candidates": 1,
+          "standard_candidates": 1,
+          "turn": 4
+        },
+        {
+          "candidate_preview": [
+            "aback"
+          ],
+          "evil_candidates": null,
+          "explanation": {
+            "pool_size": 1,
+            "seed": 3493056442040
+          },
+          "guess": "aback",
+          "mode_posterior": {
+            "evil": 0.0,
+            "standard": 1.0
+          },
+          "pattern": 242,
+          "pattern_emoji": "\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9\ud83d\udfe9",
+          "pattern_text": "GGGGG",
+          "remaining_candidates": 1,
+          "standard_candidates": 1,
+          "turn": 5
+        }
+      ],
+      "strategy_id": "random-valid",
+      "turns": 5
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "matrix": {
+    "adaptive-robust": {
+      "evil": 5,
+      "standard": 3.603456,
+      "unknown": 4.301944
+    },
+    "candidate-elimination": {
+      "evil": 5,
+      "standard": 3.624622,
+      "unknown": 4.312311
+    },
+    "expected-entropy": {
+      "evil": 6,
+      "standard": 3.599136,
+      "unknown": 4.799568
+    },
+    "letter-frequency": {
+      "evil": 5,
+      "standard": 3.587473,
+      "unknown": 4.293737
+    },
+    "minimax": {
+      "evil": 5,
+      "standard": 3.678618,
+      "unknown": 4.339309
+    },
+    "random-valid": {
+      "evil": 7,
+      "standard": 4.124406,
+      "unknown": 4.996328
+    }
+  },
+  "mismatch_spread": [
+    {
+      "evil": 5,
+      "spread": 1.321382,
+      "standard": 3.678618,
+      "strategy_id": "minimax",
+      "unknown": 4.339309
+    },
+    {
+      "evil": 5,
+      "spread": 1.375378,
+      "standard": 3.624622,
+      "strategy_id": "candidate-elimination",
+      "unknown": 4.312311
+    },
+    {
+      "evil": 5,
+      "spread": 1.396544,
+      "standard": 3.603456,
+      "strategy_id": "adaptive-robust",
+      "unknown": 4.301944
+    },
+    {
+      "evil": 5,
+      "spread": 1.412527,
+      "standard": 3.587473,
+      "strategy_id": "letter-frequency",
+      "unknown": 4.293737
+    },
+    {
+      "evil": 6,
+      "spread": 2.400864,
+      "standard": 3.599136,
+      "strategy_id": "expected-entropy",
+      "unknown": 4.799568
+    },
+    {
+      "evil": 7,
+      "spread": 2.875594,
+      "standard": 4.124406,
+      "strategy_id": "random-valid",
+      "unknown": 4.996328
+    }
+  ]
+}
