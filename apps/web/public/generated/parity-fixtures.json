@@ -1,0 +1,37 @@
+{
+  "score_cases": [
+    {
+      "answer": "cigar",
+      "guess": "cigar",
+      "pattern": 242,
+      "pattern_text": "GGGGG"
+    },
+    {
+      "answer": "cairn",
+      "guess": "array",
+      "pattern": 4,
+      "pattern_text": "YYBBB"
+    },
+    {
+      "answer": "missy",
+      "guess": "sissy",
+      "pattern": 240,
+      "pattern_text": "BGGGG"
+    }
+  ],
+  "standard_filter_case": {
+    "answer": "rebut",
+    "guess": "cigar",
+    "pattern": 81,
+    "pattern_text": "BBBBY",
+    "remaining": [
+      "rebut"
+    ]
+  },
+  "toy_answers": [
+    "cigar",
+    "rebut",
+    "sissy",
+    "humph"
+  ]
+}

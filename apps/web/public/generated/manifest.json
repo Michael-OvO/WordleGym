@@ -1,0 +1,37 @@
+{
+  "allowed_guesses": 12972,
+  "answers": 2315,
+  "schema_version": 1,
+  "strategies": [
+    {
+      "id": "random-valid",
+      "label": "Random Valid",
+      "objective": "Deterministic seeded random play over feasible answers."
+    },
+    {
+      "id": "letter-frequency",
+      "label": "Letter Frequency",
+      "objective": "Maximize weighted letter coverage over feasible answers."
+    },
+    {
+      "id": "candidate-elimination",
+      "label": "Candidate Elimination",
+      "objective": "Minimize expected remaining candidates."
+    },
+    {
+      "id": "expected-entropy",
+      "label": "Expected Entropy",
+      "objective": "Maximize expected information gain."
+    },
+    {
+      "id": "minimax",
+      "label": "Minimax",
+      "objective": "Minimize worst-case remaining candidates."
+    },
+    {
+      "id": "adaptive-robust",
+      "label": "Adaptive Robust",
+      "objective": "Blend standard-mode information gain with evil-mode worst-case protection."
+    }
+  ]
+}
