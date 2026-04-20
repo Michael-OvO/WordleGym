@@ -22,3 +22,4 @@ apps/web/tsconfig.tsbuildinfo
 poster/*.aux
 poster/*.log
 poster/*.out
+/texput.*
