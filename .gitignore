@@ -13,5 +13,8 @@ __pycache__/
 *.egg-info/
 .claude/settings.local.json
 .claude/worktrees/
+.claude/scheduled_tasks.lock
 .superpowers/
 /package-lock.json
+/results/cache/
+apps/web/tsconfig.tsbuildinfo
