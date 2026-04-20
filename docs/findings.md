@@ -27,7 +27,7 @@ This confirms the spec's claim that greedy forced-bucket minimization is strictl
 
 ## What the modes tell us
 
-- **Standard mode**: the heuristic ranking is tight — the top four are within 0.021 turns of each other, and the worst-case-optimum of 5 turns is recovered by seven of ten strategies. The published optimum (3.421, Bertsimas & Paskov 2022) is 0.044 turns below our best heuristic; that gap is where exact DP would pay off, but Python-cost makes Standard DP impractical.
+- **Standard mode**: the heuristic ranking is tight — the top four are within 0.021 turns of each other, and the worst-case-optimum of 5 turns is recovered by seven of ten strategies. The published optimum is `V(A) = 3.421` average and `W(A) = 5` worst-case with opening guess `SALET`, computed via exact dynamic programming in [Bertsimas & Paskov (2025), *An Exact Solution to Wordle*, *Operations Research* 73(3):1384–1394](https://doi.org/10.1287/opre.2022.0434). Our best heuristic (`expected-entropy`, opener `raise`) averages 3.465 — a 0.044-turn / 1.3% gap above optimum. That gap is where exact DP would pay off, but Python-cost makes Standard DP impractical.
 - **Evil mode**: a single-number ranking — `evil-dp` at 4, everyone else at 5 (or 7 for random). Greedy forced-bucket minimization is *exactly one turn* short of optimum.
 - **Unknown mode**: posterior-weighted policies do well, but the spread from best to worst deterministic strategy is only 0.06 turns. The Bayesian information gain from turn 1 feedback dominates the choice of subsequent policy.
 

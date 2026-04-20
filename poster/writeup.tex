@@ -142,6 +142,25 @@ requires searching the entire game tree, which is computationally
 prohibitive in pure Python. The benchmark question then becomes: how
 well can more tractable, one-step strategies approximate these optima?
 
+\textit{Prior work on the exact Standard-mode optimum.} Recurrence
+\eqref{eq:VC} has been solved at Wordle scale by
+\citet{bertsimas2022wordle}, published in \emph{Operations Research}
+in 2025. They formulate the Bellman equation for $V(C)$, reduce it
+with a series of symmetry and dominance pruning steps, and then
+compile the resulting policy into an Optimal Classification Tree with
+Hyperplanes for interpretability. On the canonical $\num{2315}$-word
+answer list they report opening guess \texttt{SALET}, an average of
+$V(A) = 3.421$ guesses, and a worst case of $W(A) = 5$: the game
+never requires a sixth guess under optimal play.
+\citet{selby2022wordle} independently reports the same bounds via a
+distinct search procedure. Both solvers rely on compiled languages
+and tight data structures, so my pure-Python benchmark does not
+attempt to reproduce the Standard-mode DP; instead, every Standard
+result below is compared against their published numbers. The
+companion notes \texttt{docs/dp-methods.md} and
+\texttt{docs/findings.md} in the repository record the full
+derivations and a headline summary.
+
 %====================================================================
 \section*{Strategies Tested}
 %====================================================================
@@ -348,11 +367,14 @@ bound the branching factor; on this corpus, the optimal opening guess
 always falls within this beam, so the beam does not sacrifice
 optimality in practice.
 
-The solver determines that the optimal opening guess is
+The solver determines that the optimal Evil-mode opening guess is
 \texttt{RAISE} and guarantees a solution in exactly $4$ guesses,
-matching the published optimum $D(A) = 4$. The initial run takes
-approximately $83$ seconds, after which the policy is cached to disk
-and later runs are instantaneous.
+matching the published optimum $D(A) = 4$. (This is distinct from the
+Standard-mode optimum \texttt{SALET} reported by
+\citet{bertsimas2022wordle}: different objective, different game
+variant, different recurrence.) The initial run takes approximately
+$83$ seconds, after which the policy is cached to disk and later runs
+are instantaneous.
 
 A subtle implementation issue was tie-breaking. When two buckets are
 equal in size, the adversary must choose one consistently, or else
@@ -524,10 +546,15 @@ a reusable benchmark rather than a one-off analysis script.
 \begin{thebibliography}{9}
 \small
 
-\bibitem[Bertsimas \& Paskov(2022)]{bertsimas2022wordle}
-Bertsimas, D., \& Paskov, A.~(2022).
-\newblock An exact and interpretable solution to Wordle.
-\newblock \emph{MIT Sloan Operations Research Center}. Available at
+\bibitem[Bertsimas \& Paskov(2025)]{bertsimas2022wordle}
+Bertsimas, D., \& Paskov, A.~(2025).
+\newblock An exact solution to Wordle.
+\newblock \emph{Operations Research}, 73(3), 1384--1394.
+\newblock \url{https://doi.org/10.1287/opre.2022.0434}.
+\newblock Originally circulated in 2022 as the preprint
+``An Exact and Interpretable Solution to Wordle''
+(\url{https://auction-upload-files.s3.amazonaws.com/Wordle_Paper_Final.pdf});
+accessible summary at
 \url{https://mitsloan.mit.edu/ideas-made-to-matter/how-algorithm-solves-wordle}.
 
 \bibitem[Selby(2022)]{selby2022wordle}

@@ -76,11 +76,11 @@ For the **canonical 2,315-answer list** used by this benchmark (and by every pub
 
 | Metric | Optimum | Source | Reproduced in WordleGym? |
 | --- | --- | --- | --- |
-| Standard — expected guesses `V(A)` | **3.421** | Bertsimas & Paskov (2022) | Not implemented (prohibitive in Python); the best heuristic here is `expected-entropy` at 3.465 |
-| Standard — worst case `W(A)` | **5** | Selby (2022); also Bertsimas & Paskov | `candidate-elimination`, `posterior-hybrid`, `posterior-expectimax`, `evil-shortest-path`, `evil-dp`, `robust-scalarization` all hit 5 |
+| Standard — expected guesses `V(A)` | **3.421** (opening `SALET`) | Bertsimas & Paskov (2025, *Operations Research*) | Not implemented (prohibitive in Python); the best heuristic here is `expected-entropy` at 3.465, i.e. +0.044 / +1.3% above optimum |
+| Standard — worst case `W(A)` | **5** | Bertsimas & Paskov (2025); independently Selby (2022) | `candidate-elimination`, `posterior-hybrid`, `posterior-expectimax`, `evil-shortest-path`, `evil-dp`, `robust-scalarization` all hit 5 |
 | Standard — solve rate under 6-turn cap | **100%** | Both (the cap never binds) | All 10 strategies solve 100% in our run |
-| **Evil — shortest path `D(A)`** | **4** | `evil-dp` (beam K=100) — see §6 | **Confirmed: `evil-dp` plays the full Evil game in exactly 4 turns; every other deterministic strategy takes 5** |
-| Unknown — expected guesses `V_U(A)` | unpublished | Derivable from `V_S` and `D` but not in the cited work | `expected-entropy` fallback leads the Unknown ranking at 4.232 |
+| **Evil — shortest path `D(A)`** | **4** (opening `RAISE`) | `evil-dp` (beam K=100) — see §6 | **Confirmed: `evil-dp` plays the full Evil game in exactly 4 turns; every other deterministic strategy takes 5** |
+| Unknown — expected guesses `V_U(A)` | unpublished | Derivable from `V_S` and `D` but not in the cited work | `expected-entropy` leads the Unknown ranking at 4.232 |
 
 The Wordle game was designed with a 6-turn limit; the fact that 5 suffices worst-case is a non-trivial result of the DP analysis, not a design feature.
 
@@ -182,9 +182,23 @@ For now, WordleGym **backs off** from full DP in these modes. The benchmark reco
 
 ## 5. Citations
 
-- **Bertsimas, D. & Paskov, A.** (2022). *An Exact and Interpretable Solution to Wordle.* MIT Sloan Operations Research Center. Available via the explanatory article at https://mitsloan.mit.edu/ideas-made-to-matter/how-algorithm-solves-wordle. Reports the exact DP formulation over answer subsets and the optimal expected-depth bound of 3.421 guesses under the canonical list.
-- **Selby, A.** (2022). *The best strategies for Wordle.* https://sonorouschocolate.com/notes/index.php?title=The_best_strategies_for_Wordle. Provides the decision trees that establish worst-case 5-guess optima in hard-mode and full-allowed variants, along with exact averages.
-- **Poirrier, L.** (2022). *Mathematical optimization over Wordle decision trees.* https://www.poirrier.ca/notes/wordle/. Surveys DP formulations and heuristic benchmarks.
+### Bertsimas & Paskov (2025) — the published Standard-mode optimum
+
+- **Bertsimas, D. & Paskov, A.** (2025). *An Exact Solution to Wordle.* [*Operations Research*, 73(3), 1384–1394](https://doi.org/10.1287/opre.2022.0434). INFORMS. Originally circulated in 2022 as the preprint *An Exact and Interpretable Solution to Wordle* ([preprint PDF](https://auction-upload-files.s3.amazonaws.com/Wordle_Paper_Final.pdf); [accessible summary](https://mitsloan.mit.edu/ideas-made-to-matter/how-algorithm-solves-wordle)).
+
+  **What they actually do.** Write the game as a finite-horizon MDP with state = current candidate set `C` and action = guess `g`. The value function `V(C)` satisfies the Bellman equation (1.1) in this document. They reduce the state space via a chain of tractability steps — canonical candidate-subset hashing for memoization, elimination of dominated guesses, and symmetry pruning over feedback patterns — and then execute the DP in compiled code. After the optimum is computed they fit an Optimal Classification Tree with Hyperplanes to the resulting policy so that the closed-form decision rule is human-readable.
+
+  **Headline numbers on the canonical 2,315-answer list.** Optimal opening guess `SALET`. Average guesses `V(A) = 3.421`. Worst case `W(A) = 5` (the 6-turn cap never binds). Distribution of solve length under optimal play: roughly 4% at 2 guesses, 57% at 3, 35% at 4, 3% at 5, 0% at 6+.
+
+  **What this means for WordleGym.** Every Standard-mode number in the benchmark is compared against Bertsimas & Paskov. WordleGym's best Standard-mode heuristic, `expected-entropy`, averages 3.465 guesses — 0.044 above the published optimum, or ~1.3%. The gap is genuinely the cost of one-ply reasoning; it is not an implementation artifact.
+
+### Selby (2022) — independent confirmation
+
+- **Selby, A.** (2022). *The best strategies for Wordle.* [sonorouschocolate.com](https://sonorouschocolate.com/notes/index.php?title=The_best_strategies_for_Wordle). Independent exact solver using an A\*-style tree search over hard-mode and full-allowed variants. Reproduces `V(A) = 3.421` and `W(A) = 5` under the canonical answer list.
+
+### Poirrier (2022) — survey
+
+- **Poirrier, L.** (2022). *Mathematical optimization over Wordle decision trees.* [poirrier.ca/notes/wordle](https://www.poirrier.ca/notes/wordle/). Surveys DP formulations and greedy heuristics; the reference I followed for the benchmark spec.
 
 ---
 
