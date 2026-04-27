@@ -35,7 +35,10 @@ J_0(C) = 1        (penalty for unsolved game)
 J_h(C) = min over g in G of [ 1 + Σ_{r ≠ γ} (|B_r| / |C|) · J_{h-1}(B_r) ]
 ```
 
-With `h = 12` to match the benchmark cap. The `J_0(C) = 1` boundary encodes the benchmark's `turns + 1` unsolved penalty.
+This is not the headline benchmark metric, but it is useful if a user wants
+to impose the original six-turn Wordle cap. The published benchmark artifacts
+in this repo report uncapped solve depth with a 12-turn runaway safeguard, so
+weak baselines can be compared instead of all receiving the same failure mark.
 
 ### 1.4 Evil mode — shortest path
 
@@ -76,13 +79,12 @@ For the **canonical 2,315-answer list** used by this benchmark (and by every pub
 
 | Metric | Optimum | Source | Reproduced in WordleGym? |
 | --- | --- | --- | --- |
-| Standard — expected guesses `V(A)` | **3.421** (opening `SALET`) | Bertsimas & Paskov (2025, *Operations Research*) | Not implemented (prohibitive in Python); the best heuristic here is `expected-entropy` at 3.465, i.e. +0.044 / +1.3% above optimum |
-| Standard — worst case `W(A)` | **5** | Bertsimas & Paskov (2025); independently Selby (2022) | `candidate-elimination`, `posterior-hybrid`, `posterior-expectimax`, `evil-shortest-path`, `evil-dp`, `robust-scalarization` all hit 5 |
-| Standard — solve rate under 6-turn cap | **100%** | Both (the cap never binds) | All 10 strategies solve 100% in our run |
+| Standard — expected guesses `V(A)` | **3.421** (opening `SALET`) | Bertsimas & Paskov (2025, *Operations Research*) | Not implemented (prohibitive in Python); the best heuristics here are `expected-entropy` and `posterior-hybrid` at 3.465, i.e. +0.044 / +1.3% above optimum |
+| Standard — worst case `W(A)` | **5** | Bertsimas & Paskov (2025); independently Selby (2022) | `candidate-elimination`, `posterior-expectimax`, `evil-shortest-path`, `evil-dp`, and `robust-scalarization` all hit 5 |
 | **Evil — shortest path `D(A)`** | **4** (opening `RAISE`) | `evil-dp` (beam K=100) — see §6 | **Confirmed: `evil-dp` plays the full Evil game in exactly 4 turns; every other deterministic strategy takes 5** |
 | Unknown — expected guesses `V_U(A)` | unpublished | Derivable from `V_S` and `D` but not in the cited work | `expected-entropy` leads the Unknown ranking at 4.232 |
 
-The Wordle game was designed with a 6-turn limit; the fact that 5 suffices worst-case is a non-trivial result of the DP analysis, not a design feature.
+The Wordle game was designed with a 6-turn limit; the fact that 5 suffices for optimal Standard worst-case play is a non-trivial result of the DP analysis, not a design feature. WordleGym's benchmark tables report solve depth, so deliberately weak baselines can have worst cases above 6.
 
 ### 2.1 Empirical benchmark (10 strategies × 2,315 answers)
 
@@ -93,7 +95,7 @@ The most recent WordleGym benchmark run (manifest schema v2) reproduces these pu
 | Tier | Strategy | Avg | Worst | Solve |
 | --- | --- | --- | --- | --- |
 | core | `expected-entropy` | 3.465 | 6 | 100% |
-| experimental | `posterior-hybrid` | 3.480 | 5 | 100% |
+| experimental | `posterior-hybrid` | 3.465 | 6 | 100% |
 | aggregate-aware | `posterior-expectimax` | 3.485 | 5 | 100% |
 | core | `candidate-elimination` | 3.486 | 5 | 100% |
 | aggregate-aware | `evil-shortest-path` | 3.514 | 5 | 100% |
@@ -103,17 +105,17 @@ The most recent WordleGym benchmark run (manifest schema v2) reproduces these pu
 | baseline | `letter-frequency` | 3.587 | 8 | 100% |
 | baseline | `random-valid` | 4.124 | 9 | 100% |
 
-Gap to Bertsimas & Paskov optimum (3.421): the best heuristic (`expected-entropy`) is about 0.044 turns above optimum — tight enough that the remaining gap is well within the regime where exact DP matters.
+Gap to Bertsimas & Paskov optimum (3.421): the best heuristics (`expected-entropy` and `posterior-hybrid`) are about 0.044 turns above optimum — tight enough that the remaining gap is well within the regime where exact DP matters.
 
 **Evil mode** — the clean separation:
 
-| Strategy | Avg | Worst | Solve |
+| Strategy | Depth | Worst | Solve |
 | --- | --- | --- | --- |
 | **`evil-dp`** | **4.000** | **4** | **100%** |
 | *all 8 other deterministic strategies* | 5.000 | 5 | 100% |
 | `random-valid` | 7.000 | 7 | 100% |
 
-`evil-dp` is exactly one full turn better than every greedy or partition-based strategy — a concrete demonstration that greedy minimization of the one-step forced bucket does not recover the optimum, while the recursive DP does. The first guess is `raise`.
+Evil mode has no hidden answer distribution. For a fixed strategy, the deterministic largest-bucket adversary induces one forced path, so the reported depth equals the worst case. `evil-dp` is exactly one full turn better than every greedy or partition-based strategy — a concrete demonstration that greedy minimization of the one-step forced bucket does not recover the optimum, while the recursive DP does. The first guess is `raise`.
 
 **Unknown mode** (ranked by average guesses, averaged across hidden-standard and hidden-evil branches):
 
@@ -190,7 +192,7 @@ For now, WordleGym **backs off** from full DP in these modes. The benchmark reco
 
   **Headline numbers on the canonical 2,315-answer list.** Optimal opening guess `SALET`. Average guesses `V(A) = 3.421`. Worst case `W(A) = 5` (the 6-turn cap never binds). Distribution of solve length under optimal play: roughly 4% at 2 guesses, 57% at 3, 35% at 4, 3% at 5, 0% at 6+.
 
-  **What this means for WordleGym.** Every Standard-mode number in the benchmark is compared against Bertsimas & Paskov. WordleGym's best Standard-mode heuristic, `expected-entropy`, averages 3.465 guesses — 0.044 above the published optimum, or ~1.3%. The gap is genuinely the cost of one-ply reasoning; it is not an implementation artifact.
+  **What this means for WordleGym.** Every Standard-mode number in the benchmark is compared against Bertsimas & Paskov. WordleGym's best Standard-mode heuristics, `expected-entropy` and `posterior-hybrid`, average 3.465 guesses — 0.044 above the published optimum, or ~1.3%. The gap is genuinely the cost of one-ply reasoning; it is not an implementation artifact.
 
 ### Selby (2022) — independent confirmation
 

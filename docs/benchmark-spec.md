@@ -36,3 +36,8 @@ At reset the environment samples a hidden mode from `{standard, evil}` using pri
 - mode-detection accuracy by turn
 - robustness under model mismatch
 
+The benchmark summaries report solve depth: the number of turns taken until
+the strategy reaches an all-green terminal state. The runner uses a 12-turn
+runaway safeguard for automated evaluation. This is intentionally different
+from the six-turn Wordle user-interface cap, because letting weak baselines
+finish makes their relative failure modes visible.

@@ -22,4 +22,9 @@ apps/web/tsconfig.tsbuildinfo
 poster/*.aux
 poster/*.log
 poster/*.out
+poster/*.fls
+poster/*.fdb_latexmk
+poster/*.synctex.gz
+CLAUDE.md
 /texput.*
+/submission_*.pdf
