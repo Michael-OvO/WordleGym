@@ -1,27 +1,61 @@
 import Link from "next/link";
 
-import { CascadingBoard } from "@/components/cascading-board";
+import { AlgorithmWalkthroughs } from "@/components/algorithm-walkthroughs";
 import { ExperimentsPreview } from "@/components/experiments-preview";
 import { ResultsExplorer } from "@/components/results-explorer";
+import { Simulator } from "@/components/simulator";
 import { StrategyCard } from "@/components/strategy-card";
-import { getDecisionSnapshots, getManifest, getRobustness, getSampleReplays, getSummaries } from "@/lib/generated-data";
+import { StrategyShowcase } from "@/components/strategy-showcase";
+import { WorkedExamples } from "@/components/worked-examples";
+import { buildStrategyDemos } from "@/lib/strategy-demos";
+import {
+  getDecisionSnapshots,
+  getManifest,
+  getRobustness,
+  getSampleReplays,
+  getSimulator,
+  getSummaries,
+  getWalkthroughs,
+} from "@/lib/generated-data";
 
 export default async function HomePage() {
-  const [manifest, summaries, robustness, decisions, replays] = await Promise.all([
-    getManifest(),
-    getSummaries(),
-    getRobustness(),
-    getDecisionSnapshots(),
-    getSampleReplays(),
-  ]);
+  const [manifest, summaries, robustness, decisions, replays, walkthroughs, simulator] =
+    await Promise.all([
+      getManifest(),
+      getSummaries(),
+      getRobustness(),
+      getDecisionSnapshots(),
+      getSampleReplays(),
+      getWalkthroughs(),
+      getSimulator(),
+    ]);
 
   const bestStandard = summaries.standard[0];
   const bestEvil = summaries.evil[0];
 
+  const stdById = Object.fromEntries(
+    (summaries.standard ?? []).map((row) => [row.strategy_id, row]),
+  );
+  const evilById = Object.fromEntries(
+    (summaries.evil ?? []).map((row) => [row.strategy_id, row]),
+  );
+  const statsFor = (id: string) => {
+    const std = stdById[id];
+    const evil = evilById[id];
+    if (!std && !evil) return undefined;
+    return {
+      standardAvg: std?.average_guesses ?? 0,
+      evilDepth: evil?.average_guesses ?? 0,
+      worst: std?.worst_case ?? 0,
+    };
+  };
+
+  const showcaseDemos = buildStrategyDemos(manifest, summaries, replays, walkthroughs);
+
   return (
     <main className="page-shell">
       {/* ─── 1. Hero ─── */}
-      <section className="hero">
+      <section className="hero hero-stacked">
         <div className="hero-copy">
           <p className="eyebrow">Strategy Research</p>
           <h1>Benchmarking optimal play under uncertainty</h1>
@@ -41,7 +75,9 @@ export default async function HomePage() {
             </Link>
           </div>
         </div>
-        <CascadingBoard />
+        {showcaseDemos.length > 0 && (
+          <StrategyShowcase demos={showcaseDemos} />
+        )}
       </section>
 
       {/* ─── Stats strip ─── */}
@@ -64,32 +100,6 @@ export default async function HomePage() {
         </div>
       </div>
 
-      {/* ─── Evil-DP headline callout ─── */}
-      {bestEvil && (
-        <section className="finding-callout">
-          <div>
-            <p className="eyebrow">Headline finding</p>
-            <h2>
-              <code>evil-dp</code> solves Evil Wordle in <strong>{bestEvil.worst_case}</strong> turns —
-              one full guess better than every greedy strategy
-            </h2>
-            <p>
-              The exact dynamic program over the deterministic evil subset graph recovers
-              D(A) = {bestEvil.worst_case}. The spec&apos;s eight non-random deterministic heuristics
-              all tie at 5. Opening guess: <code>raise</code>.
-            </p>
-            <div className="hero-actions">
-              <Link className="secondary-button" href="/docs/evil-dp">
-                Evil DP strategy card
-              </Link>
-              <Link className="ghost-button" href="/results">
-                See all benchmark results
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ─── 2. Environments ─── */}
       <section className="mode-strip">
         <Link className="mode-panel" href="/play/standard">
@@ -109,7 +119,20 @@ export default async function HomePage() {
         </Link>
       </section>
 
-      {/* ─── 3. Strategy Index ─── */}
+      {/* ─── 3. Worked examples (paired with the paper) ─── */}
+      <WorkedExamples />
+
+      {/* ─── 4. Algorithm walkthroughs (multi-algo + per-strategy cases) ─── */}
+      <AlgorithmWalkthroughs
+        replays={replays}
+        summaries={summaries}
+        manifest={manifest}
+      />
+
+      {/* ─── 4.5 Interactive simulator ─── */}
+      {simulator && simulator.cases.length > 0 && <Simulator payload={simulator} />}
+
+      {/* ─── 5. Strategy Index ─── */}
       <section>
         <div className="section-header">
           <p className="eyebrow">Algorithms</p>
@@ -117,8 +140,13 @@ export default async function HomePage() {
           <p>From random baselines to Bayesian adaptive solvers — each with a deep-dive tutorial on the math.</p>
         </div>
         <div className="strategy-grid">
-          {manifest.strategies.map((s) => (
-            <StrategyCard key={s.id} strategy={s} />
+          {manifest.strategies.map((s, i) => (
+            <StrategyCard
+              key={s.id}
+              strategy={s}
+              index={i + 1}
+              stats={statsFor(s.id)}
+            />
           ))}
         </div>
       </section>

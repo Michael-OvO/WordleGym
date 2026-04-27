@@ -6,7 +6,7 @@ import { PlayLab } from "@/components/play-lab";
 describe("PlayLab", () => {
   test("renders lab chrome", () => {
     render(<PlayLab mode="standard" />);
-    expect(screen.getByText("STANDARD mode")).toBeInTheDocument();
+    expect(screen.getByText(/standard mode/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Solver step" })).toBeInTheDocument();
   });
 });

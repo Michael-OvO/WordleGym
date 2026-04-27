@@ -1,42 +1,103 @@
 import Link from "next/link";
 
+import { MathBlock } from "@/components/math";
 import { STRATEGY_CONTENT } from "@/lib/strategy-content";
+import { STRATEGY_FORMULAS } from "@/lib/strategy-previews";
+import type { StrategyTier } from "@/types/generated";
 
-const MATH_PREVIEWS: Record<string, string> = {
-  "random-valid": "seed = hash(state)",
-  "letter-frequency": "score = Σf_pos + 0.4·Σf_global",
-  "candidate-elimination": "E[remaining] = Σn²/N",
-  "expected-entropy": "H = -Σ(p·log₂p)",
-  "minimax": "score = max(|Sₚ|)",
-  "posterior-hybrid": "w_std·Ĥ + w_evil·r",
-  "evil-shortest-path": "min |T(C,g)|",
-  "posterior-expectimax": "q·E[|C|] + (1−q)·|T|",
-  "robust-scalarization": "min max(E[|C|], |T|)",
-  "evil-dp": "D(C) = min(1 + D(T))",
+// Single-word descriptor per tier. Keeps the kicker rail tight.
+const TIER_DESCRIPTOR: Record<StrategyTier, string> = {
+  baseline: "Control",
+  core: "One-ply partition",
+  experimental: "Mode-aware",
+  "aggregate-aware": "Practical-candidate",
+  optimal: "Exact DP",
+};
+
+export type StrategyCardStats = {
+  standardAvg: number;
+  evilDepth: number;
+  worst: number;
 };
 
 type Props = {
   strategy: { id: string; label: string; objective: string };
+  index?: number;
+  stats?: StrategyCardStats;
 };
 
-export function StrategyCard({ strategy }: Props) {
+export function StrategyCard({ strategy, index, stats }: Props) {
   const content = STRATEGY_CONTENT[strategy.id];
-  const tier = content?.tierLabel ?? null;
-  const tierClass = content ? `tier-${content.tier}` : "";
+  const tier = content?.tier ?? null;
+  const tierLabel = content?.tierLabel ?? null;
+  const tierDescriptor = tier ? TIER_DESCRIPTOR[tier] : null;
+  const formula = STRATEGY_FORMULAS[strategy.id];
+  const isOptimal = tier === "optimal";
 
   return (
-    <Link className="strategy-card" href={`/docs/${strategy.id}`}>
-      <div className="strategy-card-header">
+    <Link
+      className={`strategy-card${isOptimal ? " strategy-card-optimal" : ""}`}
+      href={`/docs/${strategy.id}`}
+    >
+      <header className="strategy-card-kicker">
+        {typeof index === "number" && (
+          <span className="strategy-card-index">
+            {index.toString().padStart(2, "0")}
+          </span>
+        )}
+        <span className="strategy-card-kicker-rule" aria-hidden="true" />
+        {tierLabel && (
+          <span className={`strategy-card-tier${tier ? ` tier-${tier}` : ""}`}>
+            {tierLabel}
+          </span>
+        )}
+        {tierDescriptor && (
+          <>
+            <span className="strategy-card-kicker-dot" aria-hidden="true">
+              /
+            </span>
+            <span className="strategy-card-tier-descriptor">
+              {tierDescriptor}
+            </span>
+          </>
+        )}
+      </header>
+
+      <div className="strategy-card-head">
         <h3>{strategy.label}</h3>
-        {tier && <span className={`tier-badge ${tierClass}`}>{tier}</span>}
+        <code className="strategy-card-id">{strategy.id}</code>
       </div>
-      <p>{strategy.objective}</p>
-      <span className="math-preview">
-        {MATH_PREVIEWS[strategy.id] ?? "—"}
-      </span>
-      <span className="strategy-card-arrow" aria-hidden="true">
-        &rarr;
-      </span>
+
+      {formula && (
+        <div className="strategy-card-formula" aria-hidden="true">
+          <MathBlock formula={formula} />
+        </div>
+      )}
+
+      <p className="strategy-card-desc">{strategy.objective}</p>
+
+      {stats && (
+        <dl className="strategy-card-stats">
+          <div>
+            <dt>Std avg</dt>
+            <dd>{stats.standardAvg.toFixed(2)}</dd>
+          </div>
+          <div
+            className={
+              isOptimal
+                ? "strategy-card-stat strategy-card-stat-accent"
+                : "strategy-card-stat"
+            }
+          >
+            <dt>Evil depth</dt>
+            <dd>{stats.evilDepth.toFixed(2)}</dd>
+          </div>
+          <div>
+            <dt>Worst</dt>
+            <dd>{stats.worst}</dd>
+          </div>
+        </dl>
+      )}
     </Link>
   );
 }

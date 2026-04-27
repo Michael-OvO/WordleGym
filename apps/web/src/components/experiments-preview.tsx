@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState, type ReactNode } from "react";
 import {
   CartesianGrid,
   Line,
@@ -31,6 +32,16 @@ const CHART_MARGIN = { top: 4, right: 12, bottom: 4, left: 0 };
 const AXIS_STYLE = { fontSize: 11, fill: "var(--text-secondary)" };
 const GRID_STROKE = "var(--surface-rule)";
 
+function ClientChart({ children }: { children: ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return <div className="chart-container">{mounted ? children : null}</div>;
+}
+
 function ChartTooltipContent({ active, payload, label }: { active?: boolean; payload?: Array<{ name: string; value: number; color: string }>; label?: string | number }) {
   if (!active || !payload?.length) return null;
   return (
@@ -55,7 +66,7 @@ function CandidateDecayChart({ replays }: { replays: SampleReplayPayload }) {
     <div className="chart-panel">
       <h3>Candidate Pool Decay</h3>
       <p>How each strategy reduces the search space over turns</p>
-      <div className="chart-container">
+      <ClientChart>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={CHART_MARGIN}>
             <CartesianGrid strokeDasharray="3 3" stroke={GRID_STROKE} />
@@ -75,7 +86,7 @@ function CandidateDecayChart({ replays }: { replays: SampleReplayPayload }) {
             ))}
           </LineChart>
         </ResponsiveContainer>
-      </div>
+      </ClientChart>
     </div>
   );
 }
@@ -88,7 +99,7 @@ function InformationGainChart({ replays }: { replays: SampleReplayPayload }) {
     <div className="chart-panel">
       <h3>Information Gain per Turn</h3>
       <p>Bits of information extracted at each guess (log₂ reduction)</p>
-      <div className="chart-container">
+      <ClientChart>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={CHART_MARGIN}>
             <CartesianGrid strokeDasharray="3 3" stroke={GRID_STROKE} />
@@ -108,7 +119,7 @@ function InformationGainChart({ replays }: { replays: SampleReplayPayload }) {
             ))}
           </LineChart>
         </ResponsiveContainer>
-      </div>
+      </ClientChart>
     </div>
   );
 }
@@ -133,7 +144,7 @@ function WorstVsAvgChart({ summaries }: { summaries: SummariesPayload }) {
     <div className="chart-panel">
       <h3>Worst-Case vs Average</h3>
       <p>Trade-off between average guesses and worst-case performance</p>
-      <div className="chart-container">
+      <ClientChart>
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart margin={{ ...CHART_MARGIN, bottom: 16, left: 8 }}>
             <CartesianGrid strokeDasharray="3 3" stroke={GRID_STROKE} />
@@ -145,7 +156,7 @@ function WorstVsAvgChart({ summaries }: { summaries: SummariesPayload }) {
             ))}
           </ScatterChart>
         </ResponsiveContainer>
-      </div>
+      </ClientChart>
     </div>
   );
 }
@@ -170,7 +181,7 @@ function PosteriorEvolutionChart({ summaries }: { summaries: SummariesPayload })
     <div className="chart-panel">
       <h3>Posterior Evolution</h3>
       <p>Mode inference accuracy over turns (Unknown mode)</p>
-      <div className="chart-container">
+      <ClientChart>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data} margin={CHART_MARGIN}>
             <CartesianGrid strokeDasharray="3 3" stroke={GRID_STROKE} />
@@ -190,7 +201,7 @@ function PosteriorEvolutionChart({ summaries }: { summaries: SummariesPayload })
             ))}
           </LineChart>
         </ResponsiveContainer>
-      </div>
+      </ClientChart>
     </div>
   );
 }

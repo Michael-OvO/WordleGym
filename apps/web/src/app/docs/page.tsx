@@ -1,6 +1,5 @@
-import Link from "next/link";
-
-import { getManifest } from "@/lib/generated-data";
+import { StrategyCard } from "@/components/strategy-card";
+import { getManifest, getSummaries } from "@/lib/generated-data";
 import {
   BENCHMARK_DISCLAIMER,
   STRATEGIES_BY_TIER,
@@ -10,8 +9,24 @@ import {
 } from "@/lib/strategy-content";
 
 export default async function DocsIndexPage() {
-  const manifest = await getManifest();
+  const [manifest, summaries] = await Promise.all([getManifest(), getSummaries()]);
   const manifestById = Object.fromEntries(manifest.strategies.map((s) => [s.id, s]));
+  const stdById = Object.fromEntries(
+    (summaries.standard ?? []).map((r) => [r.strategy_id, r]),
+  );
+  const evilById = Object.fromEntries(
+    (summaries.evil ?? []).map((r) => [r.strategy_id, r]),
+  );
+  const statsFor = (id: string) => {
+    const std = stdById[id];
+    const evil = evilById[id];
+    if (!std && !evil) return undefined;
+    return {
+      standardAvg: std?.average_guesses ?? 0,
+      evilDepth: evil?.average_guesses ?? 0,
+      worst: std?.worst_case ?? 0,
+    };
+  };
 
   return (
     <main className="page-shell page-tight">
@@ -42,15 +57,14 @@ export default async function DocsIndexPage() {
                 const content = STRATEGY_CONTENT[id];
                 const manifestEntry = manifestById[id];
                 const label = content?.title ?? manifestEntry?.label ?? id;
-                const subtitle = content?.subtitle ?? manifestEntry?.objective ?? "";
+                const objective =
+                  content?.subtitle ?? manifestEntry?.objective ?? "";
                 return (
-                  <Link key={id} className={`strategy-card tier-${tier}`} href={`/docs/${id}`}>
-                    <div className="strategy-card-header">
-                      <h3>{label}</h3>
-                      <span className={`tier-badge tier-${tier}`}>{content?.tierLabel ?? meta.label}</span>
-                    </div>
-                    <p>{subtitle}</p>
-                  </Link>
+                  <StrategyCard
+                    key={id}
+                    strategy={{ id, label, objective }}
+                    stats={statsFor(id)}
+                  />
                 );
               })}
             </div>

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 
 import { STRATEGY_CONTENT, STRATEGY_IDS } from "@/lib/strategy-content";
-import { MathBlock } from "./math";
+import { MathBlock } from "@/components/math";
 
 export function generateStaticParams() {
   return STRATEGY_IDS.map((id) => ({ strategy: id }));

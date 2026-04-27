@@ -110,12 +110,29 @@ export function filterCandidates(candidates: string[], guess: string, pattern: n
   return candidates.filter((candidate) => scoreGuess(guess, candidate) === pattern);
 }
 
-function partitionCounts(guess: string, candidates: string[]): Map<number, number> {
+const partitionCountsCache = new WeakMap<string[], Map<string, Map<number, number>>>();
+
+function computePartitionCounts(guess: string, candidates: string[]): Map<number, number> {
   const counts = new Map<number, number>();
   for (const candidate of candidates) {
     const pattern = scoreGuess(guess, candidate);
     counts.set(pattern, (counts.get(pattern) ?? 0) + 1);
   }
+  return counts;
+}
+
+function partitionCounts(guess: string, candidates: string[]): Map<number, number> {
+  let poolCache = partitionCountsCache.get(candidates);
+  if (!poolCache) {
+    poolCache = new Map();
+    partitionCountsCache.set(candidates, poolCache);
+  }
+
+  const cached = poolCache.get(guess);
+  if (cached) return cached;
+
+  const counts = computePartitionCounts(guess, candidates);
+  poolCache.set(guess, counts);
   return counts;
 }
 
@@ -238,6 +255,32 @@ function computePosterior(
   };
 }
 
+function candidatePoolFor(state: GameState): string[] {
+  return state.mode === "unknown"
+    ? [...new Set([...state.standardCandidateWords, ...state.evilCandidateWords])].sort()
+    : state.candidateWords;
+}
+
+function allAllowedGuessPool(state: GameState): string[] {
+  return state.wordLists.allowed;
+}
+
+function inCandidateRank(guess: string, candidateSet: Set<string>): number {
+  return candidateSet.has(guess) ? 0 : 1;
+}
+
+function compareRankKeys(left: Array<number | string>, right: Array<number | string> | null): number {
+  if (right === null) return -1;
+  for (let index = 0; index < left.length; index += 1) {
+    const l = left[index];
+    const r = right[index];
+    if (l === r) continue;
+    if (typeof l === "number" && typeof r === "number") return l - r;
+    return String(l).localeCompare(String(r));
+  }
+  return left.length - right.length;
+}
+
 export function createGameState(
   mode: Mode,
   wordLists: WordLists,
@@ -287,29 +330,31 @@ export function applyGuessToState(
   let candidateWords = state.candidateWords;
   let standardCandidateWords = state.standardCandidateWords;
   let evilCandidateWords = state.evilCandidateWords;
+  const priorStandardCandidateWords = state.standardCandidateWords;
+  const priorEvilCandidateWords = state.evilCandidateWords;
 
   if (state.hiddenMode === "standard") {
     pattern = scoreGuess(normalized, state.hiddenAnswer ?? state.wordLists.answers[0]);
-    standardCandidateWords = filterCandidates(standardCandidateWords, normalized, pattern);
   } else {
-    const evilResult = chooseEvilPattern(normalized, evilCandidateWords);
+    const evilResult = chooseEvilPattern(normalized, priorEvilCandidateWords);
     pattern = evilResult.pattern;
-    evilCandidateWords = evilResult.survivors;
   }
 
   if (state.mode === "unknown") {
-    standardCandidateWords = filterCandidates(standardCandidateWords, normalized, pattern);
-    if (evilCandidateWords.length > 0) {
-      const evilResult = chooseEvilPattern(normalized, evilCandidateWords);
+    standardCandidateWords = filterCandidates(priorStandardCandidateWords, normalized, pattern);
+    if (priorEvilCandidateWords.length > 0) {
+      const evilResult = chooseEvilPattern(normalized, priorEvilCandidateWords);
       evilCandidateWords =
-        evilResult.pattern === pattern ? filterCandidates(evilCandidateWords, normalized, pattern) : [];
+        evilResult.pattern === pattern ? evilResult.survivors : [];
     }
     const unionCandidates = [...new Set([...standardCandidateWords, ...evilCandidateWords])].sort();
     // Fallback to standard candidates if union is empty (matches Python engine behavior)
     candidateWords = unionCandidates.length > 0 ? unionCandidates : [...standardCandidateWords].sort();
   } else if (state.hiddenMode === "standard") {
+    standardCandidateWords = filterCandidates(priorStandardCandidateWords, normalized, pattern);
     candidateWords = standardCandidateWords;
   } else {
+    evilCandidateWords = chooseEvilPattern(normalized, priorEvilCandidateWords).survivors;
     candidateWords = evilCandidateWords;
   }
 
@@ -434,29 +479,21 @@ function partitionDecision(
   state: GameState,
   metric: "entropy" | "elimination" | "minimax",
 ): { guess: string; explanation: DecisionExplanation } {
-  const pool = state.mode === "unknown" ? [...new Set([...state.standardCandidateWords, ...state.evilCandidateWords])].sort() : state.candidateWords;
-  let bestGuess = pool[0];
-  let bestValue = metric === "minimax" ? Infinity : -Infinity;
-  let bestStats = evaluatePool(bestGuess, pool);
+  const candidates = candidatePoolFor(state);
+  const guesses = allAllowedGuessPool(state);
+  const candidateSet = new Set(candidates);
+  let bestGuess = candidates[0];
+  let bestKey: Array<number | string> | null = null;
+  let bestStats = evaluatePool(bestGuess, candidates);
 
-  for (const guess of pool) {
-    const stats = evaluatePool(guess, pool);
+  for (const guess of guesses) {
+    const stats = evaluatePool(guess, candidates);
     const value =
-      metric === "entropy" ? stats.entropy : metric === "elimination" ? -stats.expectedRemaining : stats.worstCase;
-    let isBetter: boolean;
-    if (metric === "minimax") {
-      isBetter = value < bestValue
-        || (value === bestValue && stats.worstCase < bestStats.worstCase)
-        || (value === bestValue && stats.worstCase === bestStats.worstCase && guess < bestGuess);
-    } else {
-      // For entropy/elimination: primary value, then secondary worst-case (ascending), then alphabetical
-      isBetter = value > bestValue
-        || (value === bestValue && stats.worstCase < bestStats.worstCase)
-        || (value === bestValue && stats.worstCase === bestStats.worstCase && guess < bestGuess);
-    }
-    if (isBetter) {
+      metric === "entropy" ? stats.entropy : metric === "elimination" ? -stats.expectedRemaining : -stats.worstCase;
+    const key = [-value, stats.worstCase, inCandidateRank(guess, candidateSet), guess];
+    if (compareRankKeys(key, bestKey) < 0) {
       bestGuess = guess;
-      bestValue = value;
+      bestKey = key;
       bestStats = stats;
     }
   }
@@ -464,7 +501,8 @@ function partitionDecision(
   return {
     guess: bestGuess,
     explanation: {
-      poolSize: pool.length,
+      poolSize: candidates.length,
+      guessPoolSize: guesses.length,
       entropy: Number(bestStats.entropy.toFixed(6)),
       expectedRemaining: Number(bestStats.expectedRemaining.toFixed(6)),
       worstCase: bestStats.worstCase,
@@ -474,7 +512,9 @@ function partitionDecision(
 }
 
 function posteriorHybridDecision(state: GameState): { guess: string; explanation: DecisionExplanation } {
-  const pool = state.mode === "unknown" ? [...new Set([...state.standardCandidateWords, ...state.evilCandidateWords])].sort() : state.candidateWords;
+  const pool = candidatePoolFor(state);
+  const guesses = allAllowedGuessPool(state);
+  const candidateSet = new Set(pool);
 
   let standardWeight: number;
   let evilWeight: number;
@@ -498,24 +538,23 @@ function posteriorHybridDecision(state: GameState): { guess: string; explanation
   const maxEntropy = standardPool.length > 1 ? Math.log2(standardPool.length) : 1.0;
 
   let bestGuess = pool[0];
-  let bestBlended = -Infinity;
+  let bestKey: Array<number | string> | null = null;
   let bestDetails: DecisionExplanation = {};
 
-  for (const guess of pool) {
+  for (const guess of guesses) {
     const standardStats = evaluatePool(guess, standardPool);
     const evilStats = evaluatePool(guess, evilPool);
     const normalizedStandardEntropy = standardStats.entropy / maxEntropy;
     const blended =
       standardWeight * normalizedStandardEntropy +
       evilWeight * evilStats.reduction;
-    const bestEvilWorst = typeof bestDetails.evilWorstCase === "number" ? bestDetails.evilWorstCase : Infinity;
-    if (blended > bestBlended
-      || (blended === bestBlended && evilStats.worstCase < bestEvilWorst)
-      || (blended === bestBlended && evilStats.worstCase === bestEvilWorst && guess < bestGuess)) {
+    const key = [-blended, evilStats.worstCase, inCandidateRank(guess, candidateSet), guess];
+    if (compareRankKeys(key, bestKey) < 0) {
       bestGuess = guess;
-      bestBlended = blended;
+      bestKey = key;
       bestDetails = {
         poolSize: pool.length,
+        guessPoolSize: guesses.length,
         standardEntropy: Number(standardStats.entropy.toFixed(6)),
         normalizedStandardEntropy: Number(normalizedStandardEntropy.toFixed(6)),
         evilReductionRatio: Number(evilStats.reduction.toFixed(6)),
@@ -530,25 +569,23 @@ function posteriorHybridDecision(state: GameState): { guess: string; explanation
 }
 
 function evilShortestPathDecision(state: GameState): { guess: string; explanation: DecisionExplanation } {
-  const pool = state.mode === "unknown" ? [...new Set([...state.standardCandidateWords, ...state.evilCandidateWords])].sort() : state.candidateWords;
+  const pool = candidatePoolFor(state);
+  const guesses = allAllowedGuessPool(state);
+  const candidateSet = new Set(pool);
   let bestGuess = pool[0];
-  let bestForced = Infinity;
-  let bestEntropy = -Infinity;
+  let bestKey: Array<number | string> | null = null;
   let bestDetails: DecisionExplanation = {};
-  for (const guess of pool) {
+  for (const guess of guesses) {
     const counts = partitionCounts(guess, pool);
     const forced = evilForcedBucketSize(guess, pool);
     const entropy = shannonEntropy(counts);
-    const better =
-      forced < bestForced
-      || (forced === bestForced && entropy > bestEntropy)
-      || (forced === bestForced && entropy === bestEntropy && guess < bestGuess);
-    if (better) {
+    const key = [forced, -entropy, inCandidateRank(guess, candidateSet), guess];
+    if (compareRankKeys(key, bestKey) < 0) {
       bestGuess = guess;
-      bestForced = forced;
-      bestEntropy = entropy;
+      bestKey = key;
       bestDetails = {
         poolSize: pool.length,
+        guessPoolSize: guesses.length,
         evilForcedBucket: forced,
         entropy: Number(entropy.toFixed(6)),
       };
@@ -573,22 +610,26 @@ function modeWeights(state: GameState, standardPoolSize: number): { q: number; e
 }
 
 function posteriorExpectimaxDecision(state: GameState): { guess: string; explanation: DecisionExplanation } {
-  const pool = state.mode === "unknown" ? [...new Set([...state.standardCandidateWords, ...state.evilCandidateWords])].sort() : state.candidateWords;
+  const pool = candidatePoolFor(state);
+  const guesses = allAllowedGuessPool(state);
+  const candidateSet = new Set(pool);
   const standardPool = state.standardCandidateWords.length ? state.standardCandidateWords : pool;
   const { q, evil } = modeWeights(state, standardPool.length);
   let bestGuess = pool[0];
-  let bestScore = Infinity;
+  let bestKey: Array<number | string> | null = null;
   let bestDetails: DecisionExplanation = {};
-  for (const guess of pool) {
+  for (const guess of guesses) {
     const counts = partitionCounts(guess, pool);
     const expected = expectedRemaining(counts);
     const forced = evilForcedBucketSize(guess, pool);
     const score = q * expected + evil * forced;
-    if (score < bestScore || (score === bestScore && guess < bestGuess)) {
+    const key = [score, inCandidateRank(guess, candidateSet), forced, guess];
+    if (compareRankKeys(key, bestKey) < 0) {
       bestGuess = guess;
-      bestScore = score;
+      bestKey = key;
       bestDetails = {
         poolSize: pool.length,
+        guessPoolSize: guesses.length,
         expectedRemaining: Number(expected.toFixed(6)),
         evilForcedBucket: forced,
         blendedScore: Number(score.toFixed(6)),
@@ -600,27 +641,25 @@ function posteriorExpectimaxDecision(state: GameState): { guess: string; explana
 }
 
 function robustScalarizationDecision(state: GameState): { guess: string; explanation: DecisionExplanation } {
-  const pool = state.mode === "unknown" ? [...new Set([...state.standardCandidateWords, ...state.evilCandidateWords])].sort() : state.candidateWords;
+  const pool = candidatePoolFor(state);
+  const guesses = allAllowedGuessPool(state);
+  const candidateSet = new Set(pool);
   let bestGuess = pool[0];
-  let bestRobust = Infinity;
-  let bestMean = Infinity;
+  let bestKey: Array<number | string> | null = null;
   let bestDetails: DecisionExplanation = {};
-  for (const guess of pool) {
+  for (const guess of guesses) {
     const counts = partitionCounts(guess, pool);
     const expected = expectedRemaining(counts);
     const forced = evilForcedBucketSize(guess, pool);
     const robust = Math.max(expected, forced);
     const mean = 0.5 * (expected + forced);
-    const better =
-      robust < bestRobust
-      || (robust === bestRobust && mean < bestMean)
-      || (robust === bestRobust && mean === bestMean && guess < bestGuess);
-    if (better) {
+    const key = [robust, mean, inCandidateRank(guess, candidateSet), guess];
+    if (compareRankKeys(key, bestKey) < 0) {
       bestGuess = guess;
-      bestRobust = robust;
-      bestMean = mean;
+      bestKey = key;
       bestDetails = {
         poolSize: pool.length,
+        guessPoolSize: guesses.length,
         standardCost: Number(expected.toFixed(6)),
         evilCost: forced,
         robustScore: Number(robust.toFixed(6)),
@@ -635,7 +674,7 @@ export function chooseStrategyGuess(
   state: GameState,
   strategyId: string,
 ): { guess: string; explanation: DecisionExplanation } {
-  const pool = state.mode === "unknown" ? [...new Set([...state.standardCandidateWords, ...state.evilCandidateWords])].sort() : state.candidateWords;
+  const pool = candidatePoolFor(state);
   if (!pool.length) {
     throw new Error("No feasible candidates remain.");
   }
@@ -665,16 +704,388 @@ export function chooseStrategyGuess(
       // Browser fallback: exact DP lives in the Python engine with a 524KB
       // precomputed policy. In the interactive lab, fall back to the greedy
       // evil-shortest-path objective, which is its base heuristic anyway.
+    {
+      const fallbackDecision = evilShortestPathDecision(state);
       return {
-        ...evilShortestPathDecision(state),
+        ...fallbackDecision,
         explanation: {
-          ...evilShortestPathDecision(state).explanation,
+          ...fallbackDecision.explanation,
           browserFallback: "evil-shortest-path-greedy",
           dpOptimal: false,
         },
       };
+    }
     default:
       throw new Error(`Unknown strategy: ${strategyId}`);
+  }
+}
+
+export type GuessRanking = {
+  guess: string;
+  entropy: number;
+  expectedRemaining: number;
+  worstCase: number;
+};
+
+export type InsightBar = {
+  guess: string;
+  value: number;
+  display: string;
+};
+
+export type InsightSplit = {
+  guess: string;
+  standardPart: number;
+  evilPart: number;
+  total: number;
+};
+
+export type InsightHeatmapCell = {
+  letter: string;
+  weight: number;
+};
+
+export type StrategyInsight =
+  | {
+      kind: "bars";
+      metricLabel: string;
+      unitLabel: string;
+      higherIsBetter: boolean;
+      poolSize: number;
+      entries: InsightBar[];
+    }
+  | {
+      kind: "split";
+      metricLabel: string;
+      standardLabel: string;
+      evilLabel: string;
+      standardWeight: number;
+      evilWeight: number;
+      poolSize: number;
+      entries: InsightSplit[];
+    }
+  | {
+      kind: "heatmap";
+      metricLabel: string;
+      poolSize: number;
+      columns: InsightHeatmapCell[][];
+    }
+  | {
+      kind: "pills";
+      metricLabel: string;
+      poolSize: number;
+      entries: string[];
+    };
+
+function poolFor(state: GameState): string[] {
+  return candidatePoolFor(state);
+}
+
+export function rankTopGuesses(state: GameState, limit = 6): GuessRanking[] {
+  const candidates = poolFor(state);
+  const guesses = allAllowedGuessPool(state);
+  const candidateSet = new Set(candidates);
+  if (!candidates.length) return [];
+  if (candidates.length === 1) {
+    return [{ guess: candidates[0], entropy: 0, expectedRemaining: 1, worstCase: 1 }];
+  }
+  const ranked: GuessRanking[] = guesses.map((guess) => {
+    const counts = partitionCounts(guess, candidates);
+    return {
+      guess,
+      entropy: shannonEntropy(counts),
+      expectedRemaining: expectedRemaining(counts),
+      worstCase: worstCaseBucket(counts),
+    };
+  });
+  ranked.sort((a, b) => {
+    if (b.entropy !== a.entropy) return b.entropy - a.entropy;
+    if (a.worstCase !== b.worstCase) return a.worstCase - b.worstCase;
+    const candidateCmp = inCandidateRank(a.guess, candidateSet) - inCandidateRank(b.guess, candidateSet);
+    if (candidateCmp !== 0) return candidateCmp;
+    return a.guess.localeCompare(b.guess);
+  });
+  return ranked.slice(0, limit);
+}
+
+type BarMetric = "entropy" | "expectedRemaining" | "worstCase" | "evilBucket";
+
+function rankBars(state: GameState, metric: BarMetric, limit: number): InsightBar[] {
+  const pool = poolFor(state);
+  const guesses = allAllowedGuessPool(state);
+  const candidateSet = new Set(pool);
+  if (!pool.length) return [];
+  const scored = guesses.map((guess) => {
+    const counts = partitionCounts(guess, pool);
+    let value: number;
+    let display: string;
+    let key: Array<number | string>;
+    switch (metric) {
+      case "entropy":
+        value = shannonEntropy(counts);
+        display = value.toFixed(2);
+        key = [-value, worstCaseBucket(counts), inCandidateRank(guess, candidateSet), guess];
+        break;
+      case "expectedRemaining":
+        value = expectedRemaining(counts);
+        display = value < 10 ? value.toFixed(2) : value.toFixed(0);
+        key = [value, worstCaseBucket(counts), inCandidateRank(guess, candidateSet), guess];
+        break;
+      case "worstCase":
+        value = worstCaseBucket(counts);
+        display = String(value);
+        key = [value, inCandidateRank(guess, candidateSet), guess];
+        break;
+      case "evilBucket":
+        value = evilForcedBucketSize(guess, pool);
+        display = String(value);
+        key = [value, -shannonEntropy(counts), inCandidateRank(guess, candidateSet), guess];
+        break;
+    }
+    return { guess, value, display, key };
+  });
+  scored.sort((a, b) => compareRankKeys(a.key, b.key));
+  return scored.slice(0, limit);
+}
+
+function rankPosteriorHybrid(state: GameState, limit: number): {
+  entries: InsightSplit[];
+  standardWeight: number;
+  evilWeight: number;
+  poolSize: number;
+} {
+  const pool = poolFor(state);
+  const guesses = allAllowedGuessPool(state);
+  const candidateSet = new Set(pool);
+  const standardPool = state.standardCandidateWords.length ? state.standardCandidateWords : pool;
+  const evilPool = state.evilCandidateWords.length ? state.evilCandidateWords : pool;
+  let standardWeight: number;
+  let evilWeight: number;
+  if (state.mode === "standard") {
+    standardWeight = 1.0;
+    evilWeight = 0.0;
+  } else if (state.mode === "evil") {
+    standardWeight = 0.0;
+    evilWeight = 1.0;
+  } else {
+    standardWeight = state.modePosterior.standard;
+    evilWeight = state.modePosterior.evil;
+  }
+  const maxEntropy = standardPool.length > 1 ? Math.log2(standardPool.length) : 1.0;
+  const scored = guesses.map((guess) => {
+    const standardStats = evaluatePool(guess, standardPool);
+    const evilStats = evaluatePool(guess, evilPool);
+    const standardPart = standardWeight * (standardStats.entropy / maxEntropy);
+    const evilPart = evilWeight * evilStats.reduction;
+    const total = standardPart + evilPart;
+    return {
+      guess,
+      standardPart,
+      evilPart,
+      total,
+      key: [-total, evilStats.worstCase, inCandidateRank(guess, candidateSet), guess],
+    };
+  });
+  scored.sort((a, b) => compareRankKeys(a.key, b.key));
+  return { entries: scored.slice(0, limit), standardWeight, evilWeight, poolSize: pool.length };
+}
+
+function rankBlendedCost(
+  state: GameState,
+  shape: "expectimax" | "robust",
+  limit: number,
+): {
+  entries: InsightSplit[];
+  standardWeight: number;
+  evilWeight: number;
+  poolSize: number;
+} {
+  const pool = poolFor(state);
+  const guesses = allAllowedGuessPool(state);
+  const candidateSet = new Set(pool);
+  const standardPool = state.standardCandidateWords.length ? state.standardCandidateWords : pool;
+  const { q, evil } = modeWeights(state, standardPool.length);
+  const standardWeight = shape === "robust" ? 0.5 : q;
+  const evilWeight = shape === "robust" ? 0.5 : evil;
+  const scored = guesses.map((guess) => {
+    const counts = partitionCounts(guess, pool);
+    const expected = expectedRemaining(counts);
+    const forced = evilForcedBucketSize(guess, pool);
+    const maxCost = Math.max(pool.length, 1);
+    const standardNorm = expected / maxCost;
+    const evilNorm = forced / maxCost;
+    const standardPart = standardWeight * (1 - standardNorm);
+    const evilPart = evilWeight * (1 - evilNorm);
+    const total = standardPart + evilPart;
+    const cost = shape === "robust" ? Math.max(expected, forced) : q * expected + evil * forced;
+    const secondary = shape === "robust" ? 0.5 * (expected + forced) : inCandidateRank(guess, candidateSet);
+    return {
+      guess,
+      standardPart,
+      evilPart,
+      total,
+      key: shape === "robust"
+        ? [cost, secondary, inCandidateRank(guess, candidateSet), guess]
+        : [cost, inCandidateRank(guess, candidateSet), forced, guess],
+    };
+  });
+  scored.sort((a, b) => compareRankKeys(a.key, b.key));
+  return { entries: scored.slice(0, limit), standardWeight, evilWeight, poolSize: pool.length };
+}
+
+function letterHeatmap(state: GameState): { columns: InsightHeatmapCell[][]; poolSize: number } {
+  const pool = poolFor(state);
+  if (!pool.length) return { columns: [[], [], [], [], []], poolSize: 0 };
+  const columns: InsightHeatmapCell[][] = Array.from({ length: 5 }, () => []);
+  for (let position = 0; position < 5; position += 1) {
+    const counts = new Map<string, number>();
+    for (const word of pool) {
+      const letter = word[position];
+      counts.set(letter, (counts.get(letter) ?? 0) + 1);
+    }
+    const entries = [...counts.entries()]
+      .map(([letter, count]) => ({ letter, weight: count / pool.length }))
+      .sort((a, b) => b.weight - a.weight || a.letter.localeCompare(b.letter))
+      .slice(0, 4);
+    columns[position] = entries;
+  }
+  return { columns, poolSize: pool.length };
+}
+
+function samplePills(state: GameState, limit: number): { entries: string[]; poolSize: number } {
+  const pool = poolFor(state);
+  if (!pool.length) return { entries: [], poolSize: 0 };
+  const seed = pool.length + (state.steps.length ?? 0);
+  const rng = (index: number) => {
+    const x = Math.sin(seed * 9301 + index * 49297) * 233280;
+    return x - Math.floor(x);
+  };
+  const indices = new Set<number>();
+  const entries: string[] = [];
+  let attempt = 0;
+  while (entries.length < Math.min(limit, pool.length) && attempt < limit * 6) {
+    const index = Math.floor(rng(attempt) * pool.length);
+    if (!indices.has(index)) {
+      indices.add(index);
+      entries.push(pool[index]);
+    }
+    attempt += 1;
+  }
+  return { entries, poolSize: pool.length };
+}
+
+export function computeStrategyInsight(
+  state: GameState,
+  strategyId: string,
+  limit = 6,
+): StrategyInsight | null {
+  const pool = poolFor(state);
+  if (!pool.length) return null;
+  switch (strategyId) {
+    case "expected-entropy":
+      return {
+        kind: "bars",
+        metricLabel: "expected entropy",
+        unitLabel: "bits",
+        higherIsBetter: true,
+        poolSize: pool.length,
+        entries: rankBars(state, "entropy", limit),
+      };
+    case "candidate-elimination":
+      return {
+        kind: "bars",
+        metricLabel: "expected remaining",
+        unitLabel: "words",
+        higherIsBetter: false,
+        poolSize: pool.length,
+        entries: rankBars(state, "expectedRemaining", limit),
+      };
+    case "minimax":
+      return {
+        kind: "bars",
+        metricLabel: "worst-case bucket",
+        unitLabel: "words",
+        higherIsBetter: false,
+        poolSize: pool.length,
+        entries: rankBars(state, "worstCase", limit),
+      };
+    case "evil-shortest-path":
+      return {
+        kind: "bars",
+        metricLabel: "adversary's bucket",
+        unitLabel: "words",
+        higherIsBetter: false,
+        poolSize: pool.length,
+        entries: rankBars(state, "evilBucket", limit),
+      };
+    case "evil-dp":
+      return {
+        kind: "bars",
+        metricLabel: "adversary's bucket (greedy proxy)",
+        unitLabel: "words",
+        higherIsBetter: false,
+        poolSize: pool.length,
+        entries: rankBars(state, "evilBucket", limit),
+      };
+    case "letter-frequency": {
+      const { columns, poolSize } = letterHeatmap(state);
+      return {
+        kind: "heatmap",
+        metricLabel: "letter frequency · by position",
+        poolSize,
+        columns,
+      };
+    }
+    case "posterior-hybrid": {
+      const { entries, standardWeight, evilWeight, poolSize } = rankPosteriorHybrid(state, limit);
+      return {
+        kind: "split",
+        metricLabel: "blended score",
+        standardLabel: "entropy",
+        evilLabel: "evil reduction",
+        standardWeight,
+        evilWeight,
+        poolSize,
+        entries,
+      };
+    }
+    case "posterior-expectimax": {
+      const { entries, standardWeight, evilWeight, poolSize } = rankBlendedCost(state, "expectimax", limit);
+      return {
+        kind: "split",
+        metricLabel: "posterior cost (inverse)",
+        standardLabel: "standard",
+        evilLabel: "evil",
+        standardWeight,
+        evilWeight,
+        poolSize,
+        entries,
+      };
+    }
+    case "robust-scalarization": {
+      const { entries, standardWeight, evilWeight, poolSize } = rankBlendedCost(state, "robust", limit);
+      return {
+        kind: "split",
+        metricLabel: "robust score",
+        standardLabel: "standard",
+        evilLabel: "evil",
+        standardWeight,
+        evilWeight,
+        poolSize,
+        entries,
+      };
+    }
+    case "random-valid": {
+      const { entries, poolSize } = samplePills(state, limit);
+      return {
+        kind: "pills",
+        metricLabel: "uniform sample",
+        poolSize,
+        entries,
+      };
+    }
+    default:
+      return null;
   }
 }
 

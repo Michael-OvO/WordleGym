@@ -6,7 +6,9 @@ import type {
   ManifestPayload,
   RobustnessPayload,
   SampleReplayPayload,
+  SimulatorPayload,
   SummariesPayload,
+  WalkthroughsPayload,
 } from "@/types/generated";
 
 const generatedDir = path.join(process.cwd(), "public", "generated");
@@ -50,5 +52,23 @@ export async function getDecisionSnapshots(): Promise<DecisionSnapshot[]> {
 
 export async function getSampleReplays(): Promise<SampleReplayPayload> {
   return readJsonFile<SampleReplayPayload>("sample-replays.json", {});
+}
+
+export async function getWalkthroughs(): Promise<WalkthroughsPayload | null> {
+  try {
+    const file = await readFile(path.join(generatedDir, "walkthroughs.json"), "utf-8");
+    return JSON.parse(file) as WalkthroughsPayload;
+  } catch {
+    return null;
+  }
+}
+
+export async function getSimulator(): Promise<SimulatorPayload | null> {
+  try {
+    const file = await readFile(path.join(generatedDir, "simulator.json"), "utf-8");
+    return JSON.parse(file) as SimulatorPayload;
+  } catch {
+    return null;
+  }
 }
 
