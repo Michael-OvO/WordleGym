@@ -1,0 +1,4744 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "case_id": "aback-unknown",
+      "label": "ABACK \u00b7 Unknown mode",
+      "description": "10 strategies, one hidden answer. The mode is hidden behind a Bayesian posterior; all strategies receive the same feedback and must infer the rest.",
+      "hidden_answer": "aback",
+      "mode": "unknown",
+      "hidden_mode": "standard",
+      "total_candidates": 2315,
+      "strategies": [
+        {
+          "strategy_id": "expected-entropy",
+          "label": "Expected Entropy",
+          "tier": "core",
+          "metric": {
+            "label": "entropy",
+            "unit": "bits",
+            "decimals": 3,
+            "goal": "max"
+          },
+          "solved": true,
+          "total_turns": 4,
+          "turns": [
+            {
+              "turn": 1,
+              "candidates_before": 2315,
+              "candidates_after": 40,
+              "pool_preview": [
+                "aback",
+                "abase",
+                "abate",
+                "abbey",
+                "abbot",
+                "abhor",
+                "abide",
+                "abled",
+                "abode",
+                "abort",
+                "about",
+                "above"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "soare",
+              "chosen_pattern": "BBGBB",
+              "chosen_score": 5.886,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "soare",
+                  "score": 5.886,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 183,
+                    "expected_remaining": 62.301
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "roate",
+                  "score": 5.8828,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 195,
+                    "expected_remaining": 60.425
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "raise",
+                  "score": 5.8779,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "worst_case": 168,
+                    "expected_remaining": 61.001
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "raile",
+                  "score": 5.8657,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 173,
+                    "expected_remaining": 61.331
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "reast",
+                  "score": 5.8655,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 227,
+                    "expected_remaining": 71.765
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "slate",
+                  "score": 5.8558,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "worst_case": 221,
+                    "expected_remaining": 71.573
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "crate",
+                  "score": 5.8349,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "worst_case": 246,
+                    "expected_remaining": 72.9
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "salet",
+                  "score": 5.8346,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 221,
+                    "expected_remaining": 71.272
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "candidates_before": 40,
+              "candidates_after": 3,
+              "pool_preview": [
+                "aback",
+                "adapt",
+                "again",
+                "avail",
+                "await",
+                "black",
+                "bland",
+                "blank",
+                "chaff",
+                "chain",
+                "chalk",
+                "champ"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "clink",
+              "chosen_pattern": "YBBBG",
+              "chosen_score": 4.5964,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "clink",
+                  "score": 4.5964,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 3,
+                    "expected_remaining": 1.85
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "plink",
+                  "score": 4.4964,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 3,
+                    "expected_remaining": 1.95
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "clint",
+                  "score": 4.4439,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 5,
+                    "expected_remaining": 2.15
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "clunk",
+                  "score": 4.4439,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 5,
+                    "expected_remaining": 2.15
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "cling",
+                  "score": 4.4251,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 5,
+                    "expected_remaining": 2.2
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "plunk",
+                  "score": 4.3587,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 3,
+                    "expected_remaining": 2.15
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "blink",
+                  "score": 4.3153,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 4,
+                    "expected_remaining": 2.3
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "clipt",
+                  "score": 4.2653,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 6,
+                    "expected_remaining": 2.55
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "candidates_before": 3,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback",
+                "quack",
+                "whack"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aahed",
+              "chosen_pattern": "GYBBB",
+              "chosen_score": 1.585,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aahed",
+                  "score": 1.585,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "aargh",
+                  "score": 1.585,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "abash",
+                  "score": 1.585,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "abhor",
+                  "score": 1.585,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "ablow",
+                  "score": 1.585,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "abmho",
+                  "score": 1.585,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "abohm",
+                  "score": 1.585,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "about",
+                  "score": 1.585,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "candidates_before": 1,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aback",
+              "chosen_pattern": "GGGGG",
+              "chosen_score": 0.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aback",
+                  "score": 0.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "aahed",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aalii",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "aargh",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "aarti",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "abaca",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "abaci",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "abacs",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "expected_remaining": 1.0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "strategy_id": "candidate-elimination",
+          "label": "Candidate Elimination",
+          "tier": "core",
+          "metric": {
+            "label": "E[remaining]",
+            "unit": null,
+            "decimals": 2,
+            "goal": "min"
+          },
+          "solved": true,
+          "total_turns": 4,
+          "turns": [
+            {
+              "turn": 1,
+              "candidates_before": 2315,
+              "candidates_after": 71,
+              "pool_preview": [
+                "aback",
+                "abase",
+                "abate",
+                "abbey",
+                "abbot",
+                "abhor",
+                "abide",
+                "abled",
+                "abode",
+                "abort",
+                "about",
+                "above"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "roate",
+              "chosen_pattern": "BBGBB",
+              "chosen_score": 60.4246,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "roate",
+                  "score": 60.4246,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 195,
+                    "entropy": 5.883
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "raise",
+                  "score": 61.0009,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "worst_case": 168,
+                    "entropy": 5.878
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "raile",
+                  "score": 61.3309,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 173,
+                    "entropy": 5.866
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "soare",
+                  "score": 62.3011,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 183,
+                    "entropy": 5.886
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "arise",
+                  "score": 63.7257,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "worst_case": 168,
+                    "entropy": 5.821
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "irate",
+                  "score": 63.7793,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "worst_case": 194,
+                    "entropy": 5.831
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "orate",
+                  "score": 63.8907,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 195,
+                    "entropy": 5.817
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "ariel",
+                  "score": 65.2877,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 173,
+                    "entropy": 5.775
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "candidates_before": 71,
+              "candidates_after": 4,
+              "pool_preview": [
+                "aback",
+                "again",
+                "amass",
+                "avail",
+                "awash",
+                "black",
+                "bland",
+                "blank",
+                "chaff",
+                "chain",
+                "chalk",
+                "champ"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "slick",
+              "chosen_pattern": "BBBGG",
+              "chosen_score": 2.7183,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "slick",
+                  "score": 2.7183,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 6,
+                    "entropy": 4.927
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "slink",
+                  "score": 3.0845,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 6,
+                    "entropy": 4.809
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "slunk",
+                  "score": 3.338,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 7,
+                    "entropy": 4.762
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "clips",
+                  "score": 3.3944,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 9,
+                    "entropy": 4.793
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "chins",
+                  "score": 3.507,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 6,
+                    "entropy": 4.592
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "linch",
+                  "score": 3.6479,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 7,
+                    "entropy": 4.52
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "sculk",
+                  "score": 3.6479,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 8,
+                    "entropy": 4.582
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "clink",
+                  "score": 3.6479,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 9,
+                    "entropy": 4.613
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "candidates_before": 4,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback",
+                "knack",
+                "quack",
+                "whack"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "abuna",
+              "chosen_pattern": "GGBBY",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "abuna",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "abune",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "adhan",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "adown",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "adunc",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "aguna",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "ahent",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "ahind",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 2.0
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "candidates_before": 1,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aback",
+              "chosen_pattern": "GGGGG",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aback",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "aahed",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aalii",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "aargh",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "aarti",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "abaca",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "abaci",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "abacs",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "worst_case": 1,
+                    "entropy": 0.0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "strategy_id": "minimax",
+          "label": "Minimax",
+          "tier": "core",
+          "metric": {
+            "label": "worst bucket",
+            "unit": null,
+            "decimals": 0,
+            "goal": "min"
+          },
+          "solved": true,
+          "total_turns": 3,
+          "turns": [
+            {
+              "turn": 1,
+              "candidates_before": 2315,
+              "candidates_after": 29,
+              "pool_preview": [
+                "aback",
+                "abase",
+                "abate",
+                "abbey",
+                "abbot",
+                "abhor",
+                "abide",
+                "abled",
+                "abode",
+                "abort",
+                "about",
+                "above"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "arise",
+              "chosen_pattern": "GBBBB",
+              "chosen_score": 168.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "arise",
+                  "score": 168.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 5.821
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "raise",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 5.878
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aesir",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.622
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "reais",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.586
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "serai",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.59
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "aiery",
+                  "score": 171.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.343
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "ayrie",
+                  "score": 171.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.397
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "ariel",
+                  "score": 173.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.775
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "candidates_before": 29,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback",
+                "abbot",
+                "about",
+                "adapt",
+                "adopt",
+                "adult",
+                "afoot",
+                "afoul",
+                "aglow",
+                "agony",
+                "album",
+                "allay"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "clout",
+              "chosen_pattern": "YBBBB",
+              "chosen_score": 2.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "clout",
+                  "score": 2.0,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.375
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "flout",
+                  "score": 2.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.582
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "glout",
+                  "score": 2.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.444
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "alloy",
+                  "score": 3.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 3.926
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "aloft",
+                  "score": 3.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 4.254
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "aloud",
+                  "score": 3.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 3.995
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "atoll",
+                  "score": 3.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 4.047
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "aldol",
+                  "score": 3.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 3.926
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "candidates_before": 1,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aback",
+              "chosen_pattern": "GGGGG",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aback",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "aahed",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aalii",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "aargh",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "aarti",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "abaca",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "abaci",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "abacs",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "strategy_id": "evil-dp",
+          "label": "Evil DP",
+          "tier": "optimal",
+          "metric": {
+            "label": "|T| (greedy)",
+            "unit": null,
+            "decimals": 0,
+            "goal": "min"
+          },
+          "solved": true,
+          "total_turns": 4,
+          "turns": [
+            {
+              "turn": 1,
+              "candidates_before": 2315,
+              "candidates_after": 92,
+              "pool_preview": [
+                "aback",
+                "abase",
+                "abate",
+                "abbey",
+                "abbot",
+                "abhor",
+                "abide",
+                "abled",
+                "abode",
+                "abort",
+                "about",
+                "above"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "raise",
+              "chosen_pattern": "BYBBB",
+              "chosen_score": 168.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "raise",
+                  "score": 168.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 5.878
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "arise",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 5.821
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aesir",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.622
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "serai",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.59
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "reais",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.586
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "ayrie",
+                  "score": 171.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.397
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "aiery",
+                  "score": 171.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.343
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "raile",
+                  "score": 173.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.866
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "candidates_before": 92,
+              "candidates_after": 4,
+              "pool_preview": [
+                "aback",
+                "abbot",
+                "about",
+                "adapt",
+                "adopt",
+                "adult",
+                "afoot",
+                "afoul",
+                "aglow",
+                "agony",
+                "album",
+                "allay"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "cloak",
+              "chosen_pattern": "YBBYG",
+              "chosen_score": 7.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "cloak",
+                  "score": 7.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 4.649
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "clomp",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.826
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "clown",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.771
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "count",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.655
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "pokal",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.388
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "cloam",
+                  "score": 9.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.843
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "clonk",
+                  "score": 9.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.817
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "alant",
+                  "score": 9.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.794
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "candidates_before": 4,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback",
+                "knack",
+                "quack",
+                "whack"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "abuna",
+              "chosen_pattern": "GGBBY",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "abuna",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "abune",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "adhan",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "adown",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "adunc",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "aguna",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "ahent",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "ahind",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "candidates_before": 1,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aback",
+              "chosen_pattern": "GGGGG",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aback",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "aahed",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aalii",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "aargh",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "aarti",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "abaca",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "abaci",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "abacs",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "strategy_id": "evil-shortest-path",
+          "label": "Evil Shortest Path",
+          "tier": "aggregate-aware",
+          "metric": {
+            "label": "|T|",
+            "unit": null,
+            "decimals": 0,
+            "goal": "min"
+          },
+          "solved": true,
+          "total_turns": 4,
+          "turns": [
+            {
+              "turn": 1,
+              "candidates_before": 2315,
+              "candidates_after": 92,
+              "pool_preview": [
+                "aback",
+                "abase",
+                "abate",
+                "abbey",
+                "abbot",
+                "abhor",
+                "abide",
+                "abled",
+                "abode",
+                "abort",
+                "about",
+                "above"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "raise",
+              "chosen_pattern": "BYBBB",
+              "chosen_score": 168.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "raise",
+                  "score": 168.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 5.878
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "arise",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 5.821
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aesir",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.622
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "serai",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.59
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "reais",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.586
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "ayrie",
+                  "score": 171.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.397
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "aiery",
+                  "score": 171.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.343
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "raile",
+                  "score": 173.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 5.866
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "candidates_before": 92,
+              "candidates_after": 4,
+              "pool_preview": [
+                "aback",
+                "abbot",
+                "about",
+                "adapt",
+                "adopt",
+                "adult",
+                "afoot",
+                "afoul",
+                "aglow",
+                "agony",
+                "album",
+                "allay"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "cloak",
+              "chosen_pattern": "YBBYG",
+              "chosen_score": 7.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "cloak",
+                  "score": 7.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 4.649
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "clomp",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.826
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "clown",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.771
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "count",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.655
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "pokal",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.388
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "cloam",
+                  "score": 9.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.843
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "clonk",
+                  "score": 9.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.817
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "alant",
+                  "score": 9.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 4.794
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "candidates_before": 4,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback",
+                "knack",
+                "quack",
+                "whack"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "abuna",
+              "chosen_pattern": "GGBBY",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "abuna",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "abune",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "adhan",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "adown",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "adunc",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "aguna",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "ahent",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "ahind",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 2.0
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "candidates_before": 1,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aback",
+              "chosen_pattern": "GGGGG",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aback",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "aahed",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aalii",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "aargh",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "aarti",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "abaca",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "abaci",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "abacs",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "entropy": 0.0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "strategy_id": "posterior-expectimax",
+          "label": "Posterior Expectimax",
+          "tier": "aggregate-aware",
+          "metric": {
+            "label": "q\u00b7E[rem]+(1-q)\u00b7|T|",
+            "unit": null,
+            "decimals": 2,
+            "goal": "min"
+          },
+          "solved": true,
+          "total_turns": 4,
+          "turns": [
+            {
+              "turn": 1,
+              "candidates_before": 2315,
+              "candidates_after": 92,
+              "pool_preview": [
+                "aback",
+                "abase",
+                "abate",
+                "abbey",
+                "abbot",
+                "abhor",
+                "abide",
+                "abled",
+                "abode",
+                "abort",
+                "about",
+                "above"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "raise",
+              "chosen_pattern": "BYBBB",
+              "chosen_score": 61.0009,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "roate",
+                  "score": 60.4246,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 60.42,
+                    "|T|": 195
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "raise",
+                  "score": 61.0009,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "E[rem]": 61.0,
+                    "|T|": 168
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "raile",
+                  "score": 61.3309,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 61.33,
+                    "|T|": 173
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "soare",
+                  "score": 62.3011,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 62.3,
+                    "|T|": 183
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "arise",
+                  "score": 63.7257,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "E[rem]": 63.73,
+                    "|T|": 168
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "irate",
+                  "score": 63.7793,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "E[rem]": 63.78,
+                    "|T|": 194
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "orate",
+                  "score": 63.8907,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 63.89,
+                    "|T|": 195
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "ariel",
+                  "score": 65.2877,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 65.29,
+                    "|T|": 173
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "candidates_before": 92,
+              "candidates_after": 4,
+              "pool_preview": [
+                "aback",
+                "abbot",
+                "about",
+                "adapt",
+                "adopt",
+                "adult",
+                "afoot",
+                "afoul",
+                "aglow",
+                "agony",
+                "album",
+                "allay"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "cloam",
+              "chosen_pattern": "YBBYB",
+              "chosen_score": 3.8696,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "cloam",
+                  "score": 3.8696,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 3.87,
+                    "|T|": 9
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "clout",
+                  "score": 3.9348,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 3.93,
+                    "|T|": 10
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "clomp",
+                  "score": 4.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 4.0,
+                    "|T|": 8
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "clonk",
+                  "score": 4.0217,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 4.02,
+                    "|T|": 9
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "alant",
+                  "score": 4.1087,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 4.11,
+                    "|T|": 9
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "clown",
+                  "score": 4.1304,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 4.13,
+                    "|T|": 8
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "cloak",
+                  "score": 4.1739,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "E[rem]": 4.17,
+                    "|T|": 7
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "knoll",
+                  "score": 4.2174,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 4.22,
+                    "|T|": 9
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "candidates_before": 4,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback",
+                "knack",
+                "quack",
+                "whack"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "abuna",
+              "chosen_pattern": "GGBBY",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "abuna",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "abune",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "adhan",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "adown",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "adunc",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "aguna",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "ahent",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "ahind",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "candidates_before": 1,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aback",
+              "chosen_pattern": "GGGGG",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aback",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "aahed",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aalii",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "aargh",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "aarti",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "abaca",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "abaci",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "abacs",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "strategy_id": "posterior-hybrid",
+          "label": "Posterior Hybrid",
+          "tier": "experimental",
+          "metric": {
+            "label": "blended",
+            "unit": null,
+            "decimals": 3,
+            "goal": "max"
+          },
+          "solved": true,
+          "total_turns": 4,
+          "turns": [
+            {
+              "turn": 1,
+              "candidates_before": 2315,
+              "candidates_after": 92,
+              "pool_preview": [
+                "aback",
+                "abase",
+                "abate",
+                "abbey",
+                "abbot",
+                "abhor",
+                "abide",
+                "abled",
+                "abode",
+                "abort",
+                "about",
+                "above"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "raise",
+              "chosen_pattern": "BYBBB",
+              "chosen_score": 0.5259,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "soare",
+                  "score": 0.5266,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.527,
+                    "r_evil": 0.921
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "roate",
+                  "score": 0.5263,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.526,
+                    "r_evil": 0.916
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "raise",
+                  "score": 0.5259,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "H_norm": 0.526,
+                    "r_evil": 0.927
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "raile",
+                  "score": 0.5248,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.525,
+                    "r_evil": 0.925
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "reast",
+                  "score": 0.5248,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.525,
+                    "r_evil": 0.902
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "slate",
+                  "score": 0.5239,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "H_norm": 0.524,
+                    "r_evil": 0.905
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "crate",
+                  "score": 0.5221,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "H_norm": 0.522,
+                    "r_evil": 0.894
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "salet",
+                  "score": 0.522,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.522,
+                    "r_evil": 0.905
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "candidates_before": 92,
+              "candidates_after": 3,
+              "pool_preview": [
+                "aback",
+                "abbot",
+                "about",
+                "adapt",
+                "adopt",
+                "adult",
+                "afoot",
+                "afoul",
+                "aglow",
+                "agony",
+                "album",
+                "allay"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "clout",
+              "chosen_pattern": "YBBBB",
+              "chosen_score": 0.7611,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "clout",
+                  "score": 0.7611,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.761,
+                    "r_evil": 0.891
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "float",
+                  "score": 0.7455,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "H_norm": 0.745,
+                    "r_evil": 0.859
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "ploat",
+                  "score": 0.7435,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.743,
+                    "r_evil": 0.87
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "cloam",
+                  "score": 0.7423,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.742,
+                    "r_evil": 0.902
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "clomp",
+                  "score": 0.7398,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.74,
+                    "r_evil": 0.913
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "clonk",
+                  "score": 0.7383,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.738,
+                    "r_evil": 0.902
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "cloot",
+                  "score": 0.7382,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.738,
+                    "r_evil": 0.88
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "plonk",
+                  "score": 0.7374,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.737,
+                    "r_evil": 0.88
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "candidates_before": 3,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback",
+                "knack",
+                "whack"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aahed",
+              "chosen_pattern": "GYBBB",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aahed",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 1.0,
+                    "r_evil": 0.667
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "aargh",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 1.0,
+                    "r_evil": 0.667
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aband",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 1.0,
+                    "r_evil": 0.667
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "abash",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 1.0,
+                    "r_evil": 0.667
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "abhor",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 1.0,
+                    "r_evil": 0.667
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "ablow",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 1.0,
+                    "r_evil": 0.667
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "abmho",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 1.0,
+                    "r_evil": 0.667
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "abohm",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 1.0,
+                    "r_evil": 0.667
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "candidates_before": 1,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aback",
+              "chosen_pattern": "GGGGG",
+              "chosen_score": 0.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aback",
+                  "score": 0.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "H_norm": 0.0,
+                    "r_evil": 0.0
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "aahed",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.0,
+                    "r_evil": 0.0
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aalii",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.0,
+                    "r_evil": 0.0
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "aargh",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.0,
+                    "r_evil": 0.0
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "aarti",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.0,
+                    "r_evil": 0.0
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "abaca",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.0,
+                    "r_evil": 0.0
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "abaci",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.0,
+                    "r_evil": 0.0
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "abacs",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "H_norm": 0.0,
+                    "r_evil": 0.0
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "strategy_id": "robust-scalarization",
+          "label": "Robust Scalarization",
+          "tier": "aggregate-aware",
+          "metric": {
+            "label": "max(E[rem],|T|)",
+            "unit": null,
+            "decimals": 2,
+            "goal": "min"
+          },
+          "solved": true,
+          "total_turns": 4,
+          "turns": [
+            {
+              "turn": 1,
+              "candidates_before": 2315,
+              "candidates_after": 92,
+              "pool_preview": [
+                "aback",
+                "abase",
+                "abate",
+                "abbey",
+                "abbot",
+                "abhor",
+                "abide",
+                "abled",
+                "abode",
+                "abort",
+                "about",
+                "above"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "raise",
+              "chosen_pattern": "BYBBB",
+              "chosen_score": 168.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "raise",
+                  "score": 168.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "E[rem]": 61.0,
+                    "|T|": 168
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "arise",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "E[rem]": 63.73,
+                    "|T|": 168
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aesir",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 69.88,
+                    "|T|": 168
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "reais",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 71.61,
+                    "|T|": 168
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "serai",
+                  "score": 168.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 72.92,
+                    "|T|": 168
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "ayrie",
+                  "score": 171.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 78.99,
+                    "|T|": 171
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "aiery",
+                  "score": 171.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 87.04,
+                    "|T|": 171
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "raile",
+                  "score": 173.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 61.33,
+                    "|T|": 173
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "candidates_before": 92,
+              "candidates_after": 4,
+              "pool_preview": [
+                "aback",
+                "abbot",
+                "about",
+                "adapt",
+                "adopt",
+                "adult",
+                "afoot",
+                "afoul",
+                "aglow",
+                "agony",
+                "album",
+                "allay"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "cloak",
+              "chosen_pattern": "YBBYG",
+              "chosen_score": 7.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "cloak",
+                  "score": 7.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "E[rem]": 4.17,
+                    "|T|": 7
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "clomp",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 4.0,
+                    "|T|": 8
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "clown",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 4.13,
+                    "|T|": 8
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "count",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 4.48,
+                    "|T|": 8
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "pokal",
+                  "score": 8.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 5.3,
+                    "|T|": 8
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "cloam",
+                  "score": 9.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 3.87,
+                    "|T|": 9
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "clonk",
+                  "score": 9.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 4.02,
+                    "|T|": 9
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "alant",
+                  "score": 9.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 4.11,
+                    "|T|": 9
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "candidates_before": 4,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback",
+                "knack",
+                "quack",
+                "whack"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "abuna",
+              "chosen_pattern": "GGBBY",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "abuna",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "abune",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "adhan",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "adown",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "adunc",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "aguna",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "ahent",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "ahind",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "candidates_before": 1,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aback",
+              "chosen_pattern": "GGGGG",
+              "chosen_score": 1.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aback",
+                  "score": 1.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "aahed",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aalii",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "aargh",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "aarti",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "abaca",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "abaci",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "abacs",
+                  "score": 1.0,
+                  "is_chosen": false,
+                  "is_in_pool": false,
+                  "extras": {
+                    "E[rem]": 1.0,
+                    "|T|": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "strategy_id": "letter-frequency",
+          "label": "Letter Frequency",
+          "tier": "baseline",
+          "metric": {
+            "label": "letter score",
+            "unit": null,
+            "decimals": 0,
+            "goal": "max"
+          },
+          "solved": true,
+          "total_turns": 5,
+          "turns": [
+            {
+              "turn": 1,
+              "candidates_before": 2315,
+              "candidates_after": 48,
+              "pool_preview": [
+                "aback",
+                "abase",
+                "abate",
+                "abbey",
+                "abbot",
+                "abhor",
+                "abide",
+                "abled",
+                "abode",
+                "abort",
+                "about",
+                "above"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "slate",
+              "chosen_pattern": "BBGBB",
+              "chosen_score": 2996.2,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "slate",
+                  "score": 2996.2,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 1437,
+                    "global": 1559
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "stare",
+                  "score": 2960.8,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 1326,
+                    "global": 1634
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "saner",
+                  "score": 2927.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 1339,
+                    "global": 1588
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "snare",
+                  "score": 2924.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 1336,
+                    "global": 1588
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "share",
+                  "score": 2912.6,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 1393,
+                    "global": 1519
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "crate",
+                  "score": 2901.8,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 1335,
+                    "global": 1566
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "crane",
+                  "score": 2898.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 1378,
+                    "global": 1520
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "raise",
+                  "score": 2896.8,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 1270,
+                    "global": 1626
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "candidates_before": 48,
+              "candidates_after": 3,
+              "pool_preview": [
+                "aback",
+                "again",
+                "award",
+                "board",
+                "braid",
+                "brain",
+                "brand",
+                "bravo",
+                "brawn",
+                "chaff",
+                "chain",
+                "chair"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "crank",
+              "chosen_pattern": "YBGBG",
+              "chosen_score": 150.2,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "crank",
+                  "score": 150.2,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 99,
+                    "global": 51
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "crack",
+                  "score": 144.8,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 100,
+                    "global": 44
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "drank",
+                  "score": 144.4,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 94,
+                    "global": 50
+                  }
+                },
+                {
+                  "rank": 4,
+                  "guess": "drain",
+                  "score": 140.6,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 91,
+                    "global": 49
+                  }
+                },
+                {
+                  "rank": 5,
+                  "guess": "brand",
+                  "score": 140.4,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 92,
+                    "global": 48
+                  }
+                },
+                {
+                  "rank": 6,
+                  "guess": "grand",
+                  "score": 140.4,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 92,
+                    "global": 48
+                  }
+                },
+                {
+                  "rank": 7,
+                  "guess": "wrack",
+                  "score": 140.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 92,
+                    "global": 48
+                  }
+                },
+                {
+                  "rank": 8,
+                  "guess": "chard",
+                  "score": 139.2,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 88,
+                    "global": 51
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "candidates_before": 3,
+              "candidates_after": 2,
+              "pool_preview": [
+                "aback",
+                "quack",
+                "whack"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "quack",
+              "chosen_pattern": "BBGGG",
+              "chosen_score": 15.4,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "quack",
+                  "score": 15.4,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 11,
+                    "global": 4
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "whack",
+                  "score": 15.4,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 11,
+                    "global": 4
+                  }
+                },
+                {
+                  "rank": 3,
+                  "guess": "aback",
+                  "score": 15.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 11,
+                    "global": 4
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "candidates_before": 2,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback",
+                "whack"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "whack",
+              "chosen_pattern": "BBGGG",
+              "chosen_score": 11.2,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "whack",
+                  "score": 11.2,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 8,
+                    "global": 3
+                  }
+                },
+                {
+                  "rank": 2,
+                  "guess": "aback",
+                  "score": 10.8,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 8,
+                    "global": 2
+                  }
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "candidates_before": 1,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aback",
+              "chosen_pattern": "GGGGG",
+              "chosen_score": 6.6,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aback",
+                  "score": 6.6,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": {
+                    "pos": 5,
+                    "global": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "strategy_id": "random-valid",
+          "label": "Random Valid",
+          "tier": "baseline",
+          "metric": {
+            "label": "hash-seeded",
+            "unit": null,
+            "decimals": 0,
+            "goal": "max"
+          },
+          "solved": true,
+          "total_turns": 5,
+          "turns": [
+            {
+              "turn": 1,
+              "candidates_before": 2315,
+              "candidates_after": 374,
+              "pool_preview": [
+                "aback",
+                "abase",
+                "abate",
+                "abbey",
+                "abbot",
+                "abhor",
+                "abide",
+                "abled",
+                "abode",
+                "abort",
+                "about",
+                "above"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "gonad",
+              "chosen_pattern": "BBBYB",
+              "chosen_score": 0.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "gonad",
+                  "score": 0.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 2,
+                  "guess": "aback",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 3,
+                  "guess": "abase",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 4,
+                  "guess": "abate",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 5,
+                  "guess": "abbey",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 6,
+                  "guess": "abbot",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 7,
+                  "guess": "abhor",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 8,
+                  "guess": "abide",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                }
+              ]
+            },
+            {
+              "turn": 2,
+              "candidates_before": 374,
+              "candidates_after": 32,
+              "pool_preview": [
+                "aback",
+                "abase",
+                "abate",
+                "abbey",
+                "abuse",
+                "abyss",
+                "acute",
+                "affix",
+                "afire",
+                "after",
+                "aisle",
+                "alarm"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "state",
+              "chosen_pattern": "BBGBB",
+              "chosen_score": 0.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "state",
+                  "score": 0.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 2,
+                  "guess": "aback",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 3,
+                  "guess": "abase",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 4,
+                  "guess": "abate",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 5,
+                  "guess": "abbey",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 6,
+                  "guess": "abuse",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 7,
+                  "guess": "abyss",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 8,
+                  "guess": "acute",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                }
+              ]
+            },
+            {
+              "turn": 3,
+              "candidates_before": 32,
+              "candidates_after": 11,
+              "pool_preview": [
+                "aback",
+                "alarm",
+                "avail",
+                "black",
+                "brawl",
+                "chaff",
+                "chair",
+                "chalk",
+                "champ",
+                "charm",
+                "clack",
+                "claim"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "wharf",
+              "chosen_pattern": "BBGBB",
+              "chosen_score": 0.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "wharf",
+                  "score": 0.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 2,
+                  "guess": "aback",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 3,
+                  "guess": "alarm",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 4,
+                  "guess": "avail",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 5,
+                  "guess": "black",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 6,
+                  "guess": "brawl",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 7,
+                  "guess": "chaff",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 8,
+                  "guess": "chair",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                }
+              ]
+            },
+            {
+              "turn": 4,
+              "candidates_before": 11,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback",
+                "avail",
+                "black",
+                "clack",
+                "claim",
+                "clamp",
+                "llama",
+                "plaza",
+                "quack",
+                "quail",
+                "qualm"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "quail",
+              "chosen_pattern": "BBGBB",
+              "chosen_score": 0.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "quail",
+                  "score": 0.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 2,
+                  "guess": "aback",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 3,
+                  "guess": "avail",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 4,
+                  "guess": "black",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 5,
+                  "guess": "clack",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 6,
+                  "guess": "claim",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 7,
+                  "guess": "clamp",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                },
+                {
+                  "rank": 8,
+                  "guess": "llama",
+                  "score": 0.0,
+                  "is_chosen": false,
+                  "is_in_pool": true,
+                  "extras": null
+                }
+              ]
+            },
+            {
+              "turn": 5,
+              "candidates_before": 1,
+              "candidates_after": 1,
+              "pool_preview": [
+                "aback"
+              ],
+              "posterior": {
+                "standard": 1.0,
+                "evil": 0.0
+              },
+              "chosen": "aback",
+              "chosen_pattern": "GGGGG",
+              "chosen_score": 0.0,
+              "top_candidates": [
+                {
+                  "rank": 1,
+                  "guess": "aback",
+                  "score": 0.0,
+                  "is_chosen": true,
+                  "is_in_pool": true,
+                  "extras": null
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "aggregate": {
+        "solve_depth_distribution": [
+          {
+            "depth": 3,
+            "count": 1,
+            "strategies": [
+              "minimax"
+            ]
+          },
+          {
+            "depth": 4,
+            "count": 7,
+            "strategies": [
+              "expected-entropy",
+              "candidate-elimination",
+              "evil-dp",
+              "evil-shortest-path",
+              "posterior-expectimax",
+              "posterior-hybrid",
+              "robust-scalarization"
+            ]
+          },
+          {
+            "depth": 5,
+            "count": 2,
+            "strategies": [
+              "letter-frequency",
+              "random-valid"
+            ]
+          }
+        ],
+        "pool_decay": [
+          {
+            "turn": 1,
+            "rows": [
+              {
+                "strategy_id": "expected-entropy",
+                "candidates_before": 2315,
+                "candidates_after": 40
+              },
+              {
+                "strategy_id": "candidate-elimination",
+                "candidates_before": 2315,
+                "candidates_after": 71
+              },
+              {
+                "strategy_id": "minimax",
+                "candidates_before": 2315,
+                "candidates_after": 29
+              },
+              {
+                "strategy_id": "evil-dp",
+                "candidates_before": 2315,
+                "candidates_after": 92
+              },
+              {
+                "strategy_id": "evil-shortest-path",
+                "candidates_before": 2315,
+                "candidates_after": 92
+              },
+              {
+                "strategy_id": "posterior-expectimax",
+                "candidates_before": 2315,
+                "candidates_after": 92
+              },
+              {
+                "strategy_id": "posterior-hybrid",
+                "candidates_before": 2315,
+                "candidates_after": 92
+              },
+              {
+                "strategy_id": "robust-scalarization",
+                "candidates_before": 2315,
+                "candidates_after": 92
+              },
+              {
+                "strategy_id": "letter-frequency",
+                "candidates_before": 2315,
+                "candidates_after": 48
+              },
+              {
+                "strategy_id": "random-valid",
+                "candidates_before": 2315,
+                "candidates_after": 374
+              }
+            ]
+          },
+          {
+            "turn": 2,
+            "rows": [
+              {
+                "strategy_id": "expected-entropy",
+                "candidates_before": 40,
+                "candidates_after": 3
+              },
+              {
+                "strategy_id": "candidate-elimination",
+                "candidates_before": 71,
+                "candidates_after": 4
+              },
+              {
+                "strategy_id": "minimax",
+                "candidates_before": 29,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "evil-dp",
+                "candidates_before": 92,
+                "candidates_after": 4
+              },
+              {
+                "strategy_id": "evil-shortest-path",
+                "candidates_before": 92,
+                "candidates_after": 4
+              },
+              {
+                "strategy_id": "posterior-expectimax",
+                "candidates_before": 92,
+                "candidates_after": 4
+              },
+              {
+                "strategy_id": "posterior-hybrid",
+                "candidates_before": 92,
+                "candidates_after": 3
+              },
+              {
+                "strategy_id": "robust-scalarization",
+                "candidates_before": 92,
+                "candidates_after": 4
+              },
+              {
+                "strategy_id": "letter-frequency",
+                "candidates_before": 48,
+                "candidates_after": 3
+              },
+              {
+                "strategy_id": "random-valid",
+                "candidates_before": 374,
+                "candidates_after": 32
+              }
+            ]
+          },
+          {
+            "turn": 3,
+            "rows": [
+              {
+                "strategy_id": "expected-entropy",
+                "candidates_before": 3,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "candidate-elimination",
+                "candidates_before": 4,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "minimax",
+                "candidates_before": 1,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "evil-dp",
+                "candidates_before": 4,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "evil-shortest-path",
+                "candidates_before": 4,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "posterior-expectimax",
+                "candidates_before": 4,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "posterior-hybrid",
+                "candidates_before": 3,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "robust-scalarization",
+                "candidates_before": 4,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "letter-frequency",
+                "candidates_before": 3,
+                "candidates_after": 2
+              },
+              {
+                "strategy_id": "random-valid",
+                "candidates_before": 32,
+                "candidates_after": 11
+              }
+            ]
+          },
+          {
+            "turn": 4,
+            "rows": [
+              {
+                "strategy_id": "expected-entropy",
+                "candidates_before": 1,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "candidate-elimination",
+                "candidates_before": 1,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "evil-dp",
+                "candidates_before": 1,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "evil-shortest-path",
+                "candidates_before": 1,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "posterior-expectimax",
+                "candidates_before": 1,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "posterior-hybrid",
+                "candidates_before": 1,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "robust-scalarization",
+                "candidates_before": 1,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "letter-frequency",
+                "candidates_before": 2,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "random-valid",
+                "candidates_before": 11,
+                "candidates_after": 1
+              }
+            ]
+          },
+          {
+            "turn": 5,
+            "rows": [
+              {
+                "strategy_id": "letter-frequency",
+                "candidates_before": 1,
+                "candidates_after": 1
+              },
+              {
+                "strategy_id": "random-valid",
+                "candidates_before": 1,
+                "candidates_after": 1
+              }
+            ]
+          }
+        ],
+        "agreement_by_turn": [
+          {
+            "turn": 1,
+            "distinct_guesses": 6,
+            "guess_groups": [
+              {
+                "guess": "raise",
+                "count": 5,
+                "strategies": [
+                  "evil-dp",
+                  "evil-shortest-path",
+                  "posterior-expectimax",
+                  "posterior-hybrid",
+                  "robust-scalarization"
+                ]
+              },
+              {
+                "guess": "soare",
+                "count": 1,
+                "strategies": [
+                  "expected-entropy"
+                ]
+              },
+              {
+                "guess": "roate",
+                "count": 1,
+                "strategies": [
+                  "candidate-elimination"
+                ]
+              },
+              {
+                "guess": "arise",
+                "count": 1,
+                "strategies": [
+                  "minimax"
+                ]
+              },
+              {
+                "guess": "slate",
+                "count": 1,
+                "strategies": [
+                  "letter-frequency"
+                ]
+              },
+              {
+                "guess": "gonad",
+                "count": 1,
+                "strategies": [
+                  "random-valid"
+                ]
+              }
+            ]
+          },
+          {
+            "turn": 2,
+            "distinct_guesses": 7,
+            "guess_groups": [
+              {
+                "guess": "cloak",
+                "count": 3,
+                "strategies": [
+                  "evil-dp",
+                  "evil-shortest-path",
+                  "robust-scalarization"
+                ]
+              },
+              {
+                "guess": "clout",
+                "count": 2,
+                "strategies": [
+                  "minimax",
+                  "posterior-hybrid"
+                ]
+              },
+              {
+                "guess": "clink",
+                "count": 1,
+                "strategies": [
+                  "expected-entropy"
+                ]
+              },
+              {
+                "guess": "slick",
+                "count": 1,
+                "strategies": [
+                  "candidate-elimination"
+                ]
+              },
+              {
+                "guess": "cloam",
+                "count": 1,
+                "strategies": [
+                  "posterior-expectimax"
+                ]
+              },
+              {
+                "guess": "crank",
+                "count": 1,
+                "strategies": [
+                  "letter-frequency"
+                ]
+              },
+              {
+                "guess": "state",
+                "count": 1,
+                "strategies": [
+                  "random-valid"
+                ]
+              }
+            ]
+          },
+          {
+            "turn": 3,
+            "distinct_guesses": 5,
+            "guess_groups": [
+              {
+                "guess": "abuna",
+                "count": 5,
+                "strategies": [
+                  "candidate-elimination",
+                  "evil-dp",
+                  "evil-shortest-path",
+                  "posterior-expectimax",
+                  "robust-scalarization"
+                ]
+              },
+              {
+                "guess": "aahed",
+                "count": 2,
+                "strategies": [
+                  "expected-entropy",
+                  "posterior-hybrid"
+                ]
+              },
+              {
+                "guess": "aback",
+                "count": 1,
+                "strategies": [
+                  "minimax"
+                ]
+              },
+              {
+                "guess": "quack",
+                "count": 1,
+                "strategies": [
+                  "letter-frequency"
+                ]
+              },
+              {
+                "guess": "wharf",
+                "count": 1,
+                "strategies": [
+                  "random-valid"
+                ]
+              }
+            ]
+          },
+          {
+            "turn": 4,
+            "distinct_guesses": 3,
+            "guess_groups": [
+              {
+                "guess": "aback",
+                "count": 7,
+                "strategies": [
+                  "expected-entropy",
+                  "candidate-elimination",
+                  "evil-dp",
+                  "evil-shortest-path",
+                  "posterior-expectimax",
+                  "posterior-hybrid",
+                  "robust-scalarization"
+                ]
+              },
+              {
+                "guess": "whack",
+                "count": 1,
+                "strategies": [
+                  "letter-frequency"
+                ]
+              },
+              {
+                "guess": "quail",
+                "count": 1,
+                "strategies": [
+                  "random-valid"
+                ]
+              }
+            ]
+          },
+          {
+            "turn": 5,
+            "distinct_guesses": 1,
+            "guess_groups": [
+              {
+                "guess": "aback",
+                "count": 2,
+                "strategies": [
+                  "letter-frequency",
+                  "random-valid"
+                ]
+              }
+            ]
+          }
+        ],
+        "min_solve_depth": 3,
+        "max_solve_depth": 5,
+        "mean_solve_depth": 4.1
+      }
+    }
+  ]
+}

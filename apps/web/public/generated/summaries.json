@@ -124,15 +124,15 @@
       "worst_case": 6
     },
     {
-      "average_guesses": 3.479914,
-      "average_guesses_on_solve": 3.479914,
+      "average_guesses": 3.464795,
+      "average_guesses_on_solve": 3.464795,
       "games": 2315,
       "label": "Posterior Hybrid",
       "objective": "Posterior-weighted blend of standard-mode entropy and evil-mode worst-case reduction.",
-      "penalized_average_guesses": 3.479914,
+      "penalized_average_guesses": 3.464795,
       "solve_rate": 1.0,
       "strategy_id": "posterior-hybrid",
-      "worst_case": 5
+      "worst_case": 6
     },
     {
       "average_guesses": 3.484665,
@@ -253,7 +253,7 @@
           "turn": 5
         },
         {
-          "mean_true_mode_posterior": 0.5,
+          "mean_true_mode_posterior": 1.0,
           "turn": 6
         }
       ],
@@ -290,7 +290,7 @@
           "turn": 5
         },
         {
-          "mean_true_mode_posterior": 0.5,
+          "mean_true_mode_posterior": 1.0,
           "turn": 6
         }
       ],
@@ -492,7 +492,7 @@
           "turn": 5
         },
         {
-          "mean_true_mode_posterior": 0.5,
+          "mean_true_mode_posterior": 1.0,
           "turn": 6
         }
       ],
@@ -529,15 +529,15 @@
           "turn": 5
         },
         {
-          "mean_true_mode_posterior": 0.5,
+          "mean_true_mode_posterior": 1.0,
           "turn": 6
         },
         {
-          "mean_true_mode_posterior": 0.5,
+          "mean_true_mode_posterior": 1.0,
           "turn": 7
         },
         {
-          "mean_true_mode_posterior": 0.5,
+          "mean_true_mode_posterior": 1.0,
           "turn": 8
         }
       ],
@@ -578,15 +578,15 @@
           "turn": 6
         },
         {
-          "mean_true_mode_posterior": 0.5,
+          "mean_true_mode_posterior": 1.0,
           "turn": 7
         },
         {
-          "mean_true_mode_posterior": 0.5,
+          "mean_true_mode_posterior": 1.0,
           "turn": 8
         },
         {
-          "mean_true_mode_posterior": 0.5,
+          "mean_true_mode_posterior": 1.0,
           "turn": 9
         }
       ],

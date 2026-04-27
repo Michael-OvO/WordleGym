@@ -257,15 +257,14 @@ class BenchmarkRunner:
         return [
             {
                 "turn": turn,
-                "mean_true_mode_posterior": round(
-                    (
-                        mean(values["standard"]) if values["standard"] else 0
-                    ) / 2
-                    + (
-                        mean(values["evil"]) if values["evil"] else 0
-                    ) / 2,
-                    6,
-                ),
+                "mean_true_mode_posterior": round(mean(
+                    branch_mean
+                    for branch_mean in (
+                        mean(branch_values)
+                        for branch_values in (values["standard"], values["evil"])
+                        if branch_values
+                    )
+                ), 6),
             }
             for turn, values in sorted(totals.items())
         ]
@@ -297,7 +296,7 @@ class BenchmarkRunner:
         specs = (
             ("standard", "expected-entropy", StandardEnvironment),
             ("standard", "minimax", StandardEnvironment),
-            ("standard", "posterior-hybrid", StandardEnvironment),
+            ("standard", "posterior-expectimax", StandardEnvironment),
             ("evil", "evil-dp", EvilEnvironment),
         )
         for mode, strategy_id, env_cls in specs:

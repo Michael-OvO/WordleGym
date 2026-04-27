@@ -86,6 +86,7 @@ class FullVocabSearchTests(unittest.TestCase):
         self.assertIn("normalized_standard_entropy", decision.explanation)
         self.assertGreaterEqual(decision.explanation["normalized_standard_entropy"], 0.0)
         self.assertLessEqual(decision.explanation["normalized_standard_entropy"], 1.0)
+        self.assertEqual(decision.explanation["mode_weights"], {"standard": 1.0, "evil": 0.0})
 
     def test_minimax_searches_full_vocabulary(self) -> None:
         strategy = MinimaxStrategy(

@@ -1,0 +1,1193 @@
+{
+  "schema_version": 2,
+  "crane_partition": {
+    "guess": "crane",
+    "total_candidates": 2315,
+    "nonempty_buckets": 142,
+    "entropy": 5.7428,
+    "largest_bucket": 263,
+    "top_buckets": [
+      {
+        "pattern": "BBBBB",
+        "size": 263
+      },
+      {
+        "pattern": "BBYBB",
+        "size": 134
+      },
+      {
+        "pattern": "BBBBY",
+        "size": 127
+      },
+      {
+        "pattern": "BYBBY",
+        "size": 122
+      },
+      {
+        "pattern": "BBBBG",
+        "size": 102
+      },
+      {
+        "pattern": "BYBBB",
+        "size": 90
+      },
+      {
+        "pattern": "BYYBB",
+        "size": 65
+      },
+      {
+        "pattern": "BBBYY",
+        "size": 58
+      },
+      {
+        "pattern": "BBBGB",
+        "size": 58
+      },
+      {
+        "pattern": "BBBYB",
+        "size": 55
+      },
+      {
+        "pattern": "YBBBB",
+        "size": 55
+      },
+      {
+        "pattern": "BGBBB",
+        "size": 51
+      }
+    ],
+    "byyby_bucket_size": 50,
+    "byyby_bucket_words": [
+      "after",
+      "aider",
+      "alert",
+      "alter",
+      "amber",
+      "avert",
+      "baker",
+      "baler",
+      "debar",
+      "eager",
+      "early",
+      "earth",
+      "eater",
+      "extra",
+      "feral",
+      "gamer",
+      "gayer",
+      "gazer",
+      "harem",
+      "hater",
+      "lager",
+      "later",
+      "layer",
+      "maker",
+      "opera",
+      "paler",
+      "paper",
+      "parer",
+      "payer",
+      "rarer",
+      "rebar",
+      "regal",
+      "rehab",
+      "relax",
+      "relay",
+      "repay",
+      "safer",
+      "shear",
+      "smear",
+      "spear",
+      "swear",
+      "taker",
+      "tamer",
+      "taper",
+      "terra",
+      "wafer",
+      "wager",
+      "water",
+      "waver",
+      "zebra"
+    ]
+  },
+  "opener_comparison": [
+    {
+      "guess": "soare",
+      "entropy": 5.886,
+      "evil_bucket": 183,
+      "num_buckets": 127,
+      "largest_bucket": 183
+    },
+    {
+      "guess": "raise",
+      "entropy": 5.8779,
+      "evil_bucket": 168,
+      "num_buckets": 132,
+      "largest_bucket": 168
+    },
+    {
+      "guess": "slate",
+      "entropy": 5.8558,
+      "evil_bucket": 221,
+      "num_buckets": 147,
+      "largest_bucket": 221
+    },
+    {
+      "guess": "salet",
+      "entropy": 5.8346,
+      "evil_bucket": 221,
+      "num_buckets": 148,
+      "largest_bucket": 221
+    },
+    {
+      "guess": "trace",
+      "entropy": 5.8305,
+      "evil_bucket": 246,
+      "num_buckets": 150,
+      "largest_bucket": 246
+    },
+    {
+      "guess": "crane",
+      "entropy": 5.7428,
+      "evil_bucket": 263,
+      "num_buckets": 142,
+      "largest_bucket": 263
+    },
+    {
+      "guess": "tares",
+      "entropy": 5.7425,
+      "evil_bucket": 227,
+      "num_buckets": 128,
+      "largest_bucket": 227
+    },
+    {
+      "guess": "adieu",
+      "entropy": 4.8788,
+      "evil_bucket": 284,
+      "num_buckets": 80,
+      "largest_bucket": 284
+    }
+  ],
+  "evil_dp_trace": [
+    {
+      "turn": 1,
+      "candidates_before": 2315,
+      "chosen": "raise",
+      "feedback_text": "BBBBB",
+      "candidates_after": 168,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "guess": "raise",
+          "evil_bucket": 168,
+          "entropy": 5.8779,
+          "is_chosen": true,
+          "is_candidate": true
+        },
+        {
+          "rank": 2,
+          "guess": "arise",
+          "evil_bucket": 168,
+          "entropy": 5.8209,
+          "is_chosen": false,
+          "is_candidate": true
+        },
+        {
+          "rank": 3,
+          "guess": "aesir",
+          "evil_bucket": 168,
+          "entropy": 5.622,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 4,
+          "guess": "serai",
+          "evil_bucket": 168,
+          "entropy": 5.5903,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 5,
+          "guess": "reais",
+          "evil_bucket": 168,
+          "entropy": 5.5859,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 6,
+          "guess": "ayrie",
+          "evil_bucket": 171,
+          "entropy": 5.3967,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 7,
+          "guess": "aiery",
+          "evil_bucket": 171,
+          "entropy": 5.3434,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 8,
+          "guess": "raile",
+          "evil_bucket": 173,
+          "entropy": 5.8657,
+          "is_chosen": false,
+          "is_candidate": false
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "candidates_before": 168,
+      "chosen": "yauld",
+      "feedback_text": "BBBBB",
+      "candidates_after": 15,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "guess": "bludy",
+          "evil_bucket": 13,
+          "entropy": 5.0672,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 2,
+          "guess": "duply",
+          "evil_bucket": 13,
+          "entropy": 5.0273,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 3,
+          "guess": "ymolt",
+          "evil_bucket": 14,
+          "entropy": 4.9869,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 4,
+          "guess": "muhly",
+          "evil_bucket": 14,
+          "entropy": 4.9811,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 5,
+          "guess": "could",
+          "evil_bucket": 15,
+          "entropy": 5.1641,
+          "is_chosen": false,
+          "is_candidate": true
+        },
+        {
+          "rank": 6,
+          "guess": "blunt",
+          "evil_bucket": 15,
+          "entropy": 5.1292,
+          "is_chosen": false,
+          "is_candidate": true
+        },
+        {
+          "rank": 7,
+          "guess": "blond",
+          "evil_bucket": 15,
+          "entropy": 5.107,
+          "is_chosen": false,
+          "is_candidate": true
+        },
+        {
+          "rank": 8,
+          "guess": "nould",
+          "evil_bucket": 15,
+          "entropy": 5.0733,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 9,
+          "guess": "yauld",
+          "evil_bucket": 15,
+          "entropy": 4.3032,
+          "is_chosen": true,
+          "is_candidate": false
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "candidates_before": 15,
+      "chosen": "tench",
+      "feedback_text": "BBBBY",
+      "candidates_after": 1,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "guess": "tench",
+          "evil_bucket": 1,
+          "entropy": 3.9069,
+          "is_chosen": true,
+          "is_candidate": false
+        },
+        {
+          "rank": 2,
+          "guess": "bench",
+          "evil_bucket": 2,
+          "entropy": 3.7736,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 3,
+          "guess": "bunch",
+          "evil_bucket": 2,
+          "entropy": 3.7736,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 4,
+          "guess": "choon",
+          "evil_bucket": 2,
+          "entropy": 3.7736,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 5,
+          "guess": "chott",
+          "evil_bucket": 2,
+          "entropy": 3.7736,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 6,
+          "guess": "congo",
+          "evil_bucket": 2,
+          "entropy": 3.7736,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 7,
+          "guess": "conto",
+          "evil_bucket": 2,
+          "entropy": 3.7736,
+          "is_chosen": false,
+          "is_candidate": false
+        },
+        {
+          "rank": 8,
+          "guess": "corno",
+          "evil_bucket": 2,
+          "entropy": 3.7736,
+          "is_chosen": false,
+          "is_candidate": false
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "candidates_before": 1,
+      "chosen": "whoop",
+      "feedback_text": "GGGGG",
+      "candidates_after": 0,
+      "top_candidates": [
+        {
+          "rank": 1,
+          "guess": "whoop",
+          "evil_bucket": 1,
+          "entropy": 0.0,
+          "is_chosen": true,
+          "is_candidate": true
+        }
+      ]
+    }
+  ],
+  "showcase_trees": {
+    "expected-entropy": [
+      {
+        "turn": 1,
+        "candidates_before": 2315,
+        "candidates_after": 42,
+        "chosen": "soare",
+        "feedback_text": "BBYYB",
+        "metric": {
+          "label": "entropy",
+          "unit": "bits",
+          "decimals": 2,
+          "goal": "max"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "soare",
+            "score": 5.886,
+            "is_chosen": true,
+            "is_candidate": false
+          },
+          {
+            "rank": 2,
+            "guess": "roate",
+            "score": 5.8828,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 3,
+            "guess": "raise",
+            "score": 5.8779,
+            "is_chosen": false,
+            "is_candidate": true
+          },
+          {
+            "rank": 4,
+            "guess": "raile",
+            "score": 5.8657,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "reast",
+            "score": 5.8655,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "candidates_before": 42,
+        "candidates_after": 2,
+        "chosen": "riyal",
+        "feedback_text": "YGBGB",
+        "metric": {
+          "label": "entropy",
+          "unit": "bits",
+          "decimals": 2,
+          "goal": "max"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "riyal",
+            "score": 4.2228,
+            "is_chosen": true,
+            "is_candidate": false
+          },
+          {
+            "rank": 2,
+            "guess": "raita",
+            "score": 4.2135,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 3,
+            "guess": "radar",
+            "score": 4.2072,
+            "is_chosen": false,
+            "is_candidate": true
+          },
+          {
+            "rank": 4,
+            "guess": "tidal",
+            "score": 4.1382,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "naiad",
+            "score": 4.1266,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "candidates_before": 2,
+        "candidates_after": 1,
+        "chosen": "cigar",
+        "feedback_text": "GGGGG",
+        "metric": {
+          "label": "entropy",
+          "unit": "bits",
+          "decimals": 2,
+          "goal": "max"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "cigar",
+            "score": 1.0,
+            "is_chosen": true,
+            "is_candidate": true
+          },
+          {
+            "rank": 2,
+            "guess": "vicar",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": true
+          },
+          {
+            "rank": 3,
+            "guess": "aargh",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "abcee",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "above",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      }
+    ],
+    "minimax": [
+      {
+        "turn": 1,
+        "candidates_before": 2315,
+        "candidates_after": 17,
+        "chosen": "arise",
+        "feedback_text": "YYYBB",
+        "metric": {
+          "label": "worst bucket",
+          "unit": null,
+          "decimals": 0,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "arise",
+            "score": 168.0,
+            "is_chosen": true,
+            "is_candidate": true
+          },
+          {
+            "rank": 2,
+            "guess": "raise",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": true
+          },
+          {
+            "rank": 3,
+            "guess": "aesir",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "reais",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "serai",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "candidates_before": 17,
+        "candidates_after": 2,
+        "chosen": "lidar",
+        "feedback_text": "BGBGG",
+        "metric": {
+          "label": "worst bucket",
+          "unit": null,
+          "decimals": 0,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "lidar",
+            "score": 2.0,
+            "is_chosen": true,
+            "is_candidate": false
+          },
+          {
+            "rank": 2,
+            "guess": "radar",
+            "score": 2.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 3,
+            "guess": "riced",
+            "score": 2.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "acrid",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "alcid",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "candidates_before": 2,
+        "candidates_after": 1,
+        "chosen": "cigar",
+        "feedback_text": "GGGGG",
+        "metric": {
+          "label": "worst bucket",
+          "unit": null,
+          "decimals": 0,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "cigar",
+            "score": 1.0,
+            "is_chosen": true,
+            "is_candidate": true
+          },
+          {
+            "rank": 2,
+            "guess": "vicar",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": true
+          },
+          {
+            "rank": 3,
+            "guess": "aargh",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "abcee",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "above",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      }
+    ],
+    "evil-dp": [
+      {
+        "turn": 1,
+        "candidates_before": 2315,
+        "candidates_after": 18,
+        "chosen": "raise",
+        "feedback_text": "YYYBB",
+        "metric": {
+          "label": "|T|",
+          "unit": null,
+          "decimals": 0,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "arise",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": true
+          },
+          {
+            "rank": 2,
+            "guess": "raise",
+            "score": 168.0,
+            "is_chosen": true,
+            "is_candidate": true
+          },
+          {
+            "rank": 3,
+            "guess": "aesir",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "reais",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "serai",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "candidates_before": 18,
+        "candidates_after": 1,
+        "chosen": "gland",
+        "feedback_text": "YBYBB",
+        "metric": {
+          "label": "|T|",
+          "unit": null,
+          "decimals": 0,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "aland",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 2,
+            "guess": "alant",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 3,
+            "guess": "binal",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "blain",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "bland",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 6,
+            "guess": "gland",
+            "score": 3.0,
+            "is_chosen": true,
+            "is_candidate": false
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "candidates_before": 1,
+        "candidates_after": 1,
+        "chosen": "cigar",
+        "feedback_text": "GGGGG",
+        "metric": {
+          "label": "|T|",
+          "unit": null,
+          "decimals": 0,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "cigar",
+            "score": 1.0,
+            "is_chosen": true,
+            "is_candidate": true
+          },
+          {
+            "rank": 2,
+            "guess": "aahed",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 3,
+            "guess": "aalii",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "aargh",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "aarti",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      }
+    ],
+    "candidate-elimination": [
+      {
+        "turn": 1,
+        "candidates_before": 2315,
+        "candidates_after": 35,
+        "chosen": "roate",
+        "feedback_text": "YBYBB",
+        "metric": {
+          "label": "E[remaining]",
+          "unit": null,
+          "decimals": 1,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "roate",
+            "score": 60.4246,
+            "is_chosen": true,
+            "is_candidate": false
+          },
+          {
+            "rank": 2,
+            "guess": "raise",
+            "score": 61.0009,
+            "is_chosen": false,
+            "is_candidate": true
+          },
+          {
+            "rank": 3,
+            "guess": "raile",
+            "score": 61.3309,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "soare",
+            "score": 62.3011,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "arise",
+            "score": 63.7257,
+            "is_chosen": false,
+            "is_candidate": true
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "candidates_before": 35,
+        "candidates_after": 1,
+        "chosen": "carrs",
+        "feedback_text": "GYYBB",
+        "metric": {
+          "label": "E[remaining]",
+          "unit": null,
+          "decimals": 1,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "carrs",
+            "score": 2.3714,
+            "is_chosen": true,
+            "is_candidate": false
+          },
+          {
+            "rank": 2,
+            "guess": "carry",
+            "score": 2.6,
+            "is_chosen": false,
+            "is_candidate": true
+          },
+          {
+            "rank": 3,
+            "guess": "amias",
+            "score": 2.6,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "churr",
+            "score": 2.6,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "chirr",
+            "score": 2.6571,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "candidates_before": 1,
+        "candidates_after": 1,
+        "chosen": "cigar",
+        "feedback_text": "GGGGG",
+        "metric": {
+          "label": "E[remaining]",
+          "unit": null,
+          "decimals": 1,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "cigar",
+            "score": 1.0,
+            "is_chosen": true,
+            "is_candidate": true
+          },
+          {
+            "rank": 2,
+            "guess": "aahed",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 3,
+            "guess": "aalii",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "aargh",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "aarti",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      }
+    ],
+    "evil-shortest-path": [
+      {
+        "turn": 1,
+        "candidates_before": 2315,
+        "candidates_after": 18,
+        "chosen": "raise",
+        "feedback_text": "YYYBB",
+        "metric": {
+          "label": "|T|",
+          "unit": null,
+          "decimals": 0,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "arise",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": true
+          },
+          {
+            "rank": 2,
+            "guess": "raise",
+            "score": 168.0,
+            "is_chosen": true,
+            "is_candidate": true
+          },
+          {
+            "rank": 3,
+            "guess": "aesir",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "reais",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "serai",
+            "score": 168.0,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "candidates_before": 18,
+        "candidates_after": 1,
+        "chosen": "gland",
+        "feedback_text": "YBYBB",
+        "metric": {
+          "label": "|T|",
+          "unit": null,
+          "decimals": 0,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "aland",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 2,
+            "guess": "alant",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 3,
+            "guess": "binal",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "blain",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "bland",
+            "score": 3.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 6,
+            "guess": "gland",
+            "score": 3.0,
+            "is_chosen": true,
+            "is_candidate": false
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "candidates_before": 1,
+        "candidates_after": 1,
+        "chosen": "cigar",
+        "feedback_text": "GGGGG",
+        "metric": {
+          "label": "|T|",
+          "unit": null,
+          "decimals": 0,
+          "goal": "min"
+        },
+        "top_candidates": [
+          {
+            "rank": 1,
+            "guess": "cigar",
+            "score": 1.0,
+            "is_chosen": true,
+            "is_candidate": true
+          },
+          {
+            "rank": 2,
+            "guess": "aahed",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 3,
+            "guess": "aalii",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 4,
+            "guess": "aargh",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          },
+          {
+            "rank": 5,
+            "guess": "aarti",
+            "score": 1.0,
+            "is_chosen": false,
+            "is_candidate": false
+          }
+        ]
+      }
+    ]
+  }
+}

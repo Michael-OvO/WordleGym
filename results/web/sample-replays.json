@@ -2011,61 +2011,62 @@
         {
           "candidate_preview": [
             "acrid",
-            "braid",
-            "brain",
-            "chair",
+            "altar",
+            "array",
+            "augur",
+            "briar",
+            "carat",
             "cigar",
-            "circa",
-            "diary",
-            "drain"
+            "circa"
           ],
           "evil_candidates": null,
           "explanation": {
-            "blended_score": 0.989618,
-            "evil_reduction_ratio": 0.92743,
-            "evil_worst_case": 168,
+            "blended_score": 0.526623,
+            "evil_reduction_ratio": 0.92095,
+            "evil_worst_case": 183,
             "guess_pool_size": 12972,
             "mode_weights": {
-              "evil": 0.5,
+              "evil": 0.0,
               "standard": 1.0
             },
-            "normalized_standard_entropy": 0.525903,
+            "normalized_standard_entropy": 0.526623,
             "pool_size": 2315,
-            "standard_entropy": 5.87791
+            "standard_entropy": 5.88596
           },
-          "guess": "raise",
+          "guess": "soare",
           "mode_posterior": null,
-          "pattern": 13,
-          "pattern_emoji": "\ud83d\udfe8\ud83d\udfe8\ud83d\udfe8\u2b1b\u2b1b",
-          "pattern_text": "YYYBB",
-          "remaining_candidates": 18,
+          "pattern": 36,
+          "pattern_emoji": "\u2b1b\u2b1b\ud83d\udfe8\ud83d\udfe8\u2b1b",
+          "pattern_text": "BBYYB",
+          "remaining_candidates": 42,
           "standard_candidates": null,
           "turn": 1
         },
         {
           "candidate_preview": [
-            "cigar"
+            "cigar",
+            "vicar"
           ],
           "evil_candidates": null,
           "explanation": {
-            "blended_score": 1.27338,
-            "evil_reduction_ratio": 0.833333,
-            "evil_worst_case": 3,
+            "blended_score": 0.783116,
+            "evil_reduction_ratio": 0.880952,
+            "evil_worst_case": 5,
             "guess_pool_size": 12972,
             "mode_weights": {
-              "evil": 0.5,
+              "evil": 0.0,
               "standard": 1.0
             },
-            "normalized_standard_entropy": 0.856714,
-            "pool_size": 18,
-            "standard_entropy": 3.572431
+            "normalized_standard_entropy": 0.783116,
+            "pool_size": 42,
+            "standard_entropy": 4.222808
           },
-          "guess": "gland",
+          "guess": "riyal",
           "mode_posterior": null,
-          "pattern": 10,
-          "pattern_emoji": "\ud83d\udfe8\u2b1b\ud83d\udfe8\u2b1b\u2b1b",
-          "pattern_text": "YBYBB",
-          "remaining_candidates": 1,
+          "pattern": 61,
+          "pattern_emoji": "\ud83d\udfe8\ud83d\udfe9\u2b1b\ud83d\udfe9\u2b1b",
+          "pattern_text": "YGBGB",
+          "remaining_candidates": 2,
           "standard_candidates": null,
           "turn": 2
         },
@@ -2075,17 +2076,17 @@
           ],
           "evil_candidates": null,
           "explanation": {
-            "blended_score": 0.0,
-            "evil_reduction_ratio": 0.0,
+            "blended_score": 1.0,
+            "evil_reduction_ratio": 0.5,
             "evil_worst_case": 1,
             "guess_pool_size": 12972,
             "mode_weights": {
-              "evil": 0.5,
+              "evil": 0.0,
               "standard": 1.0
             },
-            "normalized_standard_entropy": 0.0,
-            "pool_size": 1,
-            "standard_entropy": 0.0
+            "normalized_standard_entropy": 1.0,
+            "pool_size": 2,
+            "standard_entropy": 1.0
           },
           "guess": "cigar",
           "mode_posterior": null,

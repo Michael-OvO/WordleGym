@@ -94,9 +94,56 @@
     ]
   },
   {
-    "first_guess": "raise",
+    "first_guess": "soare",
     "mode": "standard",
     "strategy_id": "posterior-hybrid",
+    "top_partitions": [
+      {
+        "pattern": 0,
+        "pattern_text": "BBBBB",
+        "size": 183
+      },
+      {
+        "pattern": 9,
+        "pattern_text": "BBYBB",
+        "size": 138
+      },
+      {
+        "pattern": 81,
+        "pattern_text": "BBBBY",
+        "size": 120
+      },
+      {
+        "pattern": 108,
+        "pattern_text": "BBBYY",
+        "size": 117
+      },
+      {
+        "pattern": 6,
+        "pattern_text": "BGBBB",
+        "size": 87
+      },
+      {
+        "pattern": 162,
+        "pattern_text": "BBBBG",
+        "size": 79
+      },
+      {
+        "pattern": 90,
+        "pattern_text": "BBYBY",
+        "size": 68
+      },
+      {
+        "pattern": 2,
+        "pattern_text": "GBBBB",
+        "size": 63
+      }
+    ]
+  },
+  {
+    "first_guess": "raise",
+    "mode": "evil",
+    "strategy_id": "evil-dp",
     "top_partitions": [
       {
         "pattern": 0,

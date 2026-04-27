@@ -32,8 +32,15 @@ class PosteriorHybridStrategy(StrategyBase):
         standard_candidates = snapshot.standard_candidates or candidates
         evil_candidates = snapshot.evil_candidates or candidates
         if snapshot.mode_posterior is None:
-            standard_weight = 1.0 if snapshot.mode == "standard" else 0.0
-            evil_weight = 1.0 if snapshot.mode == "evil" else 0.5
+            if snapshot.mode == "standard":
+                standard_weight = 1.0
+                evil_weight = 0.0
+            elif snapshot.mode == "evil":
+                standard_weight = 0.0
+                evil_weight = 1.0
+            else:
+                standard_weight = 0.5
+                evil_weight = 0.5
         else:
             standard_weight = snapshot.mode_posterior.standard
             evil_weight = snapshot.mode_posterior.evil
